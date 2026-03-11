@@ -38,7 +38,7 @@ UE_LOG(LogMyFeature, Warning, TEXT("Unexpected state: %s"), *StateName);`,
     {
       type: 'code',
       language: 'ini',
-      text: `# In DefaultEngine.ini — suppress noisy categories:
+      text: `# In DefaultEngine.ini, suppress noisy categories:
 [Core.Log]
 LogNavigation=Error
 LogAI=Warning
@@ -46,7 +46,7 @@ LogMyFeature=Verbose`,
     },
     {
       type: 'callout',
-      text: 'You can also change verbosity at runtime in the Output Log filter bar — type a category name and select a verbosity level without restarting.',
+      text: 'You can also change verbosity at runtime in the Output Log filter bar. Type a category name and select a verbosity level without restarting.',
     },
     {
       type: 'heading',
@@ -59,7 +59,7 @@ LogMyFeature=Verbose`,
         'Use the "Filters" dropdown to show only Warnings and Errors during test runs',
         'Right-click any line → "Copy" to grab a clean message for a Jira ticket',
         'Pin important log categories to the Quick Filter bar',
-        'The "Search" box supports regex — use ^LogMyFeature to match a specific category',
+        'The "Search" box supports regex. Use ^LogMyFeature to match a specific category',
         '"Clear on PIE" checkbox (Output Log settings) resets the log each test run',
       ],
     },

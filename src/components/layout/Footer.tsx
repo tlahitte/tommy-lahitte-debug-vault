@@ -36,6 +36,17 @@ export default function Footer() {
             </svg>
           </a>
           <a
+            href="https://www.artstation.com/tlahitte"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ArtStation"
+            className="text-zinc-500 hover:text-violet-400 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.164-1.333H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/>
+            </svg>
+          </a>
+          <a
             href="https://github.com/tlahitte"
             target="_blank"
             rel="noopener noreferrer"
