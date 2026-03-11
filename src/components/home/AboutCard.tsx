@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const badges = [
   {
@@ -45,10 +45,21 @@ const badges = [
   },
 ]
 
+const CLOSE_DELAY = 15_000
+
 export default function AboutCard() {
   const [activeBadge, setActiveBadge] = useState<string | null>(null)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const active = badges.find((b) => b.label === activeBadge) ?? null
+
+  useEffect(() => {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    if (activeBadge !== null) {
+      timerRef.current = setTimeout(() => setActiveBadge(null), CLOSE_DELAY)
+    }
+    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
+  }, [activeBadge])
 
   return (
     <div className="rounded-xl border border-zinc-700/60 bg-gradient-to-b from-zinc-800/60 to-zinc-900/50 p-6 sm:p-10">
@@ -102,14 +113,22 @@ export default function AboutCard() {
       {/* Expandable description */}
       {active && (
         <div
-          className="mt-4 rounded-lg border px-4 py-3 text-sm leading-relaxed transition-all"
+          className="mt-4 rounded-lg border px-4 pt-3 pb-0 text-sm leading-relaxed overflow-hidden"
           style={{
             borderColor: active.border,
             backgroundColor: `color-mix(in srgb, ${active.glow} 8%, transparent)`,
             color: active.text,
           }}
         >
-          {active.description}
+          <p className="pb-3">{active.description}</p>
+          {/* Countdown progress bar */}
+          <div className="h-px w-full bg-current opacity-10 relative">
+            <div
+              key={activeBadge}
+              className="absolute inset-y-0 left-0 bg-current opacity-50"
+              style={{ animation: `shrink-width ${CLOSE_DELAY}ms linear forwards` }}
+            />
+          </div>
         </div>
       )}
     </div>
