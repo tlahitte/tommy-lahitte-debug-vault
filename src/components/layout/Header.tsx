@@ -4,13 +4,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="flex h-14 items-center justify-between">
-          <Link
-            href="/"
-            className="text-sm sm:text-base font-bold text-zinc-100 hover:text-violet-400 transition-colors"
-          >
-            Tommy Lahitte <span className="text-violet-500">|</span> Debug Vault
-          </Link>
+        <div className="flex h-14 items-center justify-end">
           <nav className="flex items-center gap-4 sm:gap-6">
             <Link
               href="/"
