@@ -54,9 +54,9 @@ export const tip: Tip = {
     {
       type: 'list',
       items: [
-        '-game — includes game module targets (Editor, Game, Client, Server)',
-        '-engine — includes engine source in the solution (needed if you are modifying engine code)',
-        '-project — absolute path to the .uproject file',
+        '-game: includes game module targets (Editor, Game, Client, Server)',
+        '-engine: includes engine source in the solution (needed if you are modifying engine code)',
+        '-project: absolute path to the .uproject file',
       ],
     },
     {

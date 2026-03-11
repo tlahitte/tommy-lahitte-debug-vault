@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Control Log Verbosity Per Category at Launch',
   category: 'debugging',
   summary:
-    'Drowning in log noise or missing critical messages? The -LogCmds launch argument lets you set verbosity per log category without recompiling — from silencing entire subsystems to enabling Verbose output for one specific category.',
+    'Drowning in log noise or missing critical messages? The -LogCmds launch argument lets you set verbosity per log category without recompiling, from silencing entire subsystems to enabling Verbose output for one specific category.',
   tags: ['logging', 'verbosity', 'launch-args', 'debugging', 'logcmds'],
   publishedAt: '2024-03-08',
   content: [
@@ -51,14 +51,14 @@ export const tip: Tip = {
     {
       type: 'list',
       items: [
-        'NoLogging — suppress all output from this category',
-        'Fatal — only fatal errors',
-        'Error — errors and fatals',
-        'Warning — warnings, errors, and fatals',
-        'Display — important info (default for most categories)',
-        'Log — general log messages',
-        'Verbose — detailed trace output',
-        'VeryVerbose — maximum detail (very noisy)',
+        'NoLogging: suppress all output from this category',
+        'Fatal: only fatal errors',
+        'Error: errors and fatals',
+        'Warning: warnings, errors, and fatals',
+        'Display: important info (default for most categories)',
+        'Log: general log messages',
+        'Verbose: detailed trace output',
+        'VeryVerbose: maximum detail (very noisy)',
       ],
     },
     {
@@ -78,7 +78,7 @@ Log LogImgMedia VeryVerbose`,
     },
     {
       type: 'callout',
-      text: 'To find the correct category name, search the source code for DEFINE_LOG_CATEGORY or look at existing log output — the category name appears in brackets before each message.',
+      text: 'To find the correct category name, search the source code for DEFINE_LOG_CATEGORY or look at existing log output. The category name appears in brackets before each message.',
     },
   ],
 }

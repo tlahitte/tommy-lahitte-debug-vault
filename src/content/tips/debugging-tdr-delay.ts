@@ -11,7 +11,7 @@ export const tip: Tip = {
   content: [
     {
       type: 'paragraph',
-      text: 'TDR (Timeout Detection and Recovery) is a Windows watchdog that resets the GPU if it stops responding for too long. The default timeout is 2 seconds — which Unreal can blow past during heavy operations. The fix is a one-time registry edit.',
+      text: 'TDR (Timeout Detection and Recovery) is a Windows watchdog that resets the GPU if it stops responding for too long. The default timeout is 2 seconds, which Unreal can blow past during heavy operations. The fix is a one-time registry edit.',
     },
     {
       type: 'heading',
@@ -44,8 +44,8 @@ export const tip: Tip = {
     {
       type: 'list',
       items: [
-        'TdrDelay — seconds the OS waits before detecting a GPU hang (default: 2, set to 60)',
-        'TdrDdiDelay — seconds for DDI calls specifically (default: 5, set to 60)',
+        'TdrDelay: seconds the OS waits before detecting a GPU hang (default: 2, set to 60)',
+        'TdrDdiDelay: seconds for DDI calls specifically (default: 5, set to 60)',
       ],
     },
     {
@@ -64,7 +64,7 @@ export const tip: Tip = {
     },
     {
       type: 'paragraph',
-      text: 'Setting the value to 60 is a good balance — it prevents false-positive TDR events while still catching genuine hangs. On dedicated render nodes, some teams set it even higher (120+).',
+      text: 'Setting the value to 60 is a good balance that prevents false-positive TDR events while still catching genuine hangs. On dedicated render nodes, some teams set it even higher (120+).',
     },
   ],
 }

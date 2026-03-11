@@ -24,6 +24,12 @@ export default function Header() {
             >
               Tips
             </Link>
+            <Link
+              href="/blog"
+              className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
+            >
+              Blog
+            </Link>
           </nav>
         </div>
       </div>

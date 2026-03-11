@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Profile Memory Usage by Category with LLM',
   category: 'debugging',
   summary:
-    "Unreal's Low Level Memory Tracker (LLM) breaks down live memory consumption by stat group — textures, meshes, audio, RHI, and more. Two commands and a launch flag give you a real-time on-screen readout.",
+    "Unreal's Low Level Memory Tracker (LLM) breaks down live memory consumption by stat group: textures, meshes, audio, RHI, and more. Two commands and a launch flag give you a real-time on-screen readout.",
   tags: ['memory', 'llm', 'profiling', 'performance', 'stat'],
   publishedAt: '2024-02-20',
   content: [
@@ -50,12 +50,12 @@ stat LLMFULL    // Full breakdown with sub-categories`,
     {
       type: 'list',
       items: [
-        'Textures — often the biggest consumer; check streaming settings if high',
-        'RHI — GPU resource allocations mirrored on CPU',
-        'Meshes — static and skeletal mesh vertex/index data',
-        'Audio — decoded audio buffers kept in memory',
-        'UObject — Blueprint and asset object overhead',
-        'EngineMisc — catch-all; worth drilling into if unexpectedly large',
+        'Textures: often the biggest consumer; check streaming settings if high',
+        'RHI: GPU resource allocations mirrored on CPU',
+        'Meshes: static and skeletal mesh vertex/index data',
+        'Audio: decoded audio buffers kept in memory',
+        'UObject: Blueprint and asset object overhead',
+        'EngineMisc: catch-all; worth drilling into if unexpectedly large',
       ],
     },
     {

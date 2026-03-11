@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Speed Up Builds with Unreal Build Accelerator (UBA)',
   category: 'editor',
   summary:
-    'UBA distributes compilation tasks across a Horde cluster, dramatically reducing full rebuild times. Enabling it is a single XML config change — no code modifications required.',
+    'UBA distributes compilation tasks across a Horde cluster, dramatically reducing full rebuild times. Enabling it is a single XML config change, no code modifications required.',
   tags: ['build', 'uba', 'horde', 'compilation', 'performance', 'distributed'],
   publishedAt: '2024-03-05',
   content: [

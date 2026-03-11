@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Debugging with the Visual Logger',
   category: 'debugging',
   summary:
-    'The Unreal Engine Visual Logger (VLog) lets you record and replay structured runtime data — positions, AI states, sphere traces — frame-by-frame without a single breakpoint.',
+    'The Unreal Engine Visual Logger (VLog) lets you record and replay structured runtime data (positions, AI states, sphere traces) frame by frame without a single breakpoint.',
   tags: ['visual-logger', 'vlog', 'runtime-debugging', 'ai', 'traces'],
   publishedAt: '2024-01-15',
   content: [
@@ -41,7 +41,7 @@ UE_VLOG_SEGMENT(this, LogAI, Log, StartPos, EndPos, FColor::Green, TEXT("Path se
       type: 'list',
       items: [
         'Press Record before your test scenario starts',
-        'Reproduce the bug — the logger captures every VLog call with timestamps',
+        'Reproduce the bug; the logger captures every VLog call with timestamps',
         'Stop recording, then scrub the timeline to the exact frame of interest',
         'All recorded actors are listed in the left panel with their logged events',
         'Use categories/verbosity filters to cut through noise',

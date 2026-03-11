@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: TipPageProps): Promise<Metada
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${tip.title} — Tommy Lahitte Debug Vault`,
+      title: `${tip.title} | Tommy Lahitte Debug Vault`,
       description: tip.summary,
       url: canonicalUrl,
       type: 'article',
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: TipPageProps): Promise<Metada
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${tip.title} — Tommy Lahitte Debug Vault`,
+      title: `${tip.title} | Tommy Lahitte Debug Vault`,
       description: tip.summary,
     },
   }
