@@ -1,6 +1,6 @@
 export default function AboutCard() {
   return (
-    <section className="pt-6 pb-12">
+    <section className="pb-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-100 mb-4">About Me</h2>
