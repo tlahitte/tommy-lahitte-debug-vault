@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Track Down Memory Corruption with Stomp2Malloc',
   category: 'debugging',
   summary:
-    "Heap corruption bugs are some of the hardest to reproduce — they often crash far from the actual fault. Unreal's Stomp2Malloc allocator places every allocation on a guarded memory page, so use-after-free and buffer overruns crash immediately at the source.",
+    "Heap corruption bugs are some of the hardest to reproduce; they often crash far from the actual fault. Unreal's Stomp2Malloc allocator places every allocation on a guarded memory page, so use-after-free and buffer overruns crash immediately at the source.",
   tags: ['memory', 'corruption', 'stomp2malloc', 'debugging', 'heap'],
   publishedAt: '2024-03-01',
   content: [
@@ -35,11 +35,11 @@ export const tip: Tip = {
     {
       type: 'list',
       items: [
-        'Buffer overruns — writing past the end of an allocation',
-        'Buffer underruns — writing before the start of an allocation',
-        'Use-after-free — accessing memory after it has been freed',
-        'Double frees — calling free() on the same pointer twice',
-        'Invalid memory access — reading/writing arbitrary addresses',
+        'Buffer overruns: writing past the end of an allocation',
+        'Buffer underruns: writing before the start of an allocation',
+        'Use-after-free: accessing memory after it has been freed',
+        'Double frees: calling free() on the same pointer twice',
+        'Invalid memory access: reading/writing arbitrary addresses',
       ],
     },
     {

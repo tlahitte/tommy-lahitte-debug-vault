@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'DX12 Launch Arguments for GPU Crash Debugging',
   category: 'debugging',
   summary:
-    'When Unreal crashes on the GPU side with no useful callstack, two launch arguments — -d3ddebug and -gpucrashdebugging — enable the D3D validation layer and NVIDIA Aftermath/Breadcrumbs to capture the exact operation that caused the crash.',
+    'When Unreal crashes on the GPU side with no useful callstack, two launch arguments (-d3ddebug and -gpucrashdebugging) enable the D3D validation layer and NVIDIA Aftermath/Breadcrumbs to capture the exact operation that caused the crash.',
   tags: ['dx12', 'gpu', 'crash', 'debugging', 'aftermath', 'launch-args'],
   publishedAt: '2024-01-20',
   content: [
@@ -34,7 +34,7 @@ export const tip: Tip = {
         'Enables the D3D12 debug layer (DirectX validation)',
         'Reports invalid API usage, resource state mismatches, and barrier errors',
         'Output goes to the Visual Studio output window or DebugView',
-        'Significant performance cost — use only when actively debugging',
+        'Significant performance cost; use only when actively debugging',
       ],
     },
     {

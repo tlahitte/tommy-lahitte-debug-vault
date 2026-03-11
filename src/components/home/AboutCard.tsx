@@ -7,11 +7,11 @@ export default function AboutCard() {
           <p className="text-zinc-400 leading-relaxed">
             I&apos;m Tommy Lahitte, a Senior QA Engineer at Epic Games working on Unreal Engine. This site
             is my personal collection of debugging techniques, editor workflows, and QA automation
-            patterns — the kind of tips that save hours when you&apos;re deep in a tricky regression
+            patterns, the kind of tips that save hours when you&apos;re deep in a tricky regression
             or trying to reproduce an elusive crash.
           </p>
           <p className="mt-3 text-zinc-400 leading-relaxed">
-            Everything here is drawn from real experience. No filler, no padding — just the notes I
+            Everything here is drawn from real experience. No filler, no padding. Just the notes I
             wish I&apos;d had sooner.
           </p>
         </div>
