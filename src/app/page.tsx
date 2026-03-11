@@ -4,7 +4,9 @@ import Link from 'next/link'
 import Hero from '@/components/home/Hero'
 import AboutCard from '@/components/home/AboutCard'
 import TipCard from '@/components/tips/TipCard'
+import BlogCard from '@/components/blog/BlogCard'
 import { getAllTips } from '@/lib/tips'
+import { getAllPosts } from '@/lib/blog'
 
 export const metadata: Metadata = {
   title: 'Tommy Lahitte | QA Engineer & Unreal Debug Vault',
@@ -24,14 +26,59 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const latestTips = getAllTips().slice(0, 3)
+  const latestPosts = getAllPosts().slice(0, 2)
 
   return (
     <>
-      <Hero />
-      <AboutCard />
-      <section className="pb-20">
+      {/* Hero + About — combined section so the photo spans both */}
+      <section className="relative overflow-hidden bg-[#1c1535] -mt-14">
+        {/* Bottom fade into page background */}
+        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-b from-transparent to-[#09090b] z-0 pointer-events-none" />
+
+        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="flex flex-col gap-6 pt-[5.5rem] sm:pt-[6.5rem] pb-10 sm:pb-16">
+            <Hero />
+            <AboutCard />
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-12">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-zinc-100 mb-6">Latest Tips</h2>
+          <h2 className="text-2xl font-bold text-zinc-100 mb-8 font-display">Latest Posts</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {latestPosts.map((post) => (
+              <BlogCard key={post.slug} post={post} />
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors"
+            >
+              View All Posts
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-32">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <h2 className="text-2xl font-bold text-zinc-100 mb-8 font-display">Latest Tips</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {latestTips.map((tip) => (
               <TipCard key={tip.slug} tip={tip} />
