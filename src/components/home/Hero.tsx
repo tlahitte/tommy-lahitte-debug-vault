@@ -8,7 +8,7 @@ export default function Hero() {
           Tommy Lahitte
         </h1>
         <p className="mt-4 text-xl text-zinc-400 font-medium">
-          QA Engineer <span className="text-violet-500">·</span> Unreal Engine
+          Senior QA Engineer <span className="text-violet-500">·</span> Unreal Engine
         </p>
         <p className="mt-6 max-w-2xl text-base text-zinc-400 leading-relaxed">
           Field notes, debugging techniques, and QA workflows for Unreal Engine development.
