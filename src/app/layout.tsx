@@ -12,7 +12,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tommy-lahitte-debug-vault.netlify.app'),
+  metadataBase: new URL('https://tommylahitte.com'),
   title: {
     default: 'Tommy Lahitte | QA Engineer & Unreal Debug Vault',
     template: '%s | Tommy Lahitte Debug Vault',
@@ -43,7 +43,7 @@ const personSchema = {
     name: 'Epic Games',
   },
   knowsAbout: ['Unreal Engine', 'Game QA', 'Debugging', 'Functional Testing', 'Automation'],
-  url: 'https://tommy-lahitte-debug-vault.netlify.app',
+  url: 'https://tommylahitte.com',
 }
 
 export default function RootLayout({

@@ -5,7 +5,7 @@
 A personal site collecting QA techniques, debugging workflows, and Unreal Engine tips.
 Built with Next.js 15, Tailwind CSS, deployed as a static export on Netlify.
 
-**Live site:** https://tommy-lahitte-debug-vault.netlify.app
+**Live site:** https://tommylahitte.com
 
 ---
 

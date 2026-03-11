@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: TipPageProps): Promise<Metada
   const tip = getTipBySlug(slug)
   if (!tip) return {}
 
-  const canonicalUrl = `https://tommy-lahitte-debug-vault.netlify.app/tips/${tip.slug}/`
+  const canonicalUrl = `https://tommylahitte.com/tips/${tip.slug}/`
 
   return {
     title: tip.title,
@@ -56,11 +56,11 @@ export default async function TipPage({ params }: TipPageProps) {
     author: {
       '@type': 'Person',
       name: 'Tommy Lahitte',
-      url: 'https://tommy-lahitte-debug-vault.netlify.app/',
+      url: 'https://tommylahitte.com/',
     },
     datePublished: tip.publishedAt,
     keywords: tip.tags.join(', '),
-    url: `https://tommy-lahitte-debug-vault.netlify.app/tips/${tip.slug}/`,
+    url: `https://tommylahitte.com/tips/${tip.slug}/`,
   }
 
   return (

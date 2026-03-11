@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     'QA and debugging field notes for Unreal Engine by Tommy Lahitte, QA Engineer at Epic Games. Tips on the Visual Logger, functional testing, log filtering, and more.',
   alternates: {
-    canonical: 'https://tommy-lahitte-debug-vault.netlify.app/',
+    canonical: 'https://tommylahitte.com/',
   },
   openGraph: {
     title: 'Tommy Lahitte | QA Engineer & Unreal Debug Vault',
     description:
       'QA and debugging field notes for Unreal Engine by Tommy Lahitte, QA Engineer at Epic Games.',
-    url: 'https://tommy-lahitte-debug-vault.netlify.app/',
+    url: 'https://tommylahitte.com/',
     type: 'website',
   },
 }
