@@ -31,6 +31,12 @@ html {
   color: var(--badge-text);
 }
 
+/* Badge countdown progress bar */
+@keyframes shrink-width {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+
 /* Code block overrides */
 pre {
   overflow-x: auto;
