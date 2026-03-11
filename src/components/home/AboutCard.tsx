@@ -1,6 +1,6 @@
 export default function AboutCard() {
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-10">
+    <div className="rounded-xl border border-zinc-700/60 bg-gradient-to-b from-zinc-800/60 to-zinc-900/50 p-6 sm:p-10">
       <h2 className="text-lg font-semibold text-zinc-100 mb-4">About Me</h2>
       <p className="text-zinc-400 leading-relaxed">
         I&apos;m Tommy, a maker and tinkerer who can&apos;t resist taking things apart to see
