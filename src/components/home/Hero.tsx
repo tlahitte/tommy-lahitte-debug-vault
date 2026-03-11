@@ -20,7 +20,7 @@ export default function Hero() {
               <span className="sm:hidden">UE</span> Expert
             </em>
           </p>
-          <hr className="my-4 border-zinc-700/50" />
+          <hr className="my-4 border-violet-700/40" />
           <p className="text-xl text-zinc-400 leading-relaxed sm:whitespace-nowrap">
             Engineering field notes, side projects, and the things worth sharing.
           </p>
