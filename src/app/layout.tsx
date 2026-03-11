@@ -38,7 +38,7 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Tommy Lahitte',
-  jobTitle: 'QA Engineer',
+  jobTitle: 'Senior QA Engineer',
   worksFor: {
     '@type': 'Organization',
     name: 'Epic Games',
