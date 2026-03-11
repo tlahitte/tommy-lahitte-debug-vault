@@ -32,8 +32,21 @@ export default function HomePage() {
     <>
       {/* Hero + About — combined section so the photo spans both */}
       <section className="relative overflow-hidden bg-[#1c1535] -mt-14">
-        {/* Bottom fade into page background */}
-        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-b from-transparent to-[#09090b] z-0 pointer-events-none" />
+        {/* Top highlight — vibrant purple radial glow fading into the section background */}
+        <div
+          className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(167,139,250,0.35) 0%, rgba(139,92,246,0.12) 45%, transparent 75%)',
+          }}
+        />
+
+        {/* Bottom fade into page background — multi-stop eased gradient for a smooth transition */}
+        <div
+          className="absolute bottom-0 inset-x-0 h-48 z-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(9,9,11,0) 0%, rgba(9,9,11,0.04) 15%, rgba(9,9,11,0.15) 30%, rgba(9,9,11,0.35) 45%, rgba(9,9,11,0.60) 60%, rgba(9,9,11,0.82) 75%, rgba(9,9,11,0.96) 90%, #09090b 100%)',
+          }}
+        />
 
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
           <div className="flex flex-col gap-6 pt-[5.5rem] sm:pt-[6.5rem] pb-10 sm:pb-16">
