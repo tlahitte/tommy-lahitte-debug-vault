@@ -43,6 +43,14 @@ const badges = [
     description:
       "Shooting on film is my antidote to fast-paced digital work. Every frame costs something, so you slow down and think before pressing the shutter. I shoot medium format mostly. There's a quality of light and grain that digital still hasn't fully replicated, and the analog process is deeply satisfying.",
   },
+  {
+    label: 'AI',
+    glow: 'rgba(20,184,166,0.6)',
+    border: 'rgba(20,184,166,0.7)',
+    text: 'rgb(94,234,212)',
+    description:
+      "I've been following the AI boom since its early days, from the first versions of GPT onward. Keeping up with this field is a genuine drive for me, not a passive interest. We are living through something historically significant, and that sense of urgency pushes me to keep learning. I experiment with AI tools whenever I can: in my workflow, in side projects, and in how I think about building things.",
+  },
 ]
 
 const CLOSE_DELAY = 15_000
