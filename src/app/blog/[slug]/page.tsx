@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
@@ -90,6 +91,19 @@ export default async function BlogPostPage({ params }: Props) {
           <h1 className="mt-2 text-3xl font-bold text-zinc-100 leading-snug">{post.title}</h1>
           <p className="mt-3 text-zinc-400 leading-relaxed">{post.excerpt}</p>
         </header>
+
+        {post.image && (
+          <div className="mb-8 rounded-xl overflow-hidden">
+            <Image
+              src={post.image}
+              alt={post.imageAlt ?? post.title}
+              width={1200}
+              height={670}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+        )}
 
         <div className="space-y-4">
           {post.content.map((block, index) => renderBlock(block, index))}
