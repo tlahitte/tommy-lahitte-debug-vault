@@ -14,7 +14,7 @@ export default function BlogCard({ post }: BlogCardProps) {
   })
 
   return (
-    <article className="group rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden hover:border-zinc-700 transition-colors">
+    <article className="group rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden hover:border-violet-700/60 hover:-translate-y-1 hover:shadow-[0_8px_30px_-6px_rgba(139,92,246,0.3)] transition-all duration-300">
       {post.image ? (
         <div className="relative h-52 w-full">
           <Image
