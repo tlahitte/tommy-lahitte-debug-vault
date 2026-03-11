@@ -15,6 +15,9 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-space-grotesk)', 'sans-serif'],
       },
+      animation: {
+        'spin-slow': 'spin 6s linear infinite',
+      },
     },
   },
   plugins: [],

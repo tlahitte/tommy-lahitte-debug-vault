@@ -9,7 +9,7 @@ export default function Hero() {
 
         {/* Text */}
         <div className="flex-1 min-w-0">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-100 font-display">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-100 font-display">
             Tommy Lahitte
           </h1>
           <p className="mt-2 sm:mt-3 text-xl font-medium">
@@ -20,21 +20,30 @@ export default function Hero() {
               <span className="sm:hidden">UE</span> Expert
             </em>
           </p>
-          <hr className="my-4 border-violet-700/40" />
+          <hr className="my-4 border-violet-500/50" />
           <p className="text-xl text-zinc-400 leading-relaxed sm:whitespace-nowrap">
             Engineering field notes, side projects, and the things worth sharing.
           </p>
         </div>
 
-        {/* Portrait */}
-        <div className="shrink-0 mt-1">
+        {/* Portrait with rotating glow halo */}
+        <div className="relative shrink-0 mt-1 w-28 sm:w-36 lg:w-44">
+          {/* Rotating arc — blurred so the glow peaks at the ring edge and fades outward */}
+          <div
+            className="absolute -inset-8 rounded-full animate-spin-slow"
+            style={{
+              background: 'conic-gradient(from 0deg, transparent 0%, transparent 45%, rgba(124,58,237,0.7) 62%, rgba(6,182,212,0.85) 78%, rgba(167,139,250,0.9) 90%, transparent 100%)',
+              filter: 'blur(18px)',
+            }}
+          />
+          {/* Image */}
           <Image
             src="/tommy-lahitte-avatar-480.webp"
             alt="Tommy Lahitte"
             width={480}
             height={480}
-            sizes="(max-width: 640px) 96px, (max-width: 1024px) 128px, 160px"
-            className="w-28 sm:w-36 lg:w-44 rounded-2xl ring-1 ring-violet-700/40"
+            sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
+            className="relative w-full rounded-2xl ring-1 ring-violet-500 block"
             priority
           />
         </div>
