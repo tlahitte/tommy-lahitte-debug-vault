@@ -11,7 +11,7 @@ export default function TipCard({ tip }: TipCardProps) {
   return (
     <Link
       href={`/tips/${tip.slug}/`}
-      className="group flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:border-violet-700/60 hover:shadow-[0_0_20px_-4px_rgba(139,92,246,0.35)] cursor-pointer"
+      className="group flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:border-violet-700/60 hover:shadow-[0_0_20px_-4px_rgba(139,92,246,0.35)] hover:-translate-y-1 cursor-pointer"
     >
       <div className="flex items-start justify-between gap-3 mb-3">
         <CategoryBadge category={tip.category} />

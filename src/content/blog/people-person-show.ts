@@ -4,6 +4,8 @@ export const post: BlogPost = {
   slug: 'technical-director-people-person-show',
   title: 'Technical Director at the People Person Show',
   date: '2025-03-11',
+  image: 'https://www.fabfabfabfabfab.com/images/People%20Person%20Work%20in%20progress%20is%20live.jpg',
+  imageAlt: 'People Person Show — Work in Progress',
   excerpt:
     'Working with Fab on a work-in-progress theatre show in London, building electronic props that blur the line between vintage objects and AI. A retrofitted telephone, a sentient street light, and a small audience in a Hackney studio.',
   content: [
