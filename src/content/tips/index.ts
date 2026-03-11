@@ -21,6 +21,10 @@ import { tip as generateProjectFilesTip } from './editor-generate-project-files'
 import { tip as unrealBuildAcceleratorTip } from './editor-unreal-build-accelerator'
 import { tip as perforceCliTip } from './qa-workflow-perforce-cli'
 import { tip as unrealInsightsTraceTip } from './qa-workflow-unreal-insights-trace'
+import { tip as colorScienceTip } from './editor-color-science-unreal'
+import { tip as downgradeAssetTip } from './editor-downgrade-unreal-asset'
+import { tip as centralizedPluginTip } from './editor-centralized-plugin-ugs'
+import { tip as linuxUgsTip } from './editor-unreal-linux-perforce-ugs'
 
 export const allTips: Tip[] = [
   visualLoggerTip,
@@ -38,4 +42,8 @@ export const allTips: Tip[] = [
   unrealBuildAcceleratorTip,
   perforceCliTip,
   unrealInsightsTraceTip,
+  colorScienceTip,
+  downgradeAssetTip,
+  centralizedPluginTip,
+  linuxUgsTip,
 ]

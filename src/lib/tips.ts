@@ -2,7 +2,9 @@ import type { Category, Tip } from './types'
 import { allTips } from '@/content/tips/index'
 
 export function getAllTips(): Tip[] {
-  return allTips
+  return [...allTips].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  )
 }
 
 export function getTipBySlug(slug: string): Tip | undefined {
