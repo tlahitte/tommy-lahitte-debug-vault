@@ -1,18 +1,26 @@
 export default function AboutCard() {
   return (
-    <section className="pb-20">
+    <section className="pt-6 pb-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-zinc-100 mb-3">About</h2>
+          <h2 className="text-lg font-semibold text-zinc-100 mb-4">About Me</h2>
           <p className="text-zinc-400 leading-relaxed">
-            I&apos;m Tommy Lahitte, a Senior QA Engineer at Epic Games working on Unreal Engine. This site
-            is my personal collection of debugging techniques, editor workflows, and QA automation
-            patterns, the kind of tips that save hours when you&apos;re deep in a tricky regression
-            or trying to reproduce an elusive crash.
+            I&apos;m Tommy, a maker and tinkerer who can&apos;t resist taking things apart to see
+            how they work, and occasionally getting them back together.
           </p>
           <p className="mt-3 text-zinc-400 leading-relaxed">
-            Everything here is drawn from real experience. No filler, no padding. Just the notes I
-            wish I&apos;d had sooner.
+            My career has been a single thread connecting art and technology: a decade of video
+            programming and projection supervision for international live shows, deep dives into
+            media-server technology at{' '}
+            <span className="text-zinc-300 font-medium">VYV</span>, and now{' '}
+            <span className="text-zinc-300 font-medium">Virtual Production at Epic Games</span>{' '}
+            where I get to push Unreal Engine into territory that would have felt like science
+            fiction ten years ago.
+          </p>
+          <p className="mt-3 text-zinc-400 leading-relaxed">
+            This site is a side-effect of how I work. When I solve something hard, I write it down.
+            These are the debugging notes, editor tricks, and QA patterns that came out of building
+            real things on real projects. No padding, no filler. Just the stuff that actually mattered.
           </p>
         </div>
       </div>

@@ -9,7 +9,10 @@ interface TipCardProps {
 
 export default function TipCard({ tip }: TipCardProps) {
   return (
-    <article className="flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 hover:border-zinc-700 transition-colors">
+    <Link
+      href={`/tips/${tip.slug}/`}
+      className="group flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:border-violet-700/60 hover:shadow-[0_0_20px_-4px_rgba(139,92,246,0.35)] cursor-pointer"
+    >
       <div className="flex items-start justify-between gap-3 mb-3">
         <CategoryBadge category={tip.category} />
         <time
@@ -23,13 +26,8 @@ export default function TipCard({ tip }: TipCardProps) {
           })}
         </time>
       </div>
-      <h2 className="text-base font-semibold text-zinc-100 mb-2 leading-snug">
-        <Link
-          href={`/tips/${tip.slug}/`}
-          className="hover:text-violet-400 transition-colors"
-        >
-          {tip.title}
-        </Link>
+      <h2 className="text-base font-semibold text-zinc-100 mb-2 leading-snug group-hover:text-violet-300 transition-colors duration-300">
+        {tip.title}
       </h2>
       <p className="text-sm text-zinc-400 leading-relaxed flex-1 mb-4">{tip.summary}</p>
       <div className="flex flex-wrap gap-1.5">
@@ -37,6 +35,6 @@ export default function TipCard({ tip }: TipCardProps) {
           <Tag key={tag} label={tag} />
         ))}
       </div>
-    </article>
+    </Link>
   )
 }

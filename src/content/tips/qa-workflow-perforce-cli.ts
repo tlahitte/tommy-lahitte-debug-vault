@@ -62,7 +62,7 @@ p4 reload -c <workspaceName>       # Reload workspace metadata from server`,
     },
     {
       type: 'callout',
-      text: 'Always run p4 info first when debugging workspace issues — it confirms which server, user, and workspace are actually active.',
+      text: 'Always run p4 info first when debugging workspace issues. It confirms which server, user, and workspace are actually active.',
     },
     {
       type: 'heading',
