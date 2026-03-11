@@ -6,12 +6,12 @@ import TipsGrid from '@/components/tips/TipsGrid'
 export const metadata: Metadata = {
   title: 'All Tips',
   description:
-    'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte — covering the editor, debugging tools, and QA automation workflows.',
+    'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte, covering the editor, debugging tools, and QA automation workflows.',
   alternates: {
     canonical: 'https://tommylahitte.com/tips/',
   },
   openGraph: {
-    title: 'All Tips — Tommy Lahitte Debug Vault',
+    title: 'All Tips | Tommy Lahitte Debug Vault',
     description:
       'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte.',
     url: 'https://tommylahitte.com/tips/',

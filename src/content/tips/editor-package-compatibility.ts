@@ -11,7 +11,7 @@ export const tip: Tip = {
   content: [
     {
       type: 'paragraph',
-      text: 'QA workflows often require opening assets from a different engine version — comparing behavior across versions, investigating a regression, or opening a saved level from a branch you just synced. The compatibility block gets in the way.',
+      text: 'QA workflows often require opening assets from a different engine version: comparing behavior across versions, investigating a regression, or opening a saved level from a branch you just synced. The compatibility block gets in the way.',
     },
     {
       type: 'heading',
@@ -37,8 +37,8 @@ s.DisablePackageCompatibleCustomVersionCheck=1`,
     {
       type: 'list',
       items: [
-        's.EnforcePackageCompatibleVersionCheck=0 — disables the top-level engine version gate',
-        's.DisablePackageCompatibleCustomVersionCheck=1 — disables the custom version tag check inside individual packages',
+        's.EnforcePackageCompatibleVersionCheck=0: disables the top-level engine version gate',
+        's.DisablePackageCompatibleCustomVersionCheck=1: disables the custom version tag check inside individual packages',
       ],
     },
     {
