@@ -13,7 +13,7 @@ const config: Config = {
         foreground: 'var(--foreground)',
       },
       fontFamily: {
-        display: ['var(--font-space-grotesk)', 'sans-serif'],
+        display: ['var(--font-inter)', 'sans-serif'],
       },
       animation: {
         'spin-slow': 'spin 6s linear infinite',
