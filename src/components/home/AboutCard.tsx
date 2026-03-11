@@ -9,7 +9,7 @@ const badges = [
     border: 'rgba(139,92,246,0.7)',
     text: 'rgb(196,181,253)',
     description:
-      "I've worked as a QA Engineer at Epic Games, pushing Unreal Engine daily beyond its conventional limits — from gameplay systems to Virtual Production and live events. My fascination with game engines goes far beyond gaming: they're real-time rendering platforms reshaping film, broadcast, and live performance.",
+      "I've worked as a QA Engineer at Epic Games, pushing Unreal Engine daily beyond its conventional limits: from gameplay systems to Virtual Production and live events. My fascination with game engines goes far beyond gaming. They're real-time rendering platforms reshaping film, broadcast, and live performance.",
   },
   {
     label: 'Software Development',
@@ -17,7 +17,7 @@ const badges = [
     border: 'rgba(106,115,238,0.7)',
     text: 'rgb(186,190,255)',
     description:
-      'From custom tooling for media servers at VYV to test automation frameworks in Unreal, writing code has always been the thread connecting my work. I build tools to solve real problems — crash analyzers, pipeline scripts, debugging utilities — and I care about clean, maintainable solutions.',
+      'From custom tooling for media servers at VYV to test automation frameworks in Unreal, writing code has always been the thread connecting my work. I build tools to solve real problems: crash analyzers, pipeline scripts, debugging utilities. I care about clean, maintainable solutions.',
   },
   {
     label: 'Technical Direction',
@@ -25,7 +25,7 @@ const badges = [
     border: 'rgba(73,137,229,0.7)',
     text: 'rgb(172,210,255)',
     description:
-      'A decade of international live shows taught me how to make high-stakes technical decisions under pressure. As video programmer and projection supervisor, I owned the entire visual system — from pre-production design to real-time problem solving when things went sideways in front of thousands of people.',
+      'A decade of international live shows taught me how to make high-stakes technical decisions under pressure. As video programmer and projection supervisor, I owned the entire visual system: from pre-production design to real-time problem solving when things went sideways in front of thousands of people.',
   },
   {
     label: 'Electronics',
@@ -33,7 +33,7 @@ const badges = [
     border: 'rgba(40,160,221,0.7)',
     text: 'rgb(154,222,255)',
     description:
-      "Soldering, breadboarding, reverse engineering — electronics keeps me grounded in how things actually work at the hardware level. It feeds directly into how I debug software: follow the signal, trace the path, find where it breaks. There's no abstraction you can't peel back if you're curious enough.",
+      "Soldering, breadboarding, reverse engineering: electronics keeps me grounded in how things actually work at the hardware level. It feeds directly into how I debug software: follow the signal, trace the path, find where it breaks. There's no abstraction you can't peel back if you're curious enough.",
   },
   {
     label: 'Film Photography',
@@ -41,7 +41,7 @@ const badges = [
     border: 'rgba(6,182,212,0.7)',
     text: 'rgb(103,232,249)',
     description:
-      "Shooting on film is my antidote to fast-paced digital work. Every frame costs something, so you slow down and think before pressing the shutter. I shoot medium format mostly — there's a quality of light and grain that digital still hasn't fully replicated, and the analog process is deeply satisfying.",
+      "Shooting on film is my antidote to fast-paced digital work. Every frame costs something, so you slow down and think before pressing the shutter. I shoot medium format mostly. There's a quality of light and grain that digital still hasn't fully replicated, and the analog process is deeply satisfying.",
   },
 ]
 
@@ -109,7 +109,6 @@ export default function AboutCard() {
             color: active.text,
           }}
         >
-          <span className="font-semibold">{active.label} — </span>
           {active.description}
         </div>
       )}
