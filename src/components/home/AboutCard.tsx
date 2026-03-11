@@ -5,7 +5,7 @@ export default function AboutCard() {
         <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-100 mb-3">About</h2>
           <p className="text-zinc-400 leading-relaxed">
-            I&apos;m Tommy Lahitte, a QA Engineer at Epic Games working on Unreal Engine. This site
+            I&apos;m Tommy Lahitte, a Senior QA Engineer at Epic Games working on Unreal Engine. This site
             is my personal collection of debugging techniques, editor workflows, and QA automation
             patterns — the kind of tips that save hours when you&apos;re deep in a tricky regression
             or trying to reproduce an elusive crash.
