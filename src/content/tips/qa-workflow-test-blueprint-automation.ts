@@ -21,7 +21,7 @@ export const tip: Tip = {
     {
       type: 'list',
       items: [
-        'Create a new Level dedicated to testing — keep it minimal',
+        'Create a new Level dedicated to testing, keep it minimal',
         'Add an AFunctionalTest (or Blueprint subclass) actor to the level',
         'Override the StartTest event and implement your assertions',
         'Call FinishTest(Success) or FinishTest(Failed, "reason") when done',
@@ -43,7 +43,7 @@ UnrealEditor-Cmd.exe MyProject.uproject \\
     },
     {
       type: 'callout',
-      text: 'Tip: Use -NullRHI for pure logic tests — it skips GPU init and cuts run time significantly on CI agents.',
+      text: 'Tip: Use -NullRHI for pure logic tests. It skips GPU init and cuts run time significantly on CI agents.',
     },
     {
       type: 'heading',

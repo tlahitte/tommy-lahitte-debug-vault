@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Fix Windows Long File Path Errors in Unreal Projects',
   category: 'editor',
   summary:
-    'Windows enforces a 260-character path limit by default. Unreal projects — especially with nested content folders — frequently exceed this. A one-line registry change and an Editor Preferences toggle permanently resolve MAX_PATH errors.',
+    'Windows enforces a 260-character path limit by default. Unreal projects, especially with nested content folders, frequently exceed this. A one-line registry change and an Editor Preferences toggle permanently resolve MAX_PATH errors.',
   tags: ['windows', 'path', 'registry', 'setup', 'editor'],
   publishedAt: '2024-01-25',
   content: [
