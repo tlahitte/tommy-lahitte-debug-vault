@@ -1,4 +1,5 @@
 // PHASE 2: DONE
+// PHASE 7: DONE
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
