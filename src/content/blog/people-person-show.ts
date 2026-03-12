@@ -7,11 +7,11 @@ export const post: BlogPost = {
   image: 'https://www.fabfabfabfabfab.com/images/People%20Person%20Work%20in%20progress%20is%20live.jpg',
   imageAlt: 'People Person Show — Work in Progress',
   excerpt:
-    'Working with Fab on a work-in-progress theatre show in London, building electronic props that blur the line between vintage objects and AI. A retrofitted telephone, a sentient street light, and a small audience in a Hackney studio.',
+    'Working with Fab on a work in progress theatre show in London, building electronic props that blur the line between vintage objects and AI. A retrofitted telephone, a sentient street light, and a small audience in a Hackney studio.',
   content: [
     {
       type: 'paragraph',
-      text: "I'm currently serving as Technical Director on the People Person Show, a work-in-progress theatre piece created and performed by Fab. The show runs in an intimate format with a very small audience at Fab's studio near Hackney Central, which gives the whole thing a raw, close-up energy that a bigger venue would kill.",
+      text: "I'm currently serving as Technical Director on the People Person Show, a work in progress theatre piece created and performed by Fab. The show runs in an intimate format with a very small audience at Fab's studio near Hackney Central, which gives the whole thing a raw, close up energy that a bigger venue would kill.",
     },
     {
       type: 'paragraph',
@@ -39,7 +39,7 @@ export const post: BlogPost = {
     },
     {
       type: 'paragraph',
-      text: "The show is deliberately small. Limited seats, no frills, work-in-progress. If you want to see where this is going, the link below has everything you need.",
+      text: "The show is deliberately small. Limited seats, no frills, work in progress. If you want to see where this is going, the link below has everything you need.",
     },
   ],
   link: {

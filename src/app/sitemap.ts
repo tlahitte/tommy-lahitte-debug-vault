@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import { getAllTips } from '@/lib/tips'
 import { getAllPosts } from '@/lib/blog'
 
+export const dynamic = 'force-static'
+
 const BASE = 'https://tommylahitte.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {

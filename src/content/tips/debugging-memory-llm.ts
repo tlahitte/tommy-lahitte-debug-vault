@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Profile Memory Usage by Category with LLM',
   category: 'debugging',
   summary:
-    "Unreal's Low Level Memory Tracker (LLM) breaks down live memory consumption by stat group: textures, meshes, audio, RHI, and more. Two commands and a launch flag give you a real-time on-screen readout.",
+    "Unreal's Low Level Memory Tracker (LLM) breaks down live memory consumption by stat group: textures, meshes, audio, RHI, and more. Two commands and a launch flag give you a live memory readout in the viewport.",
   tags: ['memory', 'llm', 'profiling', 'performance', 'stat'],
   publishedAt: '2024-02-20',
   content: [
