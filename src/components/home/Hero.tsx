@@ -93,7 +93,7 @@ export default function Hero() {
           </svg>
         </Link>
         <a
-          href="https://github.com/tommy-lahitte"
+          href="https://github.com/tlahitte"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-2.5 text-sm font-semibold text-zinc-300 hover:border-violet-500 hover:bg-violet-950/50 hover:text-violet-300 hover:scale-[1.03] active:scale-95 transition-all duration-300"
