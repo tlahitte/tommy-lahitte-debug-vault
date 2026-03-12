@@ -107,8 +107,18 @@ export default function AboutCard() {
         My career has been a single thread connecting art and technology: a decade of video
         programming and projection supervision for international live shows, deep dives into
         media-server technology at{' '}
-        <span className="text-zinc-300 font-medium">VYV</span>, and now{' '}
-        <span className="text-zinc-300 font-medium">Virtual Production at Epic Games</span>{' '}
+        <a
+          href="https://www.vyv.ca/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-zinc-300 font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-violet-300 hover:decoration-violet-400/60 transition-colors duration-200"
+        >VYV</a>, and now{' '}
+        <a
+          href="https://www.epicgames.com/site/en-US/home"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-zinc-300 font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-violet-300 hover:decoration-violet-400/60 transition-colors duration-200"
+        >Virtual Production at Epic Games</a>{' '}
         where I get to push Unreal Engine into territory that would have felt like science
         fiction ten years ago.
       </p>
