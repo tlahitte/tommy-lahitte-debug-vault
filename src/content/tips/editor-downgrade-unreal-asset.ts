@@ -34,7 +34,7 @@ export const tip: Tip = {
     },
     {
       type: 'paragraph',
-      text: 'Every .uasset stores a list of "custom version" entries in its header — each is a GUID identifying a subsystem (e.g. Dev-Rendering, FortniteMain) paired with an integer tracking how many serialization-breaking changes that subsystem has had. When the engine loads an asset, it compares those integers against its own. A higher value in the file means the asset was written by a newer engine that may have changed the on-disk format — so the load is aborted.',
+      text: 'Every .uasset stores a list of "custom version" entries in its header. Each entry is a GUID identifying a subsystem (e.g. Dev-Rendering, FortniteMain) paired with an integer tracking how many serialization-breaking changes that subsystem has had. When the engine loads an asset, it compares those integers against its own. A higher value in the file means the asset was written by a newer engine that may have changed the on-disk format, so the load is aborted.',
     },
     {
       type: 'paragraph',
@@ -145,7 +145,7 @@ AssetEngineVersion:   4.27.0-16724560+++UE4+Release-4.27`,
     {
       type: 'list',
       items: [
-        'The further apart the engine versions are, the riskier — the on-disk format may have changed in ways that cannot be papered over',
+        'The further apart the engine versions are, the riskier: the on-disk format may have changed in ways that cannot be papered over',
         'If the asset crashes the editor on open after the version patch, the serialized layout genuinely changed; reimport the source asset instead',
         'Custom versions defined by plugins are not in DevObjectVersion.cpp — you will need to locate their GUIDs manually',
         'Once it loads, save the asset immediately so the engine re-serializes it cleanly to disk',

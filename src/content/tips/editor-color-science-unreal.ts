@@ -11,7 +11,7 @@ export const tip: Tip = {
   content: [
     {
       type: 'paragraph',
-      text: 'Color correctness is one of the easiest things to break and one of the hardest to catch without the right tools. Unreal Engine gives you a lot of rope with its post-processing stack — linear workflow, ACES tone mapping, LUTs, exposure — but each knob is an opportunity for a regression to slip through.',
+      text: 'Color correctness is one of the easiest things to break and one of the hardest to catch without the right tools. Unreal Engine gives you a lot of rope with its post-processing stack (linear workflow, ACES tone mapping, LUTs, exposure), but each knob is an opportunity for a regression to slip through.',
     },
     {
       type: 'heading',

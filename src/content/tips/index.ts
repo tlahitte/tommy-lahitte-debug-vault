@@ -25,6 +25,7 @@ import { tip as colorScienceTip } from './editor-color-science-unreal'
 import { tip as downgradeAssetTip } from './editor-downgrade-unreal-asset'
 import { tip as centralizedPluginTip } from './editor-centralized-plugin-ugs'
 import { tip as linuxUgsTip } from './editor-unreal-linux-perforce-ugs'
+import { tip as contentBrowserMetadataTip } from './editor-content-browser-metadata-search'
 
 export const allTips: Tip[] = [
   visualLoggerTip,
@@ -46,4 +47,5 @@ export const allTips: Tip[] = [
   downgradeAssetTip,
   centralizedPluginTip,
   linuxUgsTip,
+  contentBrowserMetadataTip,
 ]
