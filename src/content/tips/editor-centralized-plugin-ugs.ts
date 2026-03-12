@@ -11,7 +11,7 @@ export const tip: Tip = {
   content: [
     {
       type: 'paragraph',
-      text: 'When the same assets (nDisplay configs, MediaProfiles, stage presets) need to live in multiple projects, duplicating them is a maintenance nightmare. The solution: host the plugin in its own lightweight Unreal project — not in the engine, not inside each consuming project — and wire every project to it with two config changes.',
+      text: 'When the same assets (nDisplay configs, MediaProfiles, stage presets) need to live in multiple projects, duplicating them is a maintenance nightmare. The solution is to host the plugin in its own lightweight Unreal project (not in the engine, not inside each consuming project) and wire every project to it with two config changes.',
     },
     {
       type: 'heading',
@@ -20,7 +20,7 @@ export const tip: Tip = {
     },
     {
       type: 'paragraph',
-      text: 'Engine plugins require touching the engine directory. Every content update can trigger a full engine recompilation and risks introducing instability unrelated to your assets. Keeping the plugin in its own project lets you version and sync it independently — faster iteration, no unwanted engine rebuilds.',
+      text: 'Engine plugins require touching the engine directory. Every content update can trigger a full engine recompilation and risks introducing instability unrelated to your assets. Keeping the plugin in its own project lets you version and sync it independently, with faster iteration and no unwanted engine rebuilds.',
     },
     {
       type: 'heading',
