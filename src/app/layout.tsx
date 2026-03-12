@@ -25,28 +25,40 @@ export const metadata: Metadata = {
     siteName: 'Tommy Lahitte Debug Vault',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte — QA Engineer & Unreal Debug Vault' }],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
 }
 
-const personSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Tommy Lahitte',
-  jobTitle: 'Senior QA Engineer',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Epic Games',
+const siteSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Tommy Lahitte',
+    jobTitle: 'Senior QA Engineer',
+    worksFor: { '@type': 'Organization', name: 'Epic Games' },
+    knowsAbout: ['Unreal Engine', 'Game QA', 'Debugging', 'Functional Testing', 'Automation'],
+    url: 'https://tommylahitte.com',
+    image: 'https://tommylahitte.com/tommy-lahitte-avatar-480.webp',
+    sameAs: ['https://github.com/tommy-lahitte'],
   },
-  knowsAbout: ['Unreal Engine', 'Game QA', 'Debugging', 'Functional Testing', 'Automation'],
-  url: 'https://tommylahitte.com',
-}
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Tommy Lahitte Debug Vault',
+    url: 'https://tommylahitte.com',
+    description: 'QA and debugging field notes for Unreal Engine by Tommy Lahitte, QA Engineer at Epic Games.',
+    author: { '@type': 'Person', name: 'Tommy Lahitte' },
+  },
+]
 
 export default function RootLayout({
   children,
@@ -58,7 +70,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemas) }}
         />
       </head>
       <body className="bg-zinc-950 text-zinc-100 flex flex-col min-h-screen">
