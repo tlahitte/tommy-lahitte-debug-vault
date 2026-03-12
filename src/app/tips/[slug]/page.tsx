@@ -34,11 +34,13 @@ export async function generateMetadata({ params }: TipPageProps): Promise<Metada
       type: 'article',
       publishedTime: tip.publishedAt,
       authors: ['Tommy Lahitte'],
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: tip.title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${tip.title} | Tommy Lahitte Debug Vault`,
       description: tip.summary,
+      images: ['/og-image.png'],
     },
   }
 }

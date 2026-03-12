@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug)
   if (!post) return {}
 
+  const ogImage = post.image ?? '/og-image.png'
+
   return {
     title: post.title,
     description: post.excerpt,
@@ -31,6 +33,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://tommylahitte.com/blog/${post.slug}/`,
       type: 'article',
       publishedTime: post.date,
+      authors: ['Tommy Lahitte'],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.imageAlt ?? post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | Tommy Lahitte`,
+      description: post.excerpt,
+      images: [ogImage],
     },
   }
 }
@@ -74,8 +84,32 @@ export default async function BlogPostPage({ params }: Props) {
     day: 'numeric',
   })
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://tommylahitte.com/blog/${post.slug}/`,
+    datePublished: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'Tommy Lahitte',
+      url: 'https://tommylahitte.com/',
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Tommy Lahitte',
+      url: 'https://tommylahitte.com/',
+    },
+    ...(post.image && { image: post.image }),
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Link
         href="/blog"
         className="inline-flex items-center gap-1 text-sm text-zinc-500 hover:text-zinc-300 transition-colors mb-8"
