@@ -11,11 +11,11 @@ export const post: BlogPost = {
   content: [
     {
       type: 'paragraph',
-      text: "A friend of mine is building an immersive show where audience members can have live conversations with AI agents. Not prerecorded voices, not a chatbot in a browser — actual live speech, routed through specific hardware, blending into the physical environment of the performance.",
+      text: "A friend of mine is building an immersive show where audience members can have live conversations with AI agents. Not prerecorded voices, not a chatbot in a browser. Actual live speech, routed through specific hardware, blending into the physical environment of the performance.",
     },
     {
       type: 'paragraph',
-      text: "ElevenLabs has everything you need on the AI side: high-quality voices, low latency, conversational agents. The problem is that ElevenLabs is almost entirely web-based. On a Mac running show hardware — multiple audio interfaces, BlackHole virtual loopback, a mix of physical and virtual I/O — the browser gives you zero control over which microphone you talk into or where the agent's voice comes out. For a live show, that's a dealbreaker.",
+      text: "ElevenLabs has everything you need on the AI side: high-quality voices, low latency, conversational agents. The problem is that ElevenLabs is almost entirely web-based. On a Mac running show hardware (multiple audio interfaces, BlackHole virtual loopback, a mix of physical and virtual I/O), the browser gives you zero control over which microphone you talk into or where the agent's voice comes out. For a live show, that's a dealbreaker.",
     },
     {
       type: 'heading',
@@ -66,7 +66,7 @@ export const post: BlogPost = {
     },
     {
       type: 'paragraph',
-      text: "The original motivation for building the app was full control over input and output audio devices. Early versions of ElevenApps had explicit mic and output device pickers and a custom AVAudioEngine pipeline. That approach worked but introduced fragile interactions with aggregate devices — BlackHole in particular caused CoreAudio crashes when the app tried to reconfigure the audio graph.",
+      text: "The original motivation for building the app was full control over input and output audio devices. Early versions of ElevenApps had explicit mic and output device pickers and a custom AVAudioEngine pipeline. That approach worked but introduced fragile interactions with aggregate devices: BlackHole in particular caused CoreAudio crashes when the app tried to reconfigure the audio graph.",
     },
     {
       type: 'paragraph',
