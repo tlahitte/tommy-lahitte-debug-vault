@@ -56,7 +56,7 @@ export const tip: Tip = {
         'frame: frame boundaries and frame time',
         'log: log messages correlated to timeline',
         'task: Task Graph worker activity',
-        'rendercommands: high-level render command queue',
+        'rendercommands: high level render command queue',
         'rhicommands: low-level RHI command timing',
         'rdg: Render Dependency Graph pass execution',
         'bookmark: named event markers you add in code',

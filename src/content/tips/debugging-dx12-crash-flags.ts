@@ -62,7 +62,7 @@ export const tip: Tip = {
     },
     {
       type: 'paragraph',
-      text: 'The .nv-gpudmp file can be opened with NVIDIA Nsight Graphics. It will show you the exact draw call or compute dispatch that triggered the crash, which is often a shader reading out-of-bounds or a missing resource barrier.',
+      text: 'The .nv-gpudmp file can be opened with NVIDIA Nsight Graphics. It will show you the exact draw call or compute dispatch that triggered the crash, which is often a shader reading out of bounds or a missing resource barrier.',
     },
   ],
 }

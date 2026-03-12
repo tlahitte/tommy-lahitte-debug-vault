@@ -11,7 +11,7 @@ export const post: BlogPost = {
   content: [
     {
       type: 'paragraph',
-      text: "A friend of mine is building an immersive show where audience members can have live conversations with AI agents. Not pre-recorded voices, not a chatbot in a browser — actual real-time speech, routed through specific hardware, blending into the physical environment of the performance.",
+      text: "A friend of mine is building an immersive show where audience members can have live conversations with AI agents. Not prerecorded voices, not a chatbot in a browser — actual live speech, routed through specific hardware, blending into the physical environment of the performance.",
     },
     {
       type: 'paragraph',
@@ -27,7 +27,7 @@ export const post: BlogPost = {
     },
     {
       type: 'paragraph',
-      text: "The web browser cannot do this. It will use whatever the OS default output is, and even if you change the system default to BlackHole, you lose the ability to hear anything yourself. Native macOS APIs give you per-application audio device selection at the Core Audio level, which is exactly what was needed.",
+      text: "The web browser cannot do this. It will use whatever the OS default output is, and even if you change the system default to BlackHole, you lose the ability to hear anything yourself. Native macOS APIs give you per application audio device selection at the Core Audio level, which is exactly what was needed.",
     },
     {
       type: 'heading',
@@ -44,7 +44,7 @@ export const post: BlogPost = {
         'Start a conversation with any agent — one tap, no configuration per session',
         'Pause and resume mid-conversation without dropping the connection',
         'Switch between agents without restarting the app',
-        'Assign a per-agent contact photo for quick visual identification on stage',
+        'Assign a per agent contact photo for quick visual identification on stage',
         'API key stored securely in the macOS Keychain',
       ],
     },

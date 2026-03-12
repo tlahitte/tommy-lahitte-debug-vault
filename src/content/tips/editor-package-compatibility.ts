@@ -43,7 +43,7 @@ s.DisablePackageCompatibleCustomVersionCheck=1`,
     },
     {
       type: 'callout',
-      text: 'Warning: Opening cross-version assets can corrupt them if you save. Use this for read-only inspection only, and revert any accidental saves.',
+      text: 'Warning: Opening cross version assets can corrupt them if you save. Use this for read only inspection only, and revert any accidental saves.',
     },
     {
       type: 'heading',
