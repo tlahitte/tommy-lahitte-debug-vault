@@ -53,21 +53,48 @@ const badges = [
   },
 ]
 
-const CLOSE_DELAY = 15_000
+const CLOSE_DELAY = 10_000
+const ANIM_MS = 350
 
 export default function AboutCard() {
+  // activeBadge drives the CSS open/close state (max-height, opacity)
   const [activeBadge, setActiveBadge] = useState<string | null>(null)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // panelBadge holds the content — lags behind activeBadge during exit so content
+  // stays rendered while the panel animates closed
+  const [panelBadge, setPanelBadge] = useState<string | null>(null)
 
-  const active = badges.find((b) => b.label === activeBadge) ?? null
+  const panel = badges.find((b) => b.label === panelBadge) ?? null
+  const isOpen = activeBadge !== null
+
+  const autoCloseRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const exitRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const closePanel = () => {
+    if (autoCloseRef.current) clearTimeout(autoCloseRef.current)
+    setActiveBadge(null)
+    exitRef.current = setTimeout(() => setPanelBadge(null), ANIM_MS)
+  }
+
+  const handleBadgeClick = (label: string) => {
+    if (exitRef.current) clearTimeout(exitRef.current)
+    if (autoCloseRef.current) clearTimeout(autoCloseRef.current)
+
+    if (activeBadge === label) {
+      closePanel()
+    } else {
+      // Open or switch badge — content updates immediately, CSS transition stays open
+      setPanelBadge(label)
+      setActiveBadge(label)
+      autoCloseRef.current = setTimeout(closePanel, CLOSE_DELAY)
+    }
+  }
 
   useEffect(() => {
-    if (timerRef.current) clearTimeout(timerRef.current)
-    if (activeBadge !== null) {
-      timerRef.current = setTimeout(() => setActiveBadge(null), CLOSE_DELAY)
+    return () => {
+      if (autoCloseRef.current) clearTimeout(autoCloseRef.current)
+      if (exitRef.current) clearTimeout(exitRef.current)
     }
-    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
-  }, [activeBadge])
+  }, [])
 
   return (
     <div className="rounded-xl border border-zinc-700/60 bg-gradient-to-b from-zinc-800/60 to-zinc-900/50 p-6 sm:p-10">
@@ -108,7 +135,7 @@ export default function AboutCard() {
           {badges.map(({ label, glow, border, text }) => (
             <button
               key={label}
-              onClick={() => setActiveBadge(activeBadge === label ? null : label)}
+              onClick={() => handleBadgeClick(label)}
               className="badge-glow text-xs font-medium text-zinc-400 bg-zinc-800/60 border border-zinc-700/50 px-2.5 py-1 rounded-md cursor-pointer transition-all"
               style={{ '--badge-glow': glow, '--badge-border': border, '--badge-text': text } as React.CSSProperties}
             >
@@ -118,27 +145,37 @@ export default function AboutCard() {
         </div>
       </div>
 
-      {/* Expandable description */}
-      {active && (
-        <div
-          className="mt-4 rounded-lg border px-4 pt-3 pb-0 text-sm leading-relaxed overflow-hidden"
-          style={{
-            borderColor: active.border,
-            backgroundColor: `color-mix(in srgb, ${active.glow} 8%, transparent)`,
-            color: active.text,
-          }}
-        >
-          <p className="pb-3">{active.description}</p>
-          {/* Countdown progress bar */}
-          <div className="h-px w-full bg-current opacity-10 relative">
-            <div
-              key={activeBadge}
-              className="absolute inset-y-0 left-0 bg-current opacity-50"
-              style={{ animation: `shrink-width ${CLOSE_DELAY}ms linear forwards` }}
-            />
+      {/* Description panel — always in DOM, animated via max-height + opacity */}
+      <div
+        style={{
+          maxHeight: isOpen ? '200px' : '0px',
+          opacity: isOpen ? 1 : 0,
+          marginTop: isOpen ? '1rem' : '0',
+          transition: `max-height ${ANIM_MS}ms ease, opacity ${ANIM_MS}ms ease, margin-top ${ANIM_MS}ms ease`,
+          overflow: 'hidden',
+        }}
+      >
+        {panel && (
+          <div
+            className="rounded-lg border px-4 pt-3 pb-0 text-sm leading-relaxed"
+            style={{
+              borderColor: panel.border,
+              backgroundColor: `color-mix(in srgb, ${panel.glow} 8%, transparent)`,
+              color: panel.text,
+            }}
+          >
+            <p className="pb-3">{panel.description}</p>
+            {/* Countdown progress bar */}
+            <div className="h-px w-full bg-current opacity-10 relative">
+              <div
+                key={activeBadge}
+                className="absolute inset-y-0 left-0 bg-current opacity-50"
+                style={{ animation: `shrink-width ${CLOSE_DELAY}ms linear forwards` }}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
