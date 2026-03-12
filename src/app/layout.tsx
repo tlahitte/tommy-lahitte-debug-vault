@@ -48,7 +48,7 @@ const siteSchemas = [
     knowsAbout: ['Unreal Engine', 'Game QA', 'Debugging', 'Functional Testing', 'Automation'],
     url: 'https://tommylahitte.com',
     image: 'https://tommylahitte.com/tommy-lahitte-avatar-480.webp',
-    sameAs: ['https://github.com/tommy-lahitte'],
+    sameAs: ['https://github.com/tlahitte'],
   },
   {
     '@context': 'https://schema.org',
