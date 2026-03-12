@@ -3,11 +3,36 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import type { Category } from '@/lib/types'
 
-const CATEGORIES: { value: Category | 'all'; label: string }[] = [
-  { value: 'all', label: 'All' },
-  { value: 'editor', label: 'Editor' },
-  { value: 'debugging', label: 'Debugging' },
-  { value: 'qa-workflow', label: 'QA Workflow' },
+const CATEGORIES: {
+  value: Category | 'all'
+  label: string
+  activeClass: string
+  hoverClass: string
+}[] = [
+  {
+    value: 'all',
+    label: 'All',
+    activeClass: 'bg-violet-500/10 border-violet-500/30 text-violet-400',
+    hoverClass: 'hover:bg-violet-500/10 hover:border-violet-500/30 hover:text-violet-400',
+  },
+  {
+    value: 'editor',
+    label: 'Editor',
+    activeClass: 'bg-blue-500/10 border-blue-500/30 text-blue-400',
+    hoverClass: 'hover:bg-blue-500/10 hover:border-blue-500/30 hover:text-blue-400',
+  },
+  {
+    value: 'debugging',
+    label: 'Debugging',
+    activeClass: 'bg-red-500/10 border-red-500/30 text-red-400',
+    hoverClass: 'hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400',
+  },
+  {
+    value: 'qa-workflow',
+    label: 'QA Workflow',
+    activeClass: 'bg-green-500/10 border-green-500/30 text-green-400',
+    hoverClass: 'hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-400',
+  },
 ]
 
 export default function CategoryFilter() {
@@ -26,14 +51,14 @@ export default function CategoryFilter() {
 
   return (
     <div className="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter tips by category">
-      {CATEGORIES.map(({ value, label }) => (
+      {CATEGORIES.map(({ value, label, activeClass, hoverClass }) => (
         <button
           key={value}
           onClick={() => handleSelect(value)}
-          className={`rounded-full px-4 py-1.5 text-sm font-medium border transition-colors ${
+          className={`rounded-full px-4 py-1.5 text-sm font-semibold border transition-colors ${
             current === value
-              ? 'bg-violet-600 border-violet-600 text-white'
-              : 'bg-transparent border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200'
+              ? activeClass
+              : `bg-transparent border-zinc-700 text-zinc-400 ${hoverClass}`
           }`}
           aria-pressed={current === value}
         >
