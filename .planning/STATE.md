@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-design-system-05-PLAN.md — Phase 1 design system complete
-last_updated: "2026-03-15T23:14:07.071Z"
+stopped_at: Completed 01-design-system-06-PLAN.md — all dark-violet/zinc pages migrated to kraft tokens
+last_updated: "2026-03-15T23:29:47.890Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 5
-  completed_plans: 5
+  total_plans: 6
+  completed_plans: 6
   percent: 0
 ---
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-design-system P03 | 2 | 2 tasks | 5 files |
 | Phase 01-design-system P04 | 4 | 2 tasks | 5 files |
 | Phase 01-design-system P05 | 2 | 3 tasks | 3 files |
+| Phase 01-design-system P06 | 2 | 6 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [Phase 01-design-system]: Badge resting state uses bg-surface-raised/border-border (kraft light) instead of dark zinc — consistent with warm palette
 - [Phase 01-design-system]: Hero inline style overrides Tailwind bg-gradient-to-b intentionally for compound radial vignette + linear gradient background
 - [Phase 01-design-system]: Header scrolled initialized to true — always-visible on first paint, no SSR trick needed
+- [Phase 01-design-system]: Bottom dark linear gradient removed from page headers — meaningless on light kraft background; border-b border-border provides section separation
+- [Phase 01-design-system]: Page header pattern established: bg-surface-raised border-b border-border -mt-14 with rust radial vignette rgba(200,90,58,0.06)
+- [Phase 01-design-system]: Page transition duration set to 0.25 (250ms) — lower bound of UI-SPEC 250-300ms range
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T23:14:07.069Z
-Stopped at: Completed 01-design-system-05-PLAN.md — Phase 1 design system complete
+Last session: 2026-03-15T23:29:47.888Z
+Stopped at: Completed 01-design-system-06-PLAN.md — all dark-violet/zinc pages migrated to kraft tokens
 Resume file: None
