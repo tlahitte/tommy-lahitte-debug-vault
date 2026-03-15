@@ -10,15 +10,15 @@ export default function Hero() {
         {/* Text */}
         <div className="flex-1 min-w-0">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-display">
-            Tommy Lahitte
+            Senior QA Engineer
           </h1>
           <p className="mt-2 sm:mt-3 text-xl font-medium">
-            <span className="text-accent">Senior QA Engineer</span>
-            <span className="text-text-muted mx-2">|</span>
             <em className="text-accent not-italic">
               <span className="hidden sm:inline">Unreal Engine</span>
               <span className="sm:hidden">UE</span> Expert
             </em>
+            <span className="text-text-muted mx-2">·</span>
+            <span className="text-text-muted">Epic Games</span>
           </p>
           <hr className="my-4 border-border" />
           <p className="text-xl text-text-muted leading-relaxed sm:whitespace-nowrap">
