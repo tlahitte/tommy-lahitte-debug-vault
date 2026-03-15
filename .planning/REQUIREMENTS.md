@@ -85,36 +85,34 @@ Différé. Présent dans les specs mais pas dans la roadmap courante.
 
 ## Traceability
 
-Mappé par le roadmapper. Sera complété à l'étape suivante.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DSGN-01 | — | Pending |
-| DSGN-02 | — | Pending |
-| DSGN-03 | — | Pending |
-| HOME-01 | — | Pending |
-| HOME-02 | — | Pending |
-| HOME-03 | — | Pending |
-| HOME-04 | — | Pending |
-| NOTI-01 | — | Pending |
-| NOTI-02 | — | Pending |
-| NOTI-03 | — | Pending |
-| NOTI-04 | — | Pending |
-| NOTI-05 | — | Pending |
-| BLOG-01 | — | Pending |
-| BLOG-02 | — | Pending |
-| PROJ-01 | — | Pending |
-| PROJ-02 | — | Pending |
-| PROJ-03 | — | Pending |
-| PROJ-04 | — | Pending |
-| PROJ-05 | — | Pending |
-| ABOU-01 | — | Pending |
+| DSGN-01 | Phase 1 | Pending |
+| DSGN-02 | Phase 1 | Pending |
+| DSGN-03 | Phase 1 | Pending |
+| HOME-01 | Phase 4 | Pending |
+| HOME-02 | Phase 4 | Pending |
+| HOME-03 | Phase 4 | Pending |
+| HOME-04 | Phase 4 | Pending |
+| NOTI-01 | Phase 2 | Pending |
+| NOTI-02 | Phase 2 | Pending |
+| NOTI-03 | Phase 2 | Pending |
+| NOTI-04 | Phase 2 | Pending |
+| NOTI-05 | Phase 2 | Pending |
+| BLOG-01 | Phase 2 | Pending |
+| BLOG-02 | Phase 2 | Pending |
+| PROJ-01 | Phase 3 | Pending |
+| PROJ-02 | Phase 3 | Pending |
+| PROJ-03 | Phase 3 | Pending |
+| PROJ-04 | Phase 3 | Pending |
+| PROJ-05 | Phase 3 | Pending |
+| ABOU-01 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 20 total
-- Mappés aux phases: 0 (en attente roadmap)
-- Non mappés: 20 ⚠️
+- Mappés aux phases: 20
+- Non mappés: 0
 
 ---
 *Requirements définis: 2026-03-15*
-*Last updated: 2026-03-15 après définition initiale*
+*Last updated: 2026-03-15 — traceability complétée par le roadmapper*
