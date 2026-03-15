@@ -11,6 +11,13 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        surface: 'var(--surface)',
+        'surface-raised': 'var(--surface-raised)',
+        'text-primary': 'var(--text-primary)',
+        'text-muted': 'var(--text-muted)',
+        accent: 'var(--accent)',
+        'accent-hover': 'var(--accent-hover)',
+        border: 'var(--border)',
       },
       fontFamily: {
         display: ['var(--font-inter)', 'sans-serif'],
