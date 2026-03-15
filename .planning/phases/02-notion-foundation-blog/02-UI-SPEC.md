@@ -56,14 +56,14 @@ Exceptions:
 | Body | 16px | 400 (regular) | 1.5 (`leading-relaxed`) | `text-base font-normal` | existing `[slug]/page.tsx` paragraph blocks |
 | Label / Meta | 12px | 400 (regular) | 1.4 | `text-xs` | date, reading time, category labels |
 | Article list title | 18px | 600 (semibold) | 1.35 (`leading-snug`) | `text-lg font-semibold` | new list item title (replaces card h2) |
-| Article detail H1 | 30px | 700 (bold) | 1.2 (`leading-snug`) | `text-3xl font-bold` | article page title — pre-existing, preserved |
-| Section heading (H2 in content) | 20px | 600 (semibold) | 1.3 | `text-xl font-semibold` | Notion heading blocks |
+| Article detail H1 | 30px | 600 (semibold) | 1.2 (`leading-snug`) | `text-3xl font-semibold` | article page title — pre-existing, preserved |
+| Section heading (H2 in content) | 18px | 600 (semibold) | 1.35 (`leading-snug`) | `text-lg font-semibold` | Notion heading_2 blocks |
 | Section heading (H3 in content) | 16px | 600 (semibold) | 1.4 | `text-base font-semibold` | Notion h3 blocks |
 
 **Constraints:**
-- Maximum 4 type sizes used per view: 12 / 16 / 18 / 30 on list page; 12 / 16 / 20 / 30 on article detail
-- Maximum 2 weights: 400 (regular) and 600–700 (semibold/bold)
-- Display heading (page header H1 "Blog"): `text-3xl font-bold` — preserved from existing page header pattern
+- Maximum 4 type sizes used per view: 12 / 16 / 18 / 30 on list page; 12 / 16 / 18 / 30 on article detail
+- Maximum 2 weights: 400 (regular) and 600 (semibold) — `font-bold` (700) is not used
+- Display heading (page header H1 "Blog"): `text-3xl font-semibold` — preserved from existing page header pattern
 
 ---
 
@@ -139,8 +139,8 @@ Exceptions:
 | Block type | Visual treatment |
 |------------|-----------------|
 | `paragraph` | `text-base text-text-primary leading-relaxed` |
-| `heading_1` | `text-2xl font-bold text-text-primary mt-10 mb-3` |
-| `heading_2` | `text-xl font-semibold text-text-primary mt-8 mb-2` |
+| `heading_1` | `text-2xl font-semibold text-text-primary mt-10 mb-3` |
+| `heading_2` | `text-lg font-semibold text-text-primary mt-8 mb-2` |
 | `heading_3` | `text-base font-semibold text-text-primary mt-6 mb-1` |
 | `code` | Existing CodeBlock component — `bg-zinc-900 text-zinc-200`, preserved dark interior |
 | `callout` | `bg-surface-raised border border-border rounded-lg px-4 py-3 text-text-primary` with emoji icon if present |
