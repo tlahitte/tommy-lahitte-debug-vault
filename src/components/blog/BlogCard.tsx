@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'motion/react'
 import type { BlogPost } from '@/lib/blog-types'
 
 interface BlogCardProps {
@@ -16,11 +17,12 @@ export default function BlogCard({ post }: BlogCardProps) {
   })
 
   return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className="group block rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden hover:border-violet-700/60 hover:-translate-y-1 hover:shadow-[0_8px_30px_-6px_rgba(139,92,246,0.3)] transition-all duration-300 cursor-pointer"
-    >
-      <article>
+    <Link href={`/blog/${post.slug}`} className="group block">
+      <motion.article
+        className="rounded-xl border border-border bg-surface-raised overflow-hidden cursor-pointer"
+        whileHover={{ y: -2, boxShadow: '0 8px 24px -4px rgba(200, 90, 58, 0.12)' }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+      >
         {post.image ? (
           <div className="relative h-52 w-full">
             <Image
@@ -32,36 +34,36 @@ export default function BlogCard({ post }: BlogCardProps) {
             />
           </div>
         ) : (
-          <div className="h-52 w-full bg-gradient-to-br from-violet-950 via-zinc-900 to-zinc-800 flex items-end p-5">
-            <span className="text-xs font-medium uppercase tracking-widest text-violet-400">
+          <div className="h-52 w-full bg-gradient-to-br from-surface-raised via-surface to-surface flex items-end p-5">
+            <span className="text-xs font-medium uppercase tracking-widest text-text-muted">
               Current Work
             </span>
           </div>
         )}
         <div className="p-6">
-          <time dateTime={post.date} className="text-xs text-zinc-500">
+          <time dateTime={post.date} className="text-xs text-text-muted">
             {formattedDate}
           </time>
-          <h2 className="mt-2 text-lg font-semibold text-zinc-100 group-hover:text-violet-400 transition-colors leading-snug">
+          <h2 className="mt-2 text-lg font-semibold text-text-primary group-hover:text-accent transition-colors leading-snug">
             {post.title}
           </h2>
-          <p className="mt-2 text-sm text-zinc-400 leading-relaxed line-clamp-3">{post.excerpt}</p>
+          <p className="mt-2 text-sm text-text-muted leading-relaxed line-clamp-3">{post.excerpt}</p>
           <div className="mt-4 flex items-center gap-4">
-            <span className="text-sm text-violet-400 font-medium">Read more</span>
+            <span className="text-sm text-accent font-medium">Read more</span>
             {post.link && (
               <a
                 href={post.link.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                className="text-sm text-text-muted hover:text-text-primary transition-colors"
               >
                 {post.link.label} &rarr;
               </a>
             )}
           </div>
         </div>
-      </article>
+      </motion.article>
     </Link>
   )
 }
