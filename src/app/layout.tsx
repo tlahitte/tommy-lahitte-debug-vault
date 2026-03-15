@@ -73,7 +73,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemas) }}
         />
       </head>
-      <body className="bg-zinc-950 text-zinc-100 flex flex-col min-h-screen">
+      <body className="bg-surface text-text-primary flex flex-col min-h-screen">
         <Header />
         <main className="flex-1 pt-14">{children}</main>
         <Footer />
