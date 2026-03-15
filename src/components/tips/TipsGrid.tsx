@@ -23,7 +23,7 @@ function TipsGridInner({ tips }: { tips: Tip[] }) {
     <>
       <CategoryFilter />
       {filtered.length === 0 ? (
-        <p className="text-zinc-500 text-sm mt-4">No tips in this category yet.</p>
+        <p className="text-text-muted text-sm mt-4">No tips in this category yet.</p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((tip) => (
