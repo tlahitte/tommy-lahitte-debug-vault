@@ -7,15 +7,15 @@ interface CategoryBadgeProps {
 const categoryConfig: Record<Category, { label: string; className: string }> = {
   editor: {
     label: 'Editor',
-    className: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
+    className: 'bg-accent/10 text-accent border-accent/30',
   },
   debugging: {
     label: 'Debugging',
-    className: 'bg-red-500/10 text-red-400 border-red-500/30',
+    className: 'bg-accent/15 text-accent-hover border-accent/40',
   },
   'qa-workflow': {
     label: 'QA Workflow',
-    className: 'bg-green-500/10 text-green-400 border-green-500/30',
+    className: 'bg-surface-raised text-text-muted border-border',
   },
 }
 

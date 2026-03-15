@@ -9,19 +9,19 @@ export default function Hero() {
 
         {/* Text */}
         <div className="flex-1 min-w-0">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-100 font-display">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-display">
             Tommy Lahitte
           </h1>
           <p className="mt-2 sm:mt-3 text-xl font-medium">
-            <span className="text-violet-400">Senior QA Engineer</span>
-            <span className="text-zinc-500 mx-2">|</span>
-            <em className="text-violet-300 not-italic">
+            <span className="text-accent">Senior QA Engineer</span>
+            <span className="text-text-muted mx-2">|</span>
+            <em className="text-accent not-italic">
               <span className="hidden sm:inline">Unreal Engine</span>
               <span className="sm:hidden">UE</span> Expert
             </em>
           </p>
-          <hr className="my-4 border-violet-500/50" />
-          <p className="text-xl text-zinc-400 leading-relaxed sm:whitespace-nowrap">
+          <hr className="my-4 border-border" />
+          <p className="text-xl text-text-muted leading-relaxed sm:whitespace-nowrap">
             Engineering field notes, side projects, and the things worth sharing.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function Hero() {
           <div
             className="absolute -inset-8 rounded-full animate-spin-slow"
             style={{
-              background: 'conic-gradient(from 0deg, transparent 0%, transparent 45%, rgba(124,58,237,0.7) 62%, rgba(6,182,212,0.85) 78%, rgba(167,139,250,0.9) 90%, transparent 100%)',
+              background: 'conic-gradient(from 0deg, transparent 0%, transparent 45%, rgba(200,90,58,0.7) 62%, rgba(168,67,42,0.85) 78%, rgba(200,90,58,0.9) 90%, transparent 100%)',
               filter: 'blur(18px)',
             }}
           />
@@ -43,7 +43,7 @@ export default function Hero() {
             width={480}
             height={480}
             sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
-            className="relative w-full rounded-2xl ring-1 ring-violet-500 block"
+            className="relative w-full rounded-2xl ring-1 ring-accent block"
             priority
           />
         </div>
@@ -54,7 +54,7 @@ export default function Hero() {
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href="/tips"
-          className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-violet-500 hover:scale-[1.03] active:scale-95 transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
           Unreal Tips
           <svg
@@ -74,7 +74,7 @@ export default function Hero() {
         </Link>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-2.5 text-sm font-semibold text-zinc-300 hover:border-violet-500 hover:bg-violet-950/50 hover:text-violet-300 hover:scale-[1.03] active:scale-95 transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
           Read Blog
           <svg
@@ -96,7 +96,7 @@ export default function Hero() {
           href="https://github.com/tlahitte"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-2.5 text-sm font-semibold text-zinc-300 hover:border-violet-500 hover:bg-violet-950/50 hover:text-violet-300 hover:scale-[1.03] active:scale-95 transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
           GitHub
           <svg
