@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-design-system-03-PLAN.md
-last_updated: "2026-03-15T22:30:19.959Z"
+stopped_at: Completed 01-design-system-04-PLAN.md — awaiting checkpoint human verification
+last_updated: "2026-03-15T22:32:39.604Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
   percent: 0
 ---
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-design-system P01 | 2 | 2 tasks | 3 files |
 | Phase 01-design-system P03 | 2 | 2 tasks | 5 files |
+| Phase 01-design-system P04 | 4 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,8 @@ Recent decisions affecting current work:
 - [Phase 01-design-system]: CodeBlock dark interior (bg-zinc-900/text-zinc-200) intentionally preserved — dark code blocks on light pages are industry convention, only outer border and language tab migrated
 - [Phase 01-design-system]: CategoryBadge warm palette: blue/red/green Tailwind category colors replaced with accent-adjacent kraft palette (accent/10, accent/15, surface-raised)
 - [Phase 01-design-system]: Hero conic-gradient halo: violet/cyan rgba swapped to rust rgba(200,90,58)/rgba(168,67,42) matching accent #C85A3A and accent-hover #A8432A
+- [Phase 01-design-system]: motion installed via public npm registry flag (corporate Artifactory proxy not reachable from home network)
+- [Phase 01-design-system]: eslint.config.mjs created with next/core-web-vitals + next/typescript (pre-existing gap, needed for npm run lint)
 
 ### Pending Todos
 
@@ -81,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T22:30:19.958Z
-Stopped at: Completed 01-design-system-03-PLAN.md
+Last session: 2026-03-15T22:32:39.602Z
+Stopped at: Completed 01-design-system-04-PLAN.md — awaiting checkpoint human verification
 Resume file: None
