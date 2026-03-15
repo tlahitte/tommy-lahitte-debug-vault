@@ -139,7 +139,7 @@ Exceptions:
 | Block type | Visual treatment |
 |------------|-----------------|
 | `paragraph` | `text-base text-text-primary leading-relaxed` |
-| `heading_1` | `text-2xl font-semibold text-text-primary mt-10 mb-3` |
+| `heading_1` | `text-3xl font-semibold text-text-primary mt-10 mb-3` |
 | `heading_2` | `text-lg font-semibold text-text-primary mt-8 mb-2` |
 | `heading_3` | `text-base font-semibold text-text-primary mt-6 mb-1` |
 | `code` | Existing CodeBlock component — `bg-zinc-900 text-zinc-200`, preserved dark interior |
