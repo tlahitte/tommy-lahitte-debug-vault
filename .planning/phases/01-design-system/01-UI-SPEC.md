@@ -56,12 +56,11 @@ Exceptions:
 | Display | 28px | 600 (semibold) | 1.2 | Page-level headings, hero title |
 | Heading | 20px | 600 (semibold) | 1.3 | Section headings, card titles (h2) |
 | Body | 16px | 400 (regular) | 1.6 | Paragraph text, article content |
-| Label / Meta | 14px | 400 (regular) | 1.4 | Dates, tags, captions, nav links |
-| Micro | 12px | 500 (medium) | 1.4 | Badge text, tracking-widest uppercase labels |
+| Micro / Label | 12px | 400 (regular) | 1.4 | Badge text, dates, tags, captions, nav links — uppercase badges use `tracking-widest uppercase` modifier for visual differentiation |
 
 Font stack: `var(--font-inter), sans-serif` — applied via `font-display` Tailwind class (already in `tailwind.config.ts`) and via `body { font-family: var(--font-inter), sans-serif }` in `globals.css`.
 
-Weight palette: 400 (regular) + 600 (semibold). Weight 500 (medium) is a single exception for micro-label uppercase badges only.
+Weight palette: 400 (regular) + 600 (semibold). No intermediate weights. The visual weight of all-caps spaced lettering at 12px (`tracking-widest uppercase`) reads as heavier than mixed-case body text without requiring a distinct weight value.
 
 ---
 
