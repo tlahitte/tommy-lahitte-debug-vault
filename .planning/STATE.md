@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-design-system-04-PLAN.md — awaiting checkpoint human verification
-last_updated: "2026-03-15T22:32:39.604Z"
+stopped_at: Completed 01-design-system-05-PLAN.md — Phase 1 design system complete
+last_updated: "2026-03-15T23:14:07.071Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 5
+  completed_plans: 5
   percent: 0
 ---
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-design-system P01 | 2 | 2 tasks | 3 files |
 | Phase 01-design-system P03 | 2 | 2 tasks | 5 files |
 | Phase 01-design-system P04 | 4 | 2 tasks | 5 files |
+| Phase 01-design-system P05 | 2 | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,9 @@ Recent decisions affecting current work:
 - [Phase 01-design-system]: Hero conic-gradient halo: violet/cyan rgba swapped to rust rgba(200,90,58)/rgba(168,67,42) matching accent #C85A3A and accent-hover #A8432A
 - [Phase 01-design-system]: motion installed via public npm registry flag (corporate Artifactory proxy not reachable from home network)
 - [Phase 01-design-system]: eslint.config.mjs created with next/core-web-vitals + next/typescript (pre-existing gap, needed for npm run lint)
+- [Phase 01-design-system]: Badge resting state uses bg-surface-raised/border-border (kraft light) instead of dark zinc — consistent with warm palette
+- [Phase 01-design-system]: Hero inline style overrides Tailwind bg-gradient-to-b intentionally for compound radial vignette + linear gradient background
+- [Phase 01-design-system]: Header scrolled initialized to true — always-visible on first paint, no SSR trick needed
 
 ### Pending Todos
 
@@ -84,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T22:32:39.602Z
-Stopped at: Completed 01-design-system-04-PLAN.md — awaiting checkpoint human verification
+Last session: 2026-03-15T23:14:07.069Z
+Stopped at: Completed 01-design-system-05-PLAN.md — Phase 1 design system complete
 Resume file: None
