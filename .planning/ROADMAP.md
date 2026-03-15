@@ -28,7 +28,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. A visitor sees the kraft/beige palette, precise typography, and generous spacing — the site no longer reads as AI-generated
   3. Navigation is visually coherent with the maker identity and works correctly on mobile and desktop
   4. Hover interactions and page transitions carry subtle micro-animations that feel intentional, not decorative
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Semantic token foundation (tailwind.config.ts, globals.css, layout.tsx)
+- [ ] 01-02-PLAN.md — Header rebuild (brand identity, scroll behavior, new nav order)
+- [ ] 01-03-PLAN.md — Component token migration (Footer, Tag, CodeBlock, CategoryBadge, Hero)
+- [ ] 01-04-PLAN.md — BlogCard migration + Framer Motion (motion install, template.tsx, BlogCard hover)
 
 ### Phase 2: Notion Foundation + Blog
 **Goal**: Blog content is served from Notion at build time, all critical Notion pitfalls are solved, and the rebuild pipeline is wired up
@@ -71,10 +77,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design System | 0/? | Not started | - |
+| 1. Design System | 0/4 | Ready to execute | - |
 | 2. Notion Foundation + Blog | 0/? | Not started | - |
 | 3. Projects Section | 0/? | Not started | - |
 | 4. Homepage + About | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-03-15*
+*Last updated: 2026-03-15 — Phase 1 plans defined (4 plans, 2 waves)*
