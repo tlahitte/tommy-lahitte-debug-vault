@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-15T21:55:44.802Z"
+stopped_at: Completed 01-design-system-01-PLAN.md
+last_updated: "2026-03-15T22:26:09.554Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 4
+  completed_plans: 1
   percent: 0
 ---
 
@@ -50,6 +50,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-design-system P01 | 2 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -61,6 +62,9 @@ Recent decisions affecting current work:
 - Roadmap: DSGN-01 locked as first task of Phase 1 — semantic tokens must exist before any component is written
 - Roadmap: NOTI-05 (webhook) assigned to Phase 2 — Notion plan tier must be confirmed before Phase 2 kickoff (free plan requires GitHub Actions cron fallback)
 - Roadmap: Tips section stays TypeScript-static — not migrated in v1, deferred to v2 as TIPS-V2-01
+- [Phase 01-design-system]: background/foreground kept as legacy aliases updated to kraft values — backwards compat for existing classes
+- [Phase 01-design-system]: Kraft palette as single source of truth: CSS custom properties in globals.css :root, bridged to Tailwind via var(--token)
+- [Phase 01-design-system]: Semantic token naming convention: components must use bg-surface/text-text-primary/etc., never raw hex or zinc/violet Tailwind classes
 
 ### Pending Todos
 
@@ -73,6 +77,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T21:55:44.799Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-design-system/01-CONTEXT.md
+Last session: 2026-03-15T22:26:09.552Z
+Stopped at: Completed 01-design-system-01-PLAN.md
+Resume file: None
