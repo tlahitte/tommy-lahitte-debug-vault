@@ -28,7 +28,7 @@ function renderBlock(block: TipContent, index: number) {
         )
       }
       return (
-        <h3 key={index} className="text-lg font-semibold text-zinc-200 mt-6 mb-2">
+        <h3 key={index} className="text-lg font-semibold text-text-primary mt-6 mb-2">
           {block.text}
         </h3>
       )
@@ -71,7 +71,7 @@ export default function TipDetail({ tip }: TipDetailProps) {
       <header className="mb-8">
         <div className="flex items-center gap-3 mb-4">
           <CategoryBadge category={tip.category} />
-          <time dateTime={tip.publishedAt} className="text-sm text-zinc-500">
+          <time dateTime={tip.publishedAt} className="text-sm text-text-muted">
             {new Date(tip.publishedAt).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -82,7 +82,7 @@ export default function TipDetail({ tip }: TipDetailProps) {
         <h1 className="text-3xl sm:text-4xl font-bold text-text-primary leading-tight mb-4">
           {tip.title}
         </h1>
-        <p className="text-lg text-zinc-400 leading-relaxed">{tip.summary}</p>
+        <p className="text-lg text-text-muted leading-relaxed">{tip.summary}</p>
         <div className="flex flex-wrap gap-2 mt-4">
           {tip.tags.map((tag) => (
             <Tag key={tag} label={tag} />
