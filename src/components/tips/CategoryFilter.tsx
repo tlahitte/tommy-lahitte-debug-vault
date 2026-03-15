@@ -12,8 +12,8 @@ const CATEGORIES: {
   {
     value: 'all',
     label: 'All',
-    activeClass: 'bg-violet-500/10 border-violet-500/30 text-violet-400',
-    hoverClass: 'hover:bg-violet-500/10 hover:border-violet-500/30 hover:text-violet-400',
+    activeClass: 'bg-accent/10 border-accent/30 text-accent',
+    hoverClass: 'hover:bg-accent/10 hover:border-accent/30 hover:text-accent',
   },
   {
     value: 'editor',
@@ -58,7 +58,7 @@ export default function CategoryFilter() {
           className={`rounded-full px-4 py-1.5 text-sm font-semibold border transition-colors ${
             current === value
               ? activeClass
-              : `bg-transparent border-zinc-700 text-zinc-400 ${hoverClass}`
+              : `bg-transparent border-border text-text-muted ${hoverClass}`
           }`}
           aria-pressed={current === value}
         >

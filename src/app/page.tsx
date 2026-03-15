@@ -30,26 +30,10 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero + About — combined section so the photo spans both */}
-      <section className="relative overflow-hidden bg-[#1c1535] -mt-14">
-        {/* Top highlight — vibrant purple radial glow fading into the section background */}
-        <div
-          className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(167,139,250,0.35) 0%, rgba(139,92,246,0.12) 45%, transparent 75%)',
-          }}
-        />
-
-        {/* Bottom fade into page background — multi-stop eased gradient for a smooth transition */}
-        <div
-          className="absolute bottom-0 inset-x-0 h-48 z-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, rgba(9,9,11,0) 0%, rgba(9,9,11,0.04) 15%, rgba(9,9,11,0.15) 30%, rgba(9,9,11,0.35) 45%, rgba(9,9,11,0.60) 60%, rgba(9,9,11,0.82) 75%, rgba(9,9,11,0.96) 90%, #09090b 100%)',
-          }}
-        />
-
-        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="flex flex-col gap-6 pt-[5.5rem] sm:pt-[6.5rem] pb-10 sm:pb-16">
+      {/* Hero + About */}
+      <section className="bg-surface-raised border-b border-border">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="flex flex-col gap-6 py-10 sm:py-16">
             <Hero />
             <AboutCard />
           </div>
@@ -58,7 +42,7 @@ export default function HomePage() {
 
       <section className="pb-12">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-zinc-100 mb-8 font-display">Latest Posts</h2>
+          <h2 className="text-2xl font-bold text-text-primary mb-8 font-display">Latest Posts</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {latestPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
@@ -67,7 +51,7 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
             >
               View All Posts
               <svg
@@ -91,7 +75,7 @@ export default function HomePage() {
 
       <section className="pb-32">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-zinc-100 mb-8 font-display">Latest Tips</h2>
+          <h2 className="text-2xl font-bold text-text-primary mb-8 font-display">Latest Tips</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {latestTips.map((tip) => (
               <TipCard key={tip.slug} tip={tip} />
@@ -100,7 +84,7 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/tips"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
             >
               View All Tips
               <svg

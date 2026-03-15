@@ -97,13 +97,13 @@ export default function AboutCard() {
   }, [])
 
   return (
-    <div className="rounded-xl border border-zinc-700/60 bg-gradient-to-b from-zinc-800/60 to-zinc-900/50 p-6 sm:p-10">
-      <h2 className="text-lg font-semibold text-zinc-100 mb-4">About Me</h2>
-      <p className="text-zinc-400 leading-relaxed">
+    <div className="rounded-xl border border-border bg-surface p-6 sm:p-10">
+      <h2 className="text-lg font-semibold text-text-primary mb-4">About Me</h2>
+      <p className="text-text-muted leading-relaxed">
         I&apos;m Tommy, a maker and tinkerer who can&apos;t resist taking things apart to see
         how they work, and occasionally getting them back together.
       </p>
-      <p className="mt-4 text-zinc-400 leading-relaxed">
+      <p className="mt-4 text-text-muted leading-relaxed">
         My career has been a single thread connecting art and technology: a decade of video
         programming and projection supervision for international live shows, deep dives into
         media-server technology at{' '}
@@ -111,34 +111,34 @@ export default function AboutCard() {
           href="https://www.vyv.ca/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-zinc-300 font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-violet-300 hover:decoration-violet-400/60 transition-colors duration-200"
+          className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200"
         >VYV</a>, and now{' '}
         <a
           href="https://www.epicgames.com/site/en-US/home"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-zinc-300 font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-violet-300 hover:decoration-violet-400/60 transition-colors duration-200"
+          className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200"
         >Virtual Production at Epic Games</a>{' '}
         where I get to push Unreal Engine into territory that would have felt like science
         fiction ten years ago.
       </p>
-      <p className="mt-4 text-zinc-400 leading-relaxed">
+      <p className="mt-4 text-text-muted leading-relaxed">
         This site is a side-effect of how I work. When I solve something hard, I write it down.
         These are the debugging notes, editor tricks, and QA patterns that came out of building
         real things on real projects. No padding, no filler. Just the stuff that actually mattered.
       </p>
 
-      <div className="mt-6 pt-6 border-t border-zinc-700/50 flex flex-col sm:flex-row sm:items-center gap-4">
+      <div className="mt-6 pt-6 border-t border-border flex flex-col sm:flex-row sm:items-center gap-4">
         {/* Credibility signal */}
         <div className="flex items-center gap-2 shrink-0">
-          <span className="text-xs font-medium text-zinc-500 uppercase tracking-widest">Working at</span>
-          <span className="text-xs font-semibold text-violet-400 bg-violet-950/50 border border-violet-800/50 px-2.5 py-1 rounded-md">
+          <span className="text-xs font-medium text-text-muted uppercase tracking-widest">Working at</span>
+          <span className="text-xs font-semibold text-accent bg-accent/10 border border-accent/30 px-2.5 py-1 rounded-md">
             Epic Games
           </span>
         </div>
 
         {/* Divider */}
-        <div className="hidden sm:block w-px h-4 bg-zinc-700/60" />
+        <div className="hidden sm:block w-px h-4 bg-border" />
 
         {/* Tech stack */}
         <div className="flex flex-wrap gap-2">
@@ -146,7 +146,7 @@ export default function AboutCard() {
             <button
               key={label}
               onClick={() => handleBadgeClick(label)}
-              className="badge-glow text-xs font-medium text-zinc-400 bg-zinc-800/60 border border-zinc-700/50 px-2.5 py-1 rounded-md cursor-pointer transition-all"
+              className="badge-glow text-xs font-medium text-text-muted bg-zinc-800/60 border border-zinc-700/50 px-2.5 py-1 rounded-md cursor-pointer transition-all"
               style={{ '--badge-glow': glow, '--badge-border': border, '--badge-text': text } as React.CSSProperties}
             >
               {label}

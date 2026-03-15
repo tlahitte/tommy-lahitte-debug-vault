@@ -74,7 +74,7 @@ export default async function TipPage({ params }: TipPageProps) {
       <nav className="mb-8">
         <Link
           href="/tips/"
-          className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-violet-400 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-accent transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
