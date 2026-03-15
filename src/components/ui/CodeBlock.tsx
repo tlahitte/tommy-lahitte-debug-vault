@@ -5,9 +5,9 @@ interface CodeBlockProps {
 
 export default function CodeBlock({ code, language }: CodeBlockProps) {
   return (
-    <div className="my-4 rounded-lg overflow-hidden border border-zinc-800">
+    <div className="my-4 rounded-lg overflow-hidden border border-border">
       {language && (
-        <div className="bg-zinc-800 px-4 py-1.5 text-xs font-mono text-zinc-400 border-b border-zinc-700">
+        <div className="bg-surface-raised px-4 py-1.5 text-xs font-mono text-text-muted border-b border-border">
           {language}
         </div>
       )}
