@@ -11,7 +11,7 @@ Requirements pour la première version. Chaque requirement mappe vers une phase 
 
 - [x] **DSGN-01**: Le design system extrait des tokens sémantiques Tailwind (`surface`, `text-primary`, `text-muted`, `accent`, `border`) avant toute modification de composant
 - [x] **DSGN-02**: L'identité visuelle maker appliquée — palette kraft/beige, typographie précise, espacement généreux, allègement du style actuel "AI-générique"
-- [ ] **DSGN-03**: Les micro-animations sobres implémentées sur les interactions clés (hover cards, transitions de pages, états de focus)
+- [x] **DSGN-03**: Les micro-animations sobres implémentées sur les interactions clés (hover cards, transitions de pages, états de focus)
 
 ### Page d'accueil
 
@@ -89,7 +89,7 @@ Différé. Présent dans les specs mais pas dans la roadmap courante.
 |-------------|-------|--------|
 | DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 1 | Complete |
-| DSGN-03 | Phase 1 | Pending |
+| DSGN-03 | Phase 1 | Complete |
 | HOME-01 | Phase 4 | Pending |
 | HOME-02 | Phase 4 | Pending |
 | HOME-03 | Phase 4 | Pending |
