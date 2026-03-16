@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-03-16T14:35:17.633Z"
+stopped_at: Completed 02-05-PLAN.md
+last_updated: "2026-03-16T14:38:48.212Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
   percent: 0
 ---
 
@@ -60,6 +60,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-notion-foundation-blog P03 | 2 | 1 tasks | 1 files |
 | Phase 02-notion-foundation-blog P03 | 120 | 2 tasks | 3 files |
 | Phase 02-notion-foundation-blog P04 | 2 | 2 tasks | 2 files |
+| Phase 02-notion-foundation-blog P05 | 3 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,8 @@ Recent decisions affecting current work:
 - [Phase 02-notion-foundation-blog]: renderBlock returns null in default branch — unknown block types fail silently (NOTI-03)
 - [Phase 02-notion-foundation-blog]: Each bulleted/numbered list item wraps its own ul/ol — no block grouping needed for static renderer
 - [Phase 02-notion-foundation-blog]: Plain img used for Notion image blocks (not next/image) — static export compatibility when image dimensions unknown
+- [Phase 02-notion-foundation-blog]: Plain img used for cover image in article detail page — static export compatibility, consistent with NotionBlock
+- [Phase 02-notion-foundation-blog]: ReadingProgressBar as isolated leaf client component — server page retains no use client directive
 
 ### Pending Todos
 
@@ -110,6 +113,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T14:35:17.630Z
-Stopped at: Completed 02-04-PLAN.md
+Last session: 2026-03-16T14:38:48.209Z
+Stopped at: Completed 02-05-PLAN.md
 Resume file: None
