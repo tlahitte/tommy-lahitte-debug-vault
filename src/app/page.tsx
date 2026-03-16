@@ -2,7 +2,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/home/Hero'
-import AboutCard from '@/components/home/AboutCard'
 import TipCard from '@/components/tips/TipCard'
 import BlogCard from '@/components/blog/BlogCard'
 import { getAllTips } from '@/lib/tips'
@@ -32,7 +31,7 @@ export default async function HomePage() {
     <>
       {/* Hero + About */}
       <section
-        className="bg-gradient-to-b from-surface-raised to-surface border-b border-border relative overflow-hidden"
+        className="bg-gradient-to-b from-surface-raised to-surface border-b border-border relative overflow-hidden hero-texture"
         style={{
           background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,90,58,0.06) 0%, transparent 70%), linear-gradient(to bottom, var(--surface-raised), var(--surface))',
         }}
@@ -40,12 +39,11 @@ export default async function HomePage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="flex flex-col gap-6 py-10 sm:py-16">
             <Hero />
-            <AboutCard />
           </div>
         </div>
       </section>
 
-      <section className="pt-12 sm:pt-16 pb-12">
+      <section className="pt-12 sm:pt-16 pb-12 bg-surface-raised">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-text-primary mb-8 font-display">Latest Posts</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

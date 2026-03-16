@@ -5,45 +5,56 @@ export default function Hero() {
   return (
     <div>
       {/* Top row: text left, portrait right */}
-      <div className="flex items-start gap-6 sm:gap-8">
+      <div className="flex items-center gap-6 sm:gap-10">
 
         {/* Text */}
         <div className="flex-1 min-w-0">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-display">
-            Senior QA Engineer
+            Hey, I&apos;m Tommy 👋
           </h1>
           <p className="mt-2 sm:mt-3 text-xl font-medium">
             <em className="text-accent not-italic">
-              <span className="hidden sm:inline">Unreal Engine</span>
-              <span className="sm:hidden">UE</span> Expert
+              Senior QA Engineer
             </em>
             <span className="text-text-muted mx-2">·</span>
             <span className="text-text-muted">Epic Games</span>
           </p>
           <hr className="my-4 border-border" />
-          <p className="text-xl text-text-muted leading-relaxed sm:whitespace-nowrap">
-            Engineering field notes, side projects, and the things worth sharing.
+          <p className="text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl">
+            On this website you&apos;ll find engineering field notes, side projects,
+            and the things I think are worth sharing.
+            <br className="hidden sm:block" />
+            Welcome aboard.
           </p>
         </div>
 
-        {/* Portrait with rotating glow halo */}
-        <div className="relative shrink-0 mt-1 w-28 sm:w-36 lg:w-44">
-          {/* Rotating arc — blurred so the glow peaks at the ring edge and fades outward */}
+        {/* Portrait with rotating glow halo + frosted ring */}
+        <div className="relative shrink-0 w-36 sm:w-48 lg:w-60">
+          {/* Rotating arc — blurred glow behind everything */}
           <div
-            className="absolute -inset-8 rounded-full animate-spin-slow"
+            className="absolute -inset-10 rounded-full animate-spin-slow"
             style={{
               background: 'conic-gradient(from 0deg, transparent 0%, transparent 45%, rgba(200,90,58,0.7) 62%, rgba(168,67,42,0.85) 78%, rgba(200,90,58,0.9) 90%, transparent 100%)',
               filter: 'blur(18px)',
             }}
           />
+          {/* Frosted ring — sits between glow and image, blurs the animation behind */}
+          <div
+            className="absolute -inset-3 rounded-full"
+            style={{
+              background: 'radial-gradient(circle, transparent 72%, rgba(250,250,247,0.4) 80%, rgba(250,250,247,0.7) 88%, rgba(240,235,224,0.85) 100%)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+            }}
+          />
           {/* Image */}
           <Image
-            src="/tommy-lahitte-avatar-480.webp"
+            src="/avatar/tommy-lahitte-480.webp"
             alt="Tommy Lahitte"
             width={480}
             height={480}
-            sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
-            className="relative w-full rounded-2xl ring-1 ring-accent block"
+            sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 240px"
+            className="relative w-full rounded-full block aspect-square object-cover"
             priority
           />
         </div>
@@ -76,7 +87,7 @@ export default function Hero() {
           href="/blog"
           className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
-          Read Blog
+          Read Journal
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
