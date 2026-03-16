@@ -1,5 +1,8 @@
+'use client'
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'motion/react'
+import { TextShimmer } from '@/components/ui/text-shimmer'
 
 export default function Hero() {
   return (
@@ -10,12 +13,29 @@ export default function Hero() {
         {/* Text */}
         <div className="flex-1 min-w-0">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-display">
-            Hey, I&apos;m Tommy 👋
+            Hey, I&apos;m Tommy{' '}
+            <motion.span
+              className="inline-block origin-[70%_80%]"
+              animate={{ rotate: [0, 20, -10, 20, -5, 0] }}
+              transition={{
+                repeat: Infinity,
+                repeatDelay: 10,
+                duration: 0.8,
+                ease: 'easeInOut',
+              }}
+            >
+              👋
+            </motion.span>
           </h1>
           <p className="mt-2 sm:mt-3 text-xl font-medium">
-            <em className="text-accent not-italic">
+            <TextShimmer
+              as="em"
+              duration={5}
+              spread={6}
+              className="not-italic [--base-color:var(--accent)] [--base-gradient-color:var(--accent-hover)]"
+            >
               Senior QA Engineer
-            </em>
+            </TextShimmer>
             <span className="text-text-muted mx-2">·</span>
             <span className="text-text-muted">Epic Games</span>
           </p>
