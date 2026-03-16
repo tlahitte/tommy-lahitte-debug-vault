@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
-import BlogCard from '@/components/blog/BlogCard'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -16,8 +15,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogPage() {
-  const posts = getAllPosts()
+export default async function BlogPage() {
+  const posts = await getAllPosts()
 
   return (
     <>
@@ -30,15 +29,36 @@ export default function BlogPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 pt-[5.5rem] sm:pt-[6.5rem] pb-16">
-          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Blog</h1>
+          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Writing</h1>
           <p className="text-text-muted">Things I am currently working on.</p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 pb-32">
-        <div className="grid gap-6 sm:grid-cols-2">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 pb-32 pt-8">
+        <div className="divide-y divide-border flex flex-col">
           {posts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
+            <article key={post.slug} className="py-8 first:pt-0">
+              <a href={`/blog/${post.slug}`} className="group block">
+                {post.image && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={post.image}
+                    alt={post.imageAlt ?? post.title}
+                    className="w-full rounded-lg mb-4 aspect-[16/6] object-cover"
+                  />
+                )}
+                <p className="text-sm text-text-muted mb-1">{post.date}</p>
+                <h2 className="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors mb-2">
+                  {post.title}
+                </h2>
+                <p className="text-base text-text-muted leading-relaxed">{post.excerpt}</p>
+                {post.link && (
+                  <span className="inline-block mt-3 text-sm text-accent underline">
+                    {post.link.label}
+                  </span>
+                )}
+              </a>
+            </article>
           ))}
         </div>
       </div>
