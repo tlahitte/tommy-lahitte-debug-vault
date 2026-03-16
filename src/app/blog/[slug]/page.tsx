@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { renderBlock } from '@/components/blog/NotionBlock'
 import { ReadingProgressBar } from '@/components/blog/ReadingProgressBar'
+import StatusBadge from '@/components/blog/StatusBadge'
+import ProjectGallery from '@/components/blog/ProjectGallery'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -98,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
         href="/blog"
         className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors mb-8"
       >
-        &larr; Back to Blog
+        &larr; Back to Journal
       </Link>
 
       <article>
@@ -118,8 +120,19 @@ export default async function BlogPostPage({ params }: Props) {
             <time dateTime={post.date}>{formattedDate}</time>
             <span aria-hidden="true">·</span>
             <span>{readingTime} min read</span>
+            {post.category === 'Project' && post.status && (
+              <>
+                <span aria-hidden="true">·</span>
+                <StatusBadge status={post.status} />
+              </>
+            )}
           </div>
         </header>
+
+        {/* Photo gallery — only for Project category with gallery images */}
+        {post.category === 'Project' && post.gallery && post.gallery.length > 0 && (
+          <ProjectGallery images={post.gallery} />
+        )}
 
         <div className="space-y-4">
           {post.content.map((block, index) => renderBlock(block, index))}
