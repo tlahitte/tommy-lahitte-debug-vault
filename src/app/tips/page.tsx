@@ -4,14 +4,14 @@ import { getAllTips } from '@/lib/tips'
 import TipsGrid from '@/components/tips/TipsGrid'
 
 export const metadata: Metadata = {
-  title: 'All Tips',
+  title: 'Unreal Tips',
   description:
     'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte, covering the editor, debugging tools, and QA automation workflows.',
   alternates: {
     canonical: 'https://tommylahitte.com/tips/',
   },
   openGraph: {
-    title: 'All Tips | Tommy Lahitte Debug Vault',
+    title: 'Unreal Tips | Tommy Lahitte Debug Vault',
     description:
       'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte.',
     url: 'https://tommylahitte.com/tips/',
@@ -33,7 +33,7 @@ export default function TipsPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 pt-[5.5rem] sm:pt-[6.5rem] pb-16">
-          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">All Tips</h1>
+          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Unreal Tips</h1>
           <p className="text-text-muted">
             {allTips.length} tip{allTips.length !== 1 ? 's' : ''} on Unreal Engine QA &amp;
             debugging
@@ -41,7 +41,7 @@ export default function TipsPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 pb-32">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 pb-32 pt-8">
         <TipsGrid tips={allTips} />
       </div>
     </>

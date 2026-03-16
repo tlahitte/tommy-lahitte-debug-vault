@@ -29,7 +29,7 @@ export default async function BlogPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 pt-[5.5rem] sm:pt-[6.5rem] pb-16">
-          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Writing</h1>
+          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Blog</h1>
           <p className="text-text-muted">Things I am currently working on.</p>
         </div>
       </section>
