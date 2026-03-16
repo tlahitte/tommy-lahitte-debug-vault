@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import { getAllTips } from '@/lib/tips'
 import TipsGrid from '@/components/tips/TipsGrid'
+import RandomDoodle from '@/components/ui/RandomDoodle'
 
 export const metadata: Metadata = {
   title: 'Unreal Tips',
@@ -24,8 +25,8 @@ export default function TipsPage() {
 
   return (
     <>
-      {/* Page header — kraft visual identity */}
-      <section className="relative overflow-hidden bg-surface-raised border-b border-border -mt-14">
+      {/* Page header — kraft visual identity with blueprint illustration */}
+      <section className="relative overflow-hidden bg-surface-raised border-b border-border -mt-14 hero-texture">
         <div
           className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
           style={{
@@ -38,6 +39,12 @@ export default function TipsPage() {
             {allTips.length} tip{allTips.length !== 1 ? 's' : ''} on Unreal Engine QA &amp;
             debugging
           </p>
+        </div>
+        {/* Random doodle — right-aligned within content area, contained in banner */}
+        <div className="absolute left-1/2 -translate-x-1/2 w-full max-w-5xl px-4 sm:px-6 bottom-0 pointer-events-none select-none">
+          <div className="ml-auto w-44 sm:w-56 h-44 sm:h-56 opacity-100">
+            <RandomDoodle />
+          </div>
         </div>
       </section>
 
