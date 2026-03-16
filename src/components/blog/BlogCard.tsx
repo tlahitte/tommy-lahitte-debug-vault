@@ -18,7 +18,7 @@ export default function BlogCard({ post }: BlogCardProps) {
 
   return (
     <motion.article
-      className="group relative rounded-xl border border-border bg-surface-raised overflow-hidden cursor-pointer"
+      className="group relative rounded-xl border border-border bg-surface-raised overflow-hidden cursor-pointer card-elevated"
       whileHover={{ y: -2, boxShadow: '0 8px 24px -4px rgba(200, 90, 58, 0.12)' }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
     >
