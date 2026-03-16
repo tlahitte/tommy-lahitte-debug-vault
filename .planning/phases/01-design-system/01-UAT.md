@@ -61,5 +61,40 @@ skipped: 0
   reason: "User reported: flat color aplats look low-budget; needs gradients for texture/emphasis; spacing too tight around Latest Posts/Tips sections; About Me skill badges still violet/blue (token migration missed); header transparent at top creates jarring fade-in effect"
   severity: major
   test: 1
-  artifacts: []
-  missing: []
+  root_cause: |
+    Four distinct sub-issues:
+
+    1. BADGE COLORS (AboutCard.tsx) — `badges` const (lines 5–54) stores per-badge rgba/rgb strings
+       that predate token migration and were never updated. Piped as CSS custom properties via
+       style prop on each <button> (lines 145–154) and consumed by .badge-glow:hover in globals.css.
+       All 6 badges use wrong colors: violet (Unreal/Software Dev), indigo/blue (Software Dev),
+       blue (Technical Direction), sky-blue (Electronics), cyan (Film Photography), teal (AI).
+       Button resting classes also use raw zinc (bg-zinc-800/60, border-zinc-700/50).
+
+    2. FLAT COLORS / NO GRADIENTS (page.tsx) — Hero section uses solid bg-surface-raised (#F0EBE0),
+       content sections inherit flat bg-surface (#FAFAF7). No gradient layering or tonal variation
+       anywhere. Hard border-b divider reads as cheap cut rather than atmospheric transition.
+
+    3. TIGHT SPACING (page.tsx lines 43, 76) — Latest Posts and Latest Tips sections have zero
+       top padding (pb-only classes). h2 headings start immediately after the hero border-b.
+       Hero inner container uses py-10 sm:py-16 — sections should mirror with matching pt values.
+
+    4. HEADER ALWAYS-VISIBLE (Header.tsx) — scrollY > 48 threshold means the header background
+       is absent for the first 48px of scroll. User wants the background visible from page load.
+       Fix: initialize scrolled state to true, or lower/remove the threshold.
+  artifacts:
+    - path: "src/components/home/AboutCard.tsx"
+      issue: "badges array uses raw violet/blue/cyan rgba values instead of kraft tokens; button resting classes use zinc instead of semantic tokens"
+    - path: "src/app/page.tsx"
+      issue: "hero section solid bg-surface-raised with no gradient; Latest Posts (line 43) and Latest Tips (line 76) sections have zero top padding"
+    - path: "src/components/layout/Header.tsx"
+      issue: "scrollY > 48 threshold leaves header transparent at page top; user wants bg-surface visible from load"
+  missing:
+    - "Replace all rgba values in AboutCard.tsx badges array with kraft-token equivalents (accent rgba, border var(--accent), text var(--text-primary))"
+    - "Replace button resting zinc classes in AboutCard.tsx with bg-surface-raised / border-border"
+    - "Add hero-to-surface gradient on page.tsx hero section (bg-gradient-to-b from-[#F0EBE0] to-[#FAFAF7])"
+    - "Add optional accent vignette on hero (radial-gradient rgba(200,90,58,0.06))"
+    - "Add pt-12 sm:pt-16 to Latest Posts section (page.tsx line 43)"
+    - "Add pt-12 sm:pt-16 to Latest Tips section (page.tsx line 76)"
+    - "Initialize Header scrolled state to true so bg-surface is visible from page load"
+  debug_session: ".planning/debug/skill-badge-violet-blue-colors.md"
