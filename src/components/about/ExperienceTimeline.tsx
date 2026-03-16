@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import {
   motion,
   useScroll,
@@ -23,6 +24,7 @@ interface TimelineEntry {
   location: string
   description: string
   highlights?: string[]
+  highlightsLabel?: string
   year: number
 }
 
@@ -35,7 +37,18 @@ const experiences: TimelineEntry[] = [
     period: 'Dec 2022 - Present',
     location: 'London, UK',
     description:
-      'Promoted from QA Engineer, pushing Unreal Engine for film, broadcast, and live events.',
+      'Promotion focused on test automation and CI/CD maintenance for Virtual Production features. Building tools and expanding existing testing frameworks in Unreal Engine to support Virtual Production workflows.',
+    highlights: [
+      'DMX',
+      'EXR Playback',
+      'Composure',
+      'LiveLinkHub',
+      'Motion Design',
+      'nDisplay',
+      'Media Framework',
+      'Virtual Camera',
+    ],
+    highlightsLabel: 'features',
     year: 2022,
   },
   {
@@ -46,7 +59,15 @@ const experiences: TimelineEntry[] = [
     period: 'Apr 2021 - Dec 2022',
     location: 'Montreal, Canada',
     description:
-      'Virtual Production division, pioneering new storytelling techniques with Unreal Engine.',
+      'Virtual Production division, pioneering new storytelling techniques with Unreal Engine. Assisted VP workflows on major film and TV productions.',
+    highlights: [
+      'Ahsoka (Star Wars, Disney)',
+      'The Mandalorian (Disney)',
+      'Gladiator II',
+      'The Batman (2022)',
+      'Avatar: The Last Airbender (Netflix)',
+    ],
+    highlightsLabel: 'productions',
     year: 2021,
   },
   {
@@ -86,6 +107,7 @@ interface EducationEntry {
   institution: string
   degree: string
   years: string
+  logo: string
 }
 
 const education: EducationEntry[] = [
@@ -93,17 +115,32 @@ const education: EducationEntry[] = [
     institution: 'UQAM',
     degree: "Bachelor's, Communication & Interactive Media",
     years: '2012 - 2015',
+    logo: '/logos/uqam.svg',
   },
   {
     institution: 'Universite de Montreal',
     degree: 'Cinema Studies Minor',
     years: '2011 - 2012',
+    logo: '/logos/udem.svg',
   },
   {
     institution: 'I.U.T Annecy-le-Vieux',
     degree: 'Bac+2, Computer Science',
     years: '2008 - 2010',
+    logo: '/logos/usmb.svg',
   },
+]
+
+interface CertificationEntry {
+  name: string
+  issuer: string
+  logo: string
+}
+
+const certifications: CertificationEntry[] = [
+  { name: 'Certified Tester, Foundation Level', issuer: 'ISTQB', logo: '/logos/istqb.svg' },
+  { name: 'Unreal Fellowship: Animation', issuer: 'Epic Games', logo: '/logos/epic-games.svg' },
+  { name: 'C# for Programmers: A Practical Guide', issuer: 'Coursera', logo: '/logos/coursera.svg' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -165,7 +202,7 @@ function TimelineCard({
             onClick={() => setShowHighlights((v) => !v)}
             className="text-xs font-medium text-accent hover:text-accent-hover transition-colors cursor-pointer"
           >
-            {showHighlights ? 'Hide projects' : 'Show projects'}
+            {showHighlights ? `Hide ${entry.highlightsLabel || 'projects'}` : `Show ${entry.highlightsLabel || 'projects'}`}
           </button>
           <AnimatePresence initial={false}>
             {showHighlights && (
@@ -209,13 +246,51 @@ function EducationRow({ entry }: { entry: EducationEntry }) {
       initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3"
+      className="flex items-center gap-3"
     >
+      <Image
+        src={entry.logo}
+        alt={`${entry.institution} logo`}
+        width={28}
+        height={28}
+        className="shrink-0 rounded"
+      />
       <span className="text-text-primary font-medium text-sm">
         {entry.institution}
       </span>
       <span className="text-text-muted text-sm">{entry.degree}</span>
       <span className="text-text-muted text-xs sm:ml-auto">{entry.years}</span>
+    </motion.div>
+  )
+}
+
+/* ------------------------------------------------------------------ */
+/*  CertificationRow                                                   */
+/* ------------------------------------------------------------------ */
+
+function CertificationRow({ entry }: { entry: CertificationEntry }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-50px' })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 16 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="flex items-center gap-3"
+    >
+      <Image
+        src={entry.logo}
+        alt={`${entry.issuer} logo`}
+        width={28}
+        height={28}
+        className="shrink-0 rounded"
+      />
+      <span className="text-text-primary font-medium text-sm">
+        {entry.name}
+      </span>
+      <span className="text-text-muted text-sm sm:ml-auto">{entry.issuer}</span>
     </motion.div>
   )
 }
@@ -313,6 +388,18 @@ export default function ExperienceTimeline() {
           <div className="space-y-4 max-w-xl mx-auto">
             {education.map((entry) => (
               <EducationRow key={entry.institution} entry={entry} />
+            ))}
+          </div>
+        </div>
+
+        {/* Certifications sub-section */}
+        <div className="mt-12 pt-8 border-t border-border">
+          <h3 className="text-lg font-semibold text-text-primary font-display mb-6 text-center">
+            Licenses & Certifications
+          </h3>
+          <div className="space-y-4 max-w-xl mx-auto">
+            {certifications.map((entry) => (
+              <CertificationRow key={entry.name} entry={entry} />
             ))}
           </div>
         </div>
