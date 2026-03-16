@@ -22,16 +22,16 @@ Requirements pour la première version. Chaque requirement mappe vers une phase 
 
 ### Notion CMS — Fondation
 
-- [ ] **NOTI-01**: Le data layer Notion implémenté avec throttle (3 req/s), pagination complète, et download des images au build time (URLs Notion expirent en 1h)
-- [ ] **NOTI-02**: Le renderer de blocks Notion supporte : paragraph, heading (h1-h3), code, callout, bulleted_list, numbered_list, image, toggle, divider
-- [ ] **NOTI-03**: Les blocks non supportés sont rendus silencieusement (fallback invisible, jamais une erreur de build)
-- [ ] **NOTI-04**: Les types TypeScript sont définis et mappés depuis les propriétés des bases Notion (correspondance stricte entre propriétés Notion et types TS)
+- [x] **NOTI-01**: Le data layer Notion implémenté avec throttle (3 req/s), pagination complète, et download des images au build time (URLs Notion expirent en 1h)
+- [x] **NOTI-02**: Le renderer de blocks Notion supporte : paragraph, heading (h1-h3), code, callout, bulleted_list, numbered_list, image, toggle, divider
+- [x] **NOTI-03**: Les blocks non supportés sont rendus silencieusement (fallback invisible, jamais une erreur de build)
+- [x] **NOTI-04**: Les types TypeScript sont définis et mappés depuis les propriétés des bases Notion (correspondance stricte entre propriétés Notion et types TS)
 - [ ] **NOTI-05**: Le webhook Notion → Netlify Build Hook est configuré — publier un contenu dans Notion déclenche un rebuild automatique du site (~2 min de latence)
 
 ### Blog
 
 - [ ] **BLOG-01**: Le contenu existant migré vers Notion (tous les articles actuels recréés dans la base Notion Blog)
-- [ ] **BLOG-02**: Les URLs des articles préservées (slugs identiques à aujourd'hui, aucun lien cassé, SEO protégé)
+- [x] **BLOG-02**: Les URLs des articles préservées (slugs identiques à aujourd'hui, aucun lien cassé, SEO protégé)
 
 ### Projets
 
@@ -94,13 +94,13 @@ Différé. Présent dans les specs mais pas dans la roadmap courante.
 | HOME-02 | Phase 4 | Pending |
 | HOME-03 | Phase 4 | Pending |
 | HOME-04 | Phase 4 | Pending |
-| NOTI-01 | Phase 2 | Pending |
-| NOTI-02 | Phase 2 | Pending |
-| NOTI-03 | Phase 2 | Pending |
-| NOTI-04 | Phase 2 | Pending |
+| NOTI-01 | Phase 2 | Complete |
+| NOTI-02 | Phase 2 | Complete |
+| NOTI-03 | Phase 2 | Complete |
+| NOTI-04 | Phase 2 | Complete |
 | NOTI-05 | Phase 2 | Pending |
 | BLOG-01 | Phase 2 | Pending |
-| BLOG-02 | Phase 2 | Pending |
+| BLOG-02 | Phase 2 | Complete |
 | PROJ-01 | Phase 3 | Pending |
 | PROJ-02 | Phase 3 | Pending |
 | PROJ-03 | Phase 3 | Pending |
