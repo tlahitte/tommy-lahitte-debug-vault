@@ -26,11 +26,11 @@ Requirements pour la première version. Chaque requirement mappe vers une phase 
 - [x] **NOTI-02**: Le renderer de blocks Notion supporte : paragraph, heading (h1-h3), code, callout, bulleted_list, numbered_list, image, toggle, divider
 - [x] **NOTI-03**: Les blocks non supportés sont rendus silencieusement (fallback invisible, jamais une erreur de build)
 - [x] **NOTI-04**: Les types TypeScript sont définis et mappés depuis les propriétés des bases Notion (correspondance stricte entre propriétés Notion et types TS)
-- [ ] **NOTI-05**: Le webhook Notion → Netlify Build Hook est configuré — publier un contenu dans Notion déclenche un rebuild automatique du site (~2 min de latence)
+- [x] **NOTI-05**: Le webhook Notion → Netlify Build Hook est configuré — publier un contenu dans Notion déclenche un rebuild automatique du site (~2 min de latence)
 
 ### Blog
 
-- [ ] **BLOG-01**: Le contenu existant migré vers Notion (tous les articles actuels recréés dans la base Notion Blog)
+- [x] **BLOG-01**: Le contenu existant migré vers Notion (tous les articles actuels recréés dans la base Notion Blog)
 - [x] **BLOG-02**: Les URLs des articles préservées (slugs identiques à aujourd'hui, aucun lien cassé, SEO protégé)
 
 ### Projets
@@ -98,8 +98,8 @@ Différé. Présent dans les specs mais pas dans la roadmap courante.
 | NOTI-02 | Phase 2 | Complete |
 | NOTI-03 | Phase 2 | Complete |
 | NOTI-04 | Phase 2 | Complete |
-| NOTI-05 | Phase 2 | Pending |
-| BLOG-01 | Phase 2 | Pending |
+| NOTI-05 | Phase 2 | Complete |
+| BLOG-01 | Phase 2 | Complete |
 | BLOG-02 | Phase 2 | Complete |
 | PROJ-01 | Phase 3 | Pending |
 | PROJ-02 | Phase 3 | Pending |
