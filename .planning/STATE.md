@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-projects-section-03-02-PLAN.md
-last_updated: "2026-03-16T16:11:39.466Z"
+stopped_at: Completed 04-homepage-about-04-02-PLAN.md
+last_updated: "2026-03-16T20:10:52.571Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
-  completed_phases: 3
-  total_plans: 14
-  completed_plans: 14
+  completed_phases: 4
+  total_plans: 16
+  completed_plans: 16
   percent: 0
 ---
 
@@ -64,6 +64,8 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-projects-section P01 | 2 | 3 tasks | 4 files |
 | Phase 03-projects-section P03 | 1 | 2 tasks | 3 files |
 | Phase 03-projects-section P02 | 2 | 3 tasks | 4 files |
+| Phase 04-homepage-about P02 | 2 | 2 tasks | 2 files |
+| Phase 04-homepage-about P01 | 3 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -113,6 +115,9 @@ Recent decisions affecting current work:
 - [Phase 03-projects-section]: BlogList uses useSearchParams directly — URL is source of truth, both components read it independently
 - [Phase 03-projects-section]: Suspense boundary required around BlogList in server page because useSearchParams suspends during SSR
 - [Phase 03-projects-section]: Project cards use aspect-[16/9], articles/recommendations use aspect-[16/6] for visual hierarchy signaling content type
+- [Phase 04-homepage-about]: About page hero subtitle changed to 'Maker & Tinkerer · Art meets Technology' — Epic Games remains in metadata description as context, not the lede
+- [Phase 04-homepage-about]: Schema.org Person jobTitle stays 'Senior QA Engineer' (factual); expanded knowsAbout covers maker facets (Electronics, Film Photography, Media Servers, Live Show Technology, Virtual Production)
+- [Phase 04-homepage-about]: Global site title template changed from '%s | Tommy Lahitte Debug Vault' to '%s | Tommy Lahitte' — removes niche 'Debug Vault' branding from all page titles
 
 ### Pending Todos
 
@@ -125,6 +130,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T16:07:22.006Z
-Stopped at: Completed 03-projects-section-03-02-PLAN.md
+Last session: 2026-03-16T20:10:44.023Z
+Stopped at: Completed 04-homepage-about-04-02-PLAN.md
 Resume file: None

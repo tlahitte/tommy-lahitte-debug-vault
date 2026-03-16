@@ -43,7 +43,7 @@ Requirements pour la première version. Chaque requirement mappe vers une phase 
 
 ### About
 
-- [ ] **ABOU-01**: Une page `/about` dédiée présente la bio complète et le parcours maker de Tommy
+- [x] **ABOU-01**: Une page `/about` dédiée présente la bio complète et le parcours maker de Tommy
 
 ## v2 Requirements
 
@@ -106,7 +106,7 @@ Différé. Présent dans les specs mais pas dans la roadmap courante.
 | PROJ-03 | Phase 3 | Complete |
 | PROJ-04 | Phase 3 | Complete |
 | PROJ-05 | Phase 3 | Complete |
-| ABOU-01 | Phase 4 | Pending |
+| ABOU-01 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 20 total
