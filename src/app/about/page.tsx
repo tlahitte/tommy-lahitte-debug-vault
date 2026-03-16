@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import AboutCard from '@/components/home/AboutCard'
+import ExperienceTimeline from '@/components/about/ExperienceTimeline'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 
 export const metadata: Metadata = {
@@ -80,6 +81,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <AboutCard />
         </div>
+      </section>
+
+      <section className="border-t border-border">
+        <ExperienceTimeline />
       </section>
     </>
   )
