@@ -1,25 +1,8 @@
-'use client'
-
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(true)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 48)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-surface border-b border-border'
-          : 'bg-transparent border-b border-transparent'
-      }`}
-    >
+    <header className="fixed top-0 inset-x-0 z-50 bg-surface border-b border-border">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="flex h-14 items-center justify-between">
           <Link
@@ -34,6 +17,12 @@ export default function Header() {
               className="text-sm font-medium text-text-muted hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             >
               Blog
+            </Link>
+            <Link
+              href="/tips"
+              className="text-sm font-medium text-text-muted hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            >
+              Unreal Tips
             </Link>
             <Link
               href="/projects"
