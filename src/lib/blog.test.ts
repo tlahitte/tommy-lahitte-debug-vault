@@ -138,3 +138,86 @@ describe('slug preservation (BLOG-02)', () => {
     expect(posts.some((p) => p.slug === 'technical-director-people-person-show')).toBe(true)
   })
 })
+
+describe('category extraction (PROJ-01)', () => {
+  it('returns category when Category select is set', async () => {
+    const page = makeMockPage({
+      Category: { type: 'select', select: { name: 'Project' } },
+    })
+    mockQuery.mockResolvedValueOnce({ results: [page], has_more: false, next_cursor: null })
+    const posts = await getAllPosts()
+    expect(posts[0].category).toBe('Project')
+  })
+
+  it('returns undefined category when Category select is absent', async () => {
+    const page = makeMockPage()
+    mockQuery.mockResolvedValueOnce({ results: [page], has_more: false, next_cursor: null })
+    const posts = await getAllPosts()
+    expect(posts[0].category).toBeUndefined()
+  })
+})
+
+describe('project status extraction (PROJ-04)', () => {
+  it('returns status when ProjectStatus select is set', async () => {
+    const page = makeMockPage({
+      ProjectStatus: { type: 'select', select: { name: 'In Progress' } },
+    })
+    mockQuery.mockResolvedValueOnce({ results: [page], has_more: false, next_cursor: null })
+    const posts = await getAllPosts()
+    expect(posts[0].status).toBe('In Progress')
+  })
+
+  it('returns undefined status when ProjectStatus select is absent', async () => {
+    const page = makeMockPage()
+    mockQuery.mockResolvedValueOnce({ results: [page], has_more: false, next_cursor: null })
+    const posts = await getAllPosts()
+    expect(posts[0].status).toBeUndefined()
+  })
+})
+
+describe('gallery extraction (PROJ-03)', () => {
+  it('downloads gallery files and returns local paths', async () => {
+    mockDownload.mockResolvedValueOnce('/notion-images/page-id-abc-gallery-0.jpg')
+    mockDownload.mockResolvedValueOnce('/notion-images/page-id-abc-gallery-1.jpg')
+    const page = makeMockPage({
+      Gallery: {
+        type: 'files',
+        files: [
+          { type: 'file', file: { url: 'https://notion.so/gallery-1.jpg' } },
+          { type: 'file', file: { url: 'https://notion.so/gallery-2.jpg' } },
+        ],
+      },
+    })
+    mockQuery.mockResolvedValueOnce({ results: [page], has_more: false, next_cursor: null })
+    const posts = await getAllPosts()
+    expect(posts[0].gallery).toEqual([
+      '/notion-images/page-id-abc-gallery-0.jpg',
+      '/notion-images/page-id-abc-gallery-1.jpg',
+    ])
+    expect(mockDownload).toHaveBeenCalledTimes(2)
+  })
+
+  it('returns undefined gallery when Gallery property is empty', async () => {
+    const page = makeMockPage({
+      Gallery: { type: 'files', files: [] },
+    })
+    mockQuery.mockResolvedValueOnce({ results: [page], has_more: false, next_cursor: null })
+    const posts = await getAllPosts()
+    expect(posts[0].gallery).toBeUndefined()
+  })
+
+  it('handles external gallery URLs without downloading', async () => {
+    const page = makeMockPage({
+      Gallery: {
+        type: 'files',
+        files: [
+          { type: 'external', external: { url: 'https://example.com/photo.jpg' } },
+        ],
+      },
+    })
+    mockQuery.mockResolvedValueOnce({ results: [page], has_more: false, next_cursor: null })
+    const posts = await getAllPosts()
+    expect(posts[0].gallery).toEqual(['https://example.com/photo.jpg'])
+    expect(mockDownload).not.toHaveBeenCalled()
+  })
+})
