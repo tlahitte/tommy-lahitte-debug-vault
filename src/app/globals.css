@@ -14,6 +14,11 @@
   --accent: #C85A3A;
   --accent-hover: #A8432A;
   --border: #E2D9CE;
+  /* Aurora effect — warm accent tones */
+  --aurora-1: #D4603E;
+  --aurora-2: #F09070;
+  --aurora-3: #C85A3A;
+  --aurora-4: #E07850;
 }
 
 body {

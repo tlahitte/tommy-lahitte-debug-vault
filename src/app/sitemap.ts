@@ -25,9 +25,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   return [
-    { url: `${BASE}/`,      lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
-    { url: `${BASE}/tips/`, lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
-    { url: `${BASE}/blog/`, lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${BASE}/`,       lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
+    { url: `${BASE}/tips/`,  lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${BASE}/blog/`,  lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${BASE}/about/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     ...tipEntries,
     ...postEntries,
   ]

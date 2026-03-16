@@ -1,34 +1,37 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import AboutCard from '@/components/home/AboutCard'
+import { AuroraBackground } from '@/components/ui/aurora-background'
 
 export const metadata: Metadata = {
   title: 'About | Tommy Lahitte',
   description:
     'Maker and tinkerer who bridges art and technology. A decade of live shows, media-server engineering at VYV, and now Virtual Production with Unreal Engine at Epic Games.',
   alternates: {
-    canonical: 'https://tommylahitte.com/about',
+    canonical: 'https://tommylahitte.com/about/',
   },
   openGraph: {
     title: 'About | Tommy Lahitte',
     description:
       'Maker and tinkerer who bridges art and technology. A decade of live shows, media-server engineering at VYV, and now Virtual Production with Unreal Engine at Epic Games.',
-    url: 'https://tommylahitte.com/about',
+    url: 'https://tommylahitte.com/about/',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About Tommy Lahitte' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About | Tommy Lahitte',
+    description:
+      'Maker and tinkerer who bridges art and technology. A decade of live shows, media-server engineering at VYV, and now Virtual Production with Unreal Engine at Epic Games.',
+    images: ['/og-image.png'],
   },
 }
 
 export default function AboutPage() {
   return (
     <>
-      <section
-        className="bg-gradient-to-b from-surface-raised to-surface border-b border-border relative overflow-hidden hero-texture"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,90,58,0.06) 0%, transparent 70%), linear-gradient(to bottom, var(--surface-raised), var(--surface))',
-        }}
-      >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <AuroraBackground className="border-b border-border overflow-hidden hero-texture">
+        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 w-full">
           <div className="flex flex-col items-center gap-4 pt-10 sm:pt-16 pb-8">
             {/* Avatar */}
             <div className="relative w-32 sm:w-40">
@@ -36,8 +39,8 @@ export default function AboutPage() {
                 className="absolute -inset-8 rounded-full animate-spin-slow"
                 style={{
                   background:
-                    'conic-gradient(from 0deg, transparent 0%, transparent 45%, rgba(200,90,58,0.7) 62%, rgba(168,67,42,0.85) 78%, rgba(200,90,58,0.9) 90%, transparent 100%)',
-                  filter: 'blur(18px)',
+                    'conic-gradient(from 0deg, transparent 0%, transparent 45%, rgba(200,90,58,0.35) 62%, rgba(168,67,42,0.45) 78%, rgba(200,90,58,0.4) 90%, transparent 100%)',
+                  filter: 'blur(24px)',
                 }}
               />
               {/* Frosted ring */}
@@ -71,7 +74,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </AuroraBackground>
 
       <section className="py-10 sm:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">

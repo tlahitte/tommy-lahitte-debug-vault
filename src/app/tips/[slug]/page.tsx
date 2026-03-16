@@ -1,4 +1,3 @@
-// PHASE 5: DONE
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -65,11 +64,21 @@ export default async function TipPage({ params }: TipPageProps) {
     url: `https://tommylahitte.com/tips/${tip.slug}/`,
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tommylahitte.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Unreal Tips', item: 'https://tommylahitte.com/tips/' },
+      { '@type': 'ListItem', position: 3, name: tip.title },
+    ],
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
       />
       <nav className="mb-8">
         <Link

@@ -76,6 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     url: `https://tommylahitte.com/blog/${post.slug}/`,
     datePublished: post.date,
+    wordCount,
     author: {
       '@type': 'Person',
       name: 'Tommy Lahitte',
@@ -89,12 +90,22 @@ export default async function BlogPostPage({ params }: Props) {
     ...(post.image && { image: post.image }),
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tommylahitte.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://tommylahitte.com/blog/' },
+      { '@type': 'ListItem', position: 3, name: post.title },
+    ],
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12">
       <ReadingProgressBar />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
       />
       <Link
         href="/blog"

@@ -1,5 +1,3 @@
-// PHASE 2: DONE
-// PHASE 7: DONE
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'

@@ -3,13 +3,25 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'motion/react'
+import { useMemo } from 'react'
 import type { BlogPost } from '@/lib/blog-types'
+
+const DOODLES = [
+  'ballet', 'chilling', 'coffee', 'dancing', 'float', 'groovy',
+  'ice-cream', 'laying', 'levitate', 'meditating', 'reading-side',
+  'reading', 'sitting-reading', 'sitting', 'unboxing',
+]
 
 interface BlogCardProps {
   post: BlogPost
 }
 
 export default function BlogCard({ post }: BlogCardProps) {
+  const placeholderDoodle = useMemo(
+    () => DOODLES[Math.abs(post.slug.split('').reduce((a, c) => a + c.charCodeAt(0), 0)) % DOODLES.length],
+    [post.slug]
+  )
+
   const formattedDate = new Date(post.date).toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'long',
@@ -33,10 +45,16 @@ export default function BlogCard({ post }: BlogCardProps) {
           />
         </div>
       ) : (
-        <div className="h-52 w-full bg-gradient-to-br from-surface-raised via-surface to-surface flex items-end p-5">
-          <span className="text-xs font-medium uppercase tracking-widest text-text-muted">
-            Current Work
-          </span>
+        <div className="h-52 w-full bg-gradient-to-br from-surface-raised via-surface to-surface flex items-center justify-center p-5">
+          <Image
+            src={`/illustrations/opendoodles/${placeholderDoodle}.svg`}
+            alt=""
+            width={160}
+            height={160}
+            className="h-36 w-auto object-contain opacity-60"
+            style={{ filter: 'sepia(1) saturate(3) hue-rotate(346deg) brightness(0.7)' }}
+            aria-hidden="true"
+          />
         </div>
       )}
       <div className="p-6">
