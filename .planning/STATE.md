@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-03-16T13:36:19.535Z"
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-03-16T14:35:17.633Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 11
-  completed_plans: 9
+  completed_plans: 10
   percent: 0
 ---
 
@@ -59,6 +59,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-notion-foundation-blog P02 | 8 | 4 tasks | 14 files |
 | Phase 02-notion-foundation-blog P03 | 2 | 1 tasks | 1 files |
 | Phase 02-notion-foundation-blog P03 | 120 | 2 tasks | 3 files |
+| Phase 02-notion-foundation-blog P04 | 2 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,9 @@ Recent decisions affecting current work:
 - [Phase 02-notion-foundation-blog]: Store only alphanumeric token portion of Netlify Build Hook URL as NETLIFY_BUILD_HOOK_TOKEN GitHub Secret — not full URL
 - [Phase 02-notion-foundation-blog]: GitHub Actions daily cron chosen as free-plan Notion rebuild fallback — Notion webhook requires Plus plan; cron fires unconditionally at 06:00 UTC via NETLIFY_BUILD_HOOK_TOKEN secret
 - [Phase 02-notion-foundation-blog]: Store only alphanumeric token suffix of Netlify Build Hook URL as NETLIFY_BUILD_HOOK_TOKEN — full URL reconstructed in workflow run step to prevent log leakage
+- [Phase 02-notion-foundation-blog]: renderBlock returns null in default branch — unknown block types fail silently (NOTI-03)
+- [Phase 02-notion-foundation-blog]: Each bulleted/numbered list item wraps its own ul/ol — no block grouping needed for static renderer
+- [Phase 02-notion-foundation-blog]: Plain img used for Notion image blocks (not next/image) — static export compatibility when image dimensions unknown
 
 ### Pending Todos
 
@@ -106,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T13:36:19.532Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-03-16T14:35:17.630Z
+Stopped at: Completed 02-04-PLAN.md
 Resume file: None
