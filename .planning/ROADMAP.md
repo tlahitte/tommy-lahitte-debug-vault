@@ -56,15 +56,20 @@ Plans:
 - [ ] 02-05-PLAN.md — Article page wiring (NotionBlock import, ReadingProgressBar, improved header)
 
 ### Phase 3: Projects Section
-**Goal**: Visitors can browse and read project pages pulled entirely from Notion, with visual gallery and project metadata
+**Goal**: Unified content hub under /blog (renamed "Journal") with category filtering, project status badges, and photo galleries — extending the proven Notion blog infrastructure
 **Depends on**: Phase 2
 **Requirements**: PROJ-01, PROJ-02, PROJ-03, PROJ-04, PROJ-05
 **Success Criteria** (what must be TRUE):
-  1. Visiting `/projects` shows a filterable grid of all published projects with cover image, title, and category
-  2. Each project page displays rich Notion content (title, description, body), a photo gallery, and a visible status badge (En cours / Terminé / Archivé)
-  3. Projects can be filtered by category (hardware, software, art, mixte) on the listing page
+  1. Visiting `/blog` shows a filterable listing of all published content with category pills (All / Projects / Articles / Recommendations)
+  2. Each project page displays rich Notion content (title, description, body), a photo gallery, and a visible status badge (In Progress / Complete / Archived)
+  3. Content can be filtered by category on the listing page via URL search params
   4. A new project added and published in Notion appears on the site after a rebuild with no code changes
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Data layer extension (BlogPost type + category/status/gallery mapping, tests, nav update)
+- [ ] 03-02-PLAN.md — Category filter + listing UI (BlogCategoryFilter, BlogList, Suspense wiring)
+- [ ] 03-03-PLAN.md — Detail page enhancements (StatusBadge, ProjectGallery, conditional rendering)
 
 ### Phase 4: Homepage + About
 **Goal**: The homepage communicates Tommy's maker identity at a glance and the About page tells the full story — both reference real published content
@@ -86,9 +91,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Design System | 6/6 | Complete   | 2026-03-15 |
 | 2. Notion Foundation + Blog | 4/5 | In Progress|  |
-| 3. Projects Section | 0/? | Not started | - |
+| 3. Projects Section | 0/3 | Not started | - |
 | 4. Homepage + About | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-03-15*
-*Last updated: 2026-03-16 — Phase 2 plans revised: 5 plans across 4 waves (added blog list layout, ReadingProgressBar, article page wiring)*
+*Last updated: 2026-03-16 — Phase 3 planned: 3 plans across 2 waves (data layer, category filter + listing, detail page enhancements)*
