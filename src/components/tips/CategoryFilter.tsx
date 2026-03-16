@@ -18,20 +18,20 @@ const CATEGORIES: {
   {
     value: 'editor',
     label: 'Editor',
-    activeClass: 'bg-blue-500/10 border-blue-500/30 text-blue-400',
-    hoverClass: 'hover:bg-blue-500/10 hover:border-blue-500/30 hover:text-blue-400',
+    activeClass: 'bg-[#C85A3A]/15 border-[#C85A3A]/50 text-[#C85A3A]',
+    hoverClass: 'hover:bg-[#C85A3A]/15 hover:border-[#C85A3A]/50 hover:text-[#C85A3A]',
   },
   {
     value: 'debugging',
     label: 'Debugging',
-    activeClass: 'bg-red-500/10 border-red-500/30 text-red-400',
-    hoverClass: 'hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400',
+    activeClass: 'bg-[#B8860B]/15 border-[#B8860B]/50 text-[#B8860B]',
+    hoverClass: 'hover:bg-[#B8860B]/15 hover:border-[#B8860B]/50 hover:text-[#B8860B]',
   },
   {
     value: 'qa-workflow',
     label: 'QA Workflow',
-    activeClass: 'bg-green-500/10 border-green-500/30 text-green-400',
-    hoverClass: 'hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-400',
+    activeClass: 'bg-[#6B7F3A]/15 border-[#6B7F3A]/50 text-[#6B7F3A]',
+    hoverClass: 'hover:bg-[#6B7F3A]/15 hover:border-[#6B7F3A]/50 hover:text-[#6B7F3A]',
   },
 ]
 

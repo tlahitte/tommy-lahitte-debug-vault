@@ -1,4 +1,3 @@
-// PHASE 4: DONE
 import type { Metadata } from 'next'
 import { getAllTips } from '@/lib/tips'
 import TipsGrid from '@/components/tips/TipsGrid'
@@ -12,11 +11,18 @@ export const metadata: Metadata = {
     canonical: 'https://tommylahitte.com/tips/',
   },
   openGraph: {
-    title: 'Unreal Tips | Tommy Lahitte Debug Vault',
+    title: 'Unreal Tips | Tommy Lahitte',
     description:
       'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte.',
     url: 'https://tommylahitte.com/tips/',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Unreal Tips — Tommy Lahitte' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Unreal Tips | Tommy Lahitte',
+    description: 'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte.',
+    images: ['/og-image.png'],
   },
 }
 

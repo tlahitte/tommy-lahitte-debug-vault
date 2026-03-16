@@ -4,6 +4,16 @@ import { useSearchParams } from 'next/navigation'
 import type { BlogPost } from '@/lib/blog-types'
 import BlogCategoryFilter from './BlogCategoryFilter'
 
+const DOODLES = [
+  'ballet', 'chilling', 'coffee', 'dancing', 'float', 'groovy',
+  'ice-cream', 'laying', 'levitate', 'meditating', 'reading-side',
+  'reading', 'sitting-reading', 'sitting', 'unboxing',
+]
+
+function getDoodle(slug: string) {
+  return DOODLES[Math.abs(slug.split('').reduce((a, c) => a + c.charCodeAt(0), 0)) % DOODLES.length]
+}
+
 interface BlogListProps {
   posts: BlogPost[]
 }
@@ -29,7 +39,7 @@ export default function BlogList({ posts }: BlogListProps) {
               <a href={`/blog/${post.slug}`} className="group block">
                 {/* Project cards: bigger cover image (aspect-[16/9]) */}
                 {/* Article/Recommendation cards: compact cover (aspect-[16/6]) */}
-                {post.image && (
+                {post.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={post.image}
@@ -40,6 +50,17 @@ export default function BlogList({ posts }: BlogListProps) {
                         : 'aspect-[16/6]'
                     }`}
                   />
+                ) : (
+                  <div className="w-full rounded-lg mb-4 aspect-[16/6] bg-gradient-to-br from-surface-raised via-surface to-surface flex items-center justify-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/illustrations/opendoodles/${getDoodle(post.slug)}.svg`}
+                      alt=""
+                      className="h-24 w-auto object-contain opacity-60"
+                      style={{ filter: 'sepia(1) saturate(3) hue-rotate(346deg) brightness(0.7)' }}
+                      aria-hidden="true"
+                    />
+                  </div>
                 )}
                 <div className="flex items-center gap-2 mb-1">
                   <p className="text-sm text-text-muted">{post.date}</p>

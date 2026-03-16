@@ -15,6 +15,13 @@ export const metadata: Metadata = {
     description: 'Projects, articles, and recommendations from Tommy Lahitte.',
     url: 'https://tommylahitte.com/blog/',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Journal — Tommy Lahitte' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Journal | Tommy Lahitte',
+    description: 'Projects, articles, and recommendations from Tommy Lahitte.',
+    images: ['/og-image.png'],
   },
 }
 

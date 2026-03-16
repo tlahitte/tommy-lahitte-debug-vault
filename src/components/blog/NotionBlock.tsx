@@ -122,7 +122,7 @@ export function renderBlock(block: BlogBlock, index: number): React.ReactNode {
       return (
         <figure key={index} className="w-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={block.url} alt="" className="w-full rounded-xl" />
+          <img src={block.url} alt={block.caption.length > 0 ? block.caption.map(c => c.plain_text).join('') : 'Blog post image'} className="w-full rounded-xl" />
           {block.caption.length > 0 && (
             <figcaption className="text-xs text-text-muted text-center mt-2">
               {renderRichText(block.caption)}

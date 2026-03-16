@@ -35,5 +35,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# claude
+# claude / AI tooling
 .claude/epic-ralph.local.md
+.planning/
+PROMPT.md
+
+# api keys / config with secrets
+.nano-banana-config.json

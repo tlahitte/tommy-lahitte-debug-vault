@@ -1,6 +1,3 @@
-// PHASE 1: DONE
-// PHASE 6: DONE
-
 import type { Tip } from '@/lib/types'
 
 // Original 3 tips
