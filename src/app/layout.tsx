@@ -16,16 +16,16 @@ const denim = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://tommylahitte.com'),
   title: {
-    default: 'Tommy Lahitte | QA Engineer & Unreal Debug Vault',
-    template: '%s | Tommy Lahitte Debug Vault',
+    default: 'Tommy Lahitte | Maker & Tinkerer',
+    template: '%s | Tommy Lahitte',
   },
   description:
-    'QA and debugging field notes for Unreal Engine by Tommy Lahitte, QA Engineer at Epic Games.',
+    'Tommy Lahitte — maker who bridges art and technology. Projects, field notes, and things worth building.',
   openGraph: {
-    siteName: 'Tommy Lahitte Debug Vault',
+    siteName: 'Tommy Lahitte',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte — QA Engineer & Unreal Debug Vault' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte — Maker & Tinkerer' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -45,7 +45,18 @@ const siteSchemas = [
     name: 'Tommy Lahitte',
     jobTitle: 'Senior QA Engineer',
     worksFor: { '@type': 'Organization', name: 'Epic Games' },
-    knowsAbout: ['Unreal Engine', 'Game QA', 'Debugging', 'Functional Testing', 'Automation'],
+    knowsAbout: [
+      'Unreal Engine',
+      'Game QA',
+      'Debugging',
+      'Functional Testing',
+      'Automation',
+      'Electronics',
+      'Film Photography',
+      'Media Servers',
+      'Live Show Technology',
+      'Virtual Production',
+    ],
     url: 'https://tommylahitte.com',
     image: 'https://tommylahitte.com/avatar/tommy-lahitte-480.webp',
     sameAs: ['https://github.com/tlahitte'],
@@ -53,9 +64,10 @@ const siteSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Tommy Lahitte Debug Vault',
+    name: 'Tommy Lahitte',
     url: 'https://tommylahitte.com',
-    description: 'QA and debugging field notes for Unreal Engine by Tommy Lahitte, QA Engineer at Epic Games.',
+    description:
+      'Tommy Lahitte — maker who bridges art and technology. Projects, field notes, and things worth building.',
     author: { '@type': 'Person', name: 'Tommy Lahitte' },
   },
 ]
