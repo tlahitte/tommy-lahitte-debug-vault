@@ -4,38 +4,27 @@ export default function Header() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-surface border-b border-border">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="flex h-14 items-center justify-between">
+        <div className="flex h-14 items-center justify-between gap-2">
           <Link
             href="/"
-            className="text-sm font-semibold text-text-primary hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="text-xs sm:text-sm font-semibold text-text-primary hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 shrink-0"
           >
             Tommy Lahitte
           </Link>
-          <nav className="flex items-center gap-4 sm:gap-6" aria-label="Main navigation">
-            <Link
-              href="/blog"
-              className="text-sm font-medium text-text-muted hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/tips"
-              className="text-sm font-medium text-text-muted hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-            >
-              Unreal Tips
-            </Link>
-            <Link
-              href="/projects"
-              className="text-sm font-medium text-text-muted hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm font-medium text-text-muted hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-            >
-              About
-            </Link>
+          <nav className="flex items-center gap-2 sm:gap-6" aria-label="Main navigation">
+            {[
+              { href: '/blog', label: 'Journal' },
+              { href: '/tips', label: 'Unreal Tips' },
+              { href: '/about', label: 'About' },
+            ].map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="relative text-xs sm:text-sm font-medium text-text-muted hover:text-accent transition-colors duration-250 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 whitespace-nowrap py-1 after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-0 after:bg-accent after:transition-all after:duration-250 after:ease-out hover:after:w-full"
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>
