@@ -46,7 +46,14 @@ Plans:
   3. Images in blog articles load correctly and do not break after 1 hour (build-time download confirmed)
   4. Notion block types (paragraph, heading, code, callout, image, lists, toggle, divider) all render visually in blog articles
   5. Publishing a page in Notion triggers an automatic Netlify rebuild without manual intervention
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Wave 0 test scaffold (vitest config, stub test files for all requirements)
+- [ ] 02-02-PLAN.md — Notion data layer (client, types, DAL, image downloader, blog list layout)
+- [ ] 02-03-PLAN.md — Content migration + rebuild trigger (Notion articles, GitHub Actions cron)
+- [ ] 02-04-PLAN.md — NotionBlock renderer (11-type switch, unit tests)
+- [ ] 02-05-PLAN.md — Article page wiring (NotionBlock import, ReadingProgressBar, improved header)
 
 ### Phase 3: Projects Section
 **Goal**: Visitors can browse and read project pages pulled entirely from Notion, with visual gallery and project metadata
@@ -78,10 +85,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design System | 6/6 | Complete   | 2026-03-15 |
-| 2. Notion Foundation + Blog | 0/? | Not started | - |
+| 2. Notion Foundation + Blog | 0/5 | Not started | - |
 | 3. Projects Section | 0/? | Not started | - |
 | 4. Homepage + About | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-03-15*
-*Last updated: 2026-03-15 — Phase 1 plans defined (4 plans, 2 waves)*
+*Last updated: 2026-03-16 — Phase 2 plans revised: 5 plans across 4 waves (added blog list layout, ReadingProgressBar, article page wiring)*
