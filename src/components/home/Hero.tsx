@@ -34,17 +34,16 @@ export default function Hero() {
               spread={6}
               className="not-italic [--base-color:var(--accent)] [--base-gradient-color:var(--accent-hover)]"
             >
-              Senior QA Engineer
+              Maker &amp; Tinkerer
             </TextShimmer>
             <span className="text-text-muted mx-2">·</span>
-            <span className="text-text-muted">Epic Games</span>
+            <span className="text-text-muted">Art meets Technology</span>
           </p>
           <hr className="my-4 border-border" />
           <p className="text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl">
-            On this website you&apos;ll find engineering field notes, side projects,
-            and the things I think are worth sharing.
+            I bridge art and technology — building projects at the intersection of electronics, software, and creative experimentation.
             <br className="hidden sm:block" />
-            Welcome aboard.
+            Senior QA Engineer at Epic Games by day, maker by nature.
           </p>
         </div>
 
@@ -84,10 +83,10 @@ export default function Hero() {
       {/* CTAs — full width below */}
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
-          href="/tips"
+          href="/blog?category=Project"
           className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
-          Unreal Tips
+          See Projects
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
