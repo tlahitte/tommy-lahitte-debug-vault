@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-16T11:46:11.954Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-16T11:51:40Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 11
-  completed_plans: 7
+  completed_plans: 8
   percent: 0
 ---
 
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-design-system P05 | 2 | 3 tasks | 3 files |
 | Phase 01-design-system P06 | 2 | 6 tasks | 6 files |
 | Phase 02-notion-foundation-blog P01 | 2 | 2 tasks | 4 files |
+| Phase 02-notion-foundation-blog P02 | 8 | 4 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -84,6 +85,10 @@ Recent decisions affecting current work:
 - [Phase 02-notion-foundation-blog]: vitest chosen over Jest for zero-config Next.js/Vite, native ESM, faster HMR
 - [Phase 02-notion-foundation-blog]: it.todo() stubs ensure vitest exits 0 throughout Wave 1/2, enabling health-check after each commit
 - [Phase 02-notion-foundation-blog]: describe blocks named by requirement ID (NOTI-01, NOTI-02 etc.) for traceability between tests and requirements
+- [Phase 02-notion-foundation-blog]: @notionhq/client pinned to v2.x — v5.x broke databases.query, no benefit for single-source blog
+- [Phase 02-notion-foundation-blog]: server-only resolved via vitest.config.ts alias to empty stub — preserves Next.js build guard while allowing test execution
+- [Phase 02-notion-foundation-blog]: vi.hoisted() required for mock variables used inside vi.mock() factory functions — avoids temporal dead zone errors
+- [Phase 02-notion-foundation-blog]: static content files marked @ts-nocheck — deleted in plan 02-03, not worth migrating to new BlogBlock types
 
 ### Pending Todos
 
@@ -96,6 +101,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T11:46:11.951Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-03-16T11:51:40Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
