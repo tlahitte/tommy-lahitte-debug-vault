@@ -80,7 +80,11 @@ Plans:
   2. The homepage features 2-3 recent projects with visual preview and links to their detail pages
   3. The homepage shows recent blog article previews, linking to the articles
   4. Visiting `/about` presents Tommy's full maker bio and creative journey — reads as a human story, not a resume
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Homepage rewrite (hero copy, category-filtered projects/articles sections, AboutCard embed, metadata)
+- [ ] 04-02-PLAN.md — About page and global metadata (about hero subtitle, layout.tsx metadata + Schema.org update)
 
 ## Progress
 
@@ -92,8 +96,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Design System | 6/6 | Complete   | 2026-03-15 |
 | 2. Notion Foundation + Blog | 4/5 | In Progress|  |
 | 3. Projects Section | 3/3 | Complete   | 2026-03-16 |
-| 4. Homepage + About | 0/? | Not started | - |
+| 4. Homepage + About | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-03-15*
-*Last updated: 2026-03-16 — Phase 3 planned: 3 plans across 2 waves (data layer, category filter + listing, detail page enhancements)*
+*Last updated: 2026-03-16 — Phase 4 planned: 2 plans in 1 wave (homepage rewrite, about page + global metadata)*
