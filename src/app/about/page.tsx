@@ -5,14 +5,14 @@ import AboutCard from '@/components/home/AboutCard'
 export const metadata: Metadata = {
   title: 'About | Tommy Lahitte',
   description:
-    'QA Engineer at Epic Games, maker, tinkerer. A decade of live shows, media-server tech, and now Virtual Production with Unreal Engine.',
+    'Maker and tinkerer who bridges art and technology. A decade of live shows, media-server engineering at VYV, and now Virtual Production with Unreal Engine at Epic Games.',
   alternates: {
     canonical: 'https://tommylahitte.com/about',
   },
   openGraph: {
     title: 'About | Tommy Lahitte',
     description:
-      'QA Engineer at Epic Games, maker, tinkerer. A decade of live shows, media-server tech, and now Virtual Production with Unreal Engine.',
+      'Maker and tinkerer who bridges art and technology. A decade of live shows, media-server engineering at VYV, and now Virtual Production with Unreal Engine at Epic Games.',
     url: 'https://tommylahitte.com/about',
     type: 'website',
   },
@@ -64,9 +64,9 @@ export default function AboutPage() {
                 Tommy Lahitte
               </h1>
               <p className="mt-1 text-lg font-medium">
-                <span className="text-accent">Senior QA Engineer</span>
+                <span className="text-accent">Maker &amp; Tinkerer</span>
                 <span className="text-text-muted mx-2">·</span>
-                <span className="text-text-muted">Epic Games</span>
+                <span className="text-text-muted">Art meets Technology</span>
               </p>
             </div>
           </div>
