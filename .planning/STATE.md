@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 3 context gathered
-last_updated: "2026-03-16T15:32:08.308Z"
+stopped_at: Completed 03-projects-section-03-01-PLAN.md
+last_updated: "2026-03-16T16:03:37.658Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 11
-  completed_plans: 11
+  total_plans: 14
+  completed_plans: 12
   percent: 0
 ---
 
@@ -61,6 +61,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-notion-foundation-blog P03 | 120 | 2 tasks | 3 files |
 | Phase 02-notion-foundation-blog P04 | 2 | 2 tasks | 2 files |
 | Phase 02-notion-foundation-blog P05 | 3 | 2 tasks | 2 files |
+| Phase 03-projects-section P01 | 2 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -101,6 +102,9 @@ Recent decisions affecting current work:
 - [Phase 02-notion-foundation-blog]: Plain img used for Notion image blocks (not next/image) — static export compatibility when image dimensions unknown
 - [Phase 02-notion-foundation-blog]: Plain img used for cover image in article detail page — static export compatibility, consistent with NotionBlock
 - [Phase 02-notion-foundation-blog]: ReadingProgressBar as isolated leaf client component — server page retains no use client directive
+- [Phase 03-projects-section]: ProjectStatus Notion property named 'ProjectStatus' not 'Status' to avoid collision with the publish-gate Status select
+- [Phase 03-projects-section]: Gallery returns undefined (not empty array) when no files present — consistent with optional field semantics on BlogPost
+- [Phase 03-projects-section]: Nav 'Blog' label renamed to 'Journal'; route /blog unchanged for SEO; Projects nav link removed, will return in plan 03-05
 
 ### Pending Todos
 
@@ -113,6 +117,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T15:32:08.299Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-projects-section/03-CONTEXT.md
+Last session: 2026-03-16T16:03:37.656Z
+Stopped at: Completed 03-projects-section-03-01-PLAN.md
+Resume file: None

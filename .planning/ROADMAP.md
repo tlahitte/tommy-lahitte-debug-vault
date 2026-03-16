@@ -91,7 +91,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Design System | 6/6 | Complete   | 2026-03-15 |
 | 2. Notion Foundation + Blog | 4/5 | In Progress|  |
-| 3. Projects Section | 0/3 | Not started | - |
+| 3. Projects Section | 1/3 | In Progress|  |
 | 4. Homepage + About | 0/? | Not started | - |
 
 ---
