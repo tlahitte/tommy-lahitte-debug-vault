@@ -39,7 +39,7 @@ Requirements pour la première version. Chaque requirement mappe vers une phase 
 - [x] **PROJ-02**: Chaque projet a une page détail avec : titre, description, corps de contenu riche depuis Notion
 - [x] **PROJ-03**: Les pages projets affichent une galerie d'images (photos process + résultat final)
 - [x] **PROJ-04**: Chaque projet a un statut visible (En cours / Terminé / Archivé) géré depuis Notion
-- [ ] **PROJ-05**: Les projets sont taggués par catégorie (hardware, software, art, mixte) filtrables sur la page liste
+- [x] **PROJ-05**: Les projets sont taggués par catégorie (hardware, software, art, mixte) filtrables sur la page liste
 
 ### About
 
@@ -105,7 +105,7 @@ Différé. Présent dans les specs mais pas dans la roadmap courante.
 | PROJ-02 | Phase 3 | Complete |
 | PROJ-03 | Phase 3 | Complete |
 | PROJ-04 | Phase 3 | Complete |
-| PROJ-05 | Phase 3 | Pending |
+| PROJ-05 | Phase 3 | Complete |
 | ABOU-01 | Phase 4 | Pending |
 
 **Coverage:**

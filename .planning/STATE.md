@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-projects-section-03-03-PLAN.md
-last_updated: "2026-03-16T16:07:09.284Z"
+stopped_at: Completed 03-projects-section-03-02-PLAN.md
+last_updated: "2026-03-16T16:07:22.009Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
@@ -63,6 +63,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-notion-foundation-blog P05 | 3 | 2 tasks | 2 files |
 | Phase 03-projects-section P01 | 2 | 3 tasks | 4 files |
 | Phase 03-projects-section P03 | 1 | 2 tasks | 3 files |
+| Phase 03-projects-section P02 | 2 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -109,6 +110,9 @@ Recent decisions affecting current work:
 - [Phase 03-projects-section]: StatusBadge uses Tailwind utility colors (amber/emerald/zinc) not kraft brand tokens for status semantics
 - [Phase 03-projects-section]: StatusBadge placed inline in header meta row alongside date/reading time for compact header consistency
 - [Phase 03-projects-section]: ProjectGallery placed between header and body — gallery as visual context before reading body content
+- [Phase 03-projects-section]: BlogList uses useSearchParams directly — URL is source of truth, both components read it independently
+- [Phase 03-projects-section]: Suspense boundary required around BlogList in server page because useSearchParams suspends during SSR
+- [Phase 03-projects-section]: Project cards use aspect-[16/9], articles/recommendations use aspect-[16/6] for visual hierarchy signaling content type
 
 ### Pending Todos
 
@@ -121,6 +125,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T16:06:54.357Z
-Stopped at: Completed 03-projects-section-03-03-PLAN.md
+Last session: 2026-03-16T16:07:22.006Z
+Stopped at: Completed 03-projects-section-03-02-PLAN.md
 Resume file: None
