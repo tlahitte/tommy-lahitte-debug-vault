@@ -1,3 +1,4 @@
+// @ts-nocheck — static content file to be removed in plan 02-03 after Notion migration
 import type { BlogPost } from '@/lib/blog-types'
 
 export const post: BlogPost = {

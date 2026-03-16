@@ -13,6 +13,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      // server-only is a Next.js build guard — stub it out in test environment
+      'server-only': path.resolve(__dirname, 'src/__mocks__/server-only.ts'),
     },
   },
 })

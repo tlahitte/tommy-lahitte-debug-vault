@@ -6,9 +6,9 @@ export const dynamic = 'force-static'
 
 const BASE = 'https://tommylahitte.com'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const tips = getAllTips()
-  const posts = getAllPosts()
+  const posts = await getAllPosts()
 
   const tipEntries: MetadataRoute.Sitemap = tips.map((tip) => ({
     url: `${BASE}/tips/${tip.slug}/`,

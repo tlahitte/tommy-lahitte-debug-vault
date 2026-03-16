@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function HomePage() {
+export default async function HomePage() {
   const latestTips = getAllTips().slice(0, 3)
-  const latestPosts = getAllPosts().slice(0, 2)
+  const latestPosts = (await getAllPosts()).slice(0, 2)
 
   return (
     <>
