@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Design System** - Establish kraft/industrial token layer and redesign global layout before any component is built (completed 2026-03-15)
 - [ ] **Phase 2: Notion Foundation + Blog** - Build the Notion data layer and migrate blog content to prove it end-to-end
-- [ ] **Phase 3: Projects Section** - Add the new Projects content type on top of the verified Notion foundation
+- [x] **Phase 3: Projects Section** - Add the new Projects content type on top of the verified Notion foundation (completed 2026-03-16)
 - [ ] **Phase 4: Homepage + About** - Complete the narrative pages and visual landing experience with real content in place
 
 ## Phase Details
@@ -91,7 +91,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Design System | 6/6 | Complete   | 2026-03-15 |
 | 2. Notion Foundation + Blog | 4/5 | In Progress|  |
-| 3. Projects Section | 1/3 | In Progress|  |
+| 3. Projects Section | 3/3 | Complete   | 2026-03-16 |
 | 4. Homepage + About | 0/? | Not started | - |
 
 ---
