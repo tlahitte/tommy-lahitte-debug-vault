@@ -1,14 +1,14 @@
 // PHASE 2: DONE
 // PHASE 7: DONE
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+const denim = localFont({
+  src: './fonts/DenimVF.ttf',
+  variable: '--font-denim',
   display: 'swap',
 })
 
@@ -47,7 +47,7 @@ const siteSchemas = [
     worksFor: { '@type': 'Organization', name: 'Epic Games' },
     knowsAbout: ['Unreal Engine', 'Game QA', 'Debugging', 'Functional Testing', 'Automation'],
     url: 'https://tommylahitte.com',
-    image: 'https://tommylahitte.com/tommy-lahitte-avatar-480.webp',
+    image: 'https://tommylahitte.com/avatar/tommy-lahitte-480.webp',
     sameAs: ['https://github.com/tlahitte'],
   },
   {
@@ -66,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={denim.variable}>
       <head>
         <script
           type="application/ld+json"
