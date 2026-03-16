@@ -125,8 +125,8 @@ function renderBlock(block: BlogBlock, index: number): React.ReactNode {
       )
     case 'image':
       return (
-        // eslint-disable-next-line @next/next/no-img-element
         <figure key={index} className="my-4">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={block.url}
             alt={block.caption.map((c) => c.plain_text).join('') || 'Article image'}
