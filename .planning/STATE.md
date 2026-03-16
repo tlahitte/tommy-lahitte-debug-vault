@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-02-PLAN.md
-last_updated: "2026-03-16T11:51:40Z"
+stopped_at: "Checkpoint in 02-03-PLAN.md — awaiting human: Notion content migration + secrets setup"
+last_updated: "2026-03-16T11:57:43.478Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 11
-  completed_plans: 8
+  completed_plans: 9
   percent: 0
 ---
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-design-system P06 | 2 | 6 tasks | 6 files |
 | Phase 02-notion-foundation-blog P01 | 2 | 2 tasks | 4 files |
 | Phase 02-notion-foundation-blog P02 | 8 | 4 tasks | 14 files |
+| Phase 02-notion-foundation-blog P03 | 2 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,7 @@ Recent decisions affecting current work:
 - [Phase 02-notion-foundation-blog]: server-only resolved via vitest.config.ts alias to empty stub — preserves Next.js build guard while allowing test execution
 - [Phase 02-notion-foundation-blog]: vi.hoisted() required for mock variables used inside vi.mock() factory functions — avoids temporal dead zone errors
 - [Phase 02-notion-foundation-blog]: static content files marked @ts-nocheck — deleted in plan 02-03, not worth migrating to new BlogBlock types
+- [Phase 02-notion-foundation-blog]: Store only alphanumeric token portion of Netlify Build Hook URL as NETLIFY_BUILD_HOOK_TOKEN GitHub Secret — not full URL
 
 ### Pending Todos
 
@@ -101,6 +103,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T11:51:40Z
-Stopped at: Completed 02-02-PLAN.md
+Last session: 2026-03-16T11:57:35.075Z
+Stopped at: Checkpoint in 02-03-PLAN.md — awaiting human: Notion content migration + secrets setup
 Resume file: None
