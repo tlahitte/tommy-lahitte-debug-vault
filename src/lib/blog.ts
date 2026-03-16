@@ -1,7 +1,7 @@
 import type { PageObjectResponse, BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import { notion } from './notion'
 import { downloadNotionImage } from '@/scripts/download-notion-images'
-import type { BlogPost, BlogBlock, RichTextItem } from './blog-types'
+import type { BlogPost, BlogBlock, RichTextItem, PostCategory, ProjectStatus } from './blog-types'
 
 // ─── Rich text mapper ─────────────────────────────────────────────────────
 
@@ -146,7 +146,33 @@ async function mapNotionPageToBlogPost(page: PageObjectResponse): Promise<Omit<B
   const link =
     linkUrl && linkLabel ? { url: linkUrl, label: linkLabel } : undefined
 
-  return { slug, title, date, excerpt, image, link }
+  // Category select (Project | Article | Recommendation)
+  const category =
+    props['Category']?.type === 'select'
+      ? (props['Category'].select?.name as PostCategory | undefined)
+      : undefined
+
+  // ProjectStatus select — named 'ProjectStatus' in Notion to avoid collision with publish-gate 'Status'
+  const status =
+    props['ProjectStatus']?.type === 'select'
+      ? (props['ProjectStatus'].select?.name as ProjectStatus | undefined)
+      : undefined
+
+  // Gallery files — download each at build time (Notion URLs expire in 1h)
+  const gallery: string[] = []
+  if (props['Gallery']?.type === 'files') {
+    for (let i = 0; i < props['Gallery'].files.length; i++) {
+      const file = props['Gallery'].files[i]
+      if (file.type === 'external') {
+        gallery.push(file.external.url)
+      } else if (file.type === 'file') {
+        const localPath = await downloadNotionImage(file.file.url, `${page.id}-gallery-${i}`)
+        gallery.push(localPath)
+      }
+    }
+  }
+
+  return { slug, title, date, excerpt, image, link, category, status, gallery: gallery.length > 0 ? gallery : undefined }
 }
 
 // ─── Public DAL ──────────────────────────────────────────────────────────

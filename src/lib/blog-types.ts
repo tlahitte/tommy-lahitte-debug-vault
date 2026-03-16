@@ -23,6 +23,9 @@ export type BlogBlock =
   | { type: 'toggle'; richText: RichTextItem[]; children: BlogBlock[] }
   | { type: 'divider' }
 
+export type PostCategory = 'Project' | 'Article' | 'Recommendation'
+export type ProjectStatus = 'In Progress' | 'Complete' | 'Archived'
+
 export interface BlogPost {
   slug: string
   title: string
@@ -35,4 +38,7 @@ export interface BlogPost {
     label: string
     url: string
   }
+  category?: PostCategory
+  status?: ProjectStatus
+  gallery?: string[]  // array of local /notion-images/ paths after build-time download
 }
