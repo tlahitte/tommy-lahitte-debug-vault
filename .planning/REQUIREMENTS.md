@@ -15,10 +15,10 @@ Requirements pour la première version. Chaque requirement mappe vers une phase 
 
 ### Page d'accueil
 
-- [ ] **HOME-01**: La page d'accueil présente un hero fort communiquant la démarche maker (qui est Tommy, ce qu'il construit) avec impact visuel immédiat
-- [ ] **HOME-02**: La page d'accueil met en vedette 2-3 projets récents avec aperçu visuel
-- [ ] **HOME-03**: La page d'accueil affiche les derniers articles de blog en aperçu
-- [ ] **HOME-04**: La page d'accueil intègre une section About courte (pas de page séparée nécessaire pour l'intro)
+- [x] **HOME-01**: La page d'accueil présente un hero fort communiquant la démarche maker (qui est Tommy, ce qu'il construit) avec impact visuel immédiat
+- [x] **HOME-02**: La page d'accueil met en vedette 2-3 projets récents avec aperçu visuel
+- [x] **HOME-03**: La page d'accueil affiche les derniers articles de blog en aperçu
+- [x] **HOME-04**: La page d'accueil intègre une section About courte (pas de page séparée nécessaire pour l'intro)
 
 ### Notion CMS — Fondation
 
@@ -90,10 +90,10 @@ Différé. Présent dans les specs mais pas dans la roadmap courante.
 | DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 1 | Complete |
 | DSGN-03 | Phase 1 | Complete |
-| HOME-01 | Phase 4 | Pending |
-| HOME-02 | Phase 4 | Pending |
-| HOME-03 | Phase 4 | Pending |
-| HOME-04 | Phase 4 | Pending |
+| HOME-01 | Phase 4 | Complete |
+| HOME-02 | Phase 4 | Complete |
+| HOME-03 | Phase 4 | Complete |
+| HOME-04 | Phase 4 | Complete |
 | NOTI-01 | Phase 2 | Complete |
 | NOTI-02 | Phase 2 | Complete |
 | NOTI-03 | Phase 2 | Complete |
