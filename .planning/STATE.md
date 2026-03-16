@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 04-homepage-about-04-02-PLAN.md
-last_updated: "2026-03-16T20:10:52.571Z"
+stopped_at: Completed 04-homepage-about-04-01-PLAN.md
+last_updated: "2026-03-16T20:11:00.465Z"
 last_activity: 2026-03-15 — Roadmap created, 4 phases defined, 20/20 requirements mapped
 progress:
   total_phases: 4
@@ -118,6 +118,9 @@ Recent decisions affecting current work:
 - [Phase 04-homepage-about]: About page hero subtitle changed to 'Maker & Tinkerer · Art meets Technology' — Epic Games remains in metadata description as context, not the lede
 - [Phase 04-homepage-about]: Schema.org Person jobTitle stays 'Senior QA Engineer' (factual); expanded knowsAbout covers maker facets (Electronics, Film Photography, Media Servers, Live Show Technology, Virtual Production)
 - [Phase 04-homepage-about]: Global site title template changed from '%s | Tommy Lahitte Debug Vault' to '%s | Tommy Lahitte' — removes niche 'Debug Vault' branding from all page titles
+- [Phase 04-homepage-about]: Hero tagline uses 'Maker & Tinkerer · Art meets Technology' — Epic Games appears only in body as credibility context, not headline
+- [Phase 04-homepage-about]: getAllPosts() called once in page.tsx, filtered in-memory for Project and Article — no additional Notion queries
+- [Phase 04-homepage-about]: Tips section removed from homepage entirely — nav link preserved as discovery path; homepage narrative focuses on maker identity
 
 ### Pending Todos
 
@@ -130,6 +133,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T20:10:44.023Z
-Stopped at: Completed 04-homepage-about-04-02-PLAN.md
+Last session: 2026-03-16T20:11:00.462Z
+Stopped at: Completed 04-homepage-about-04-01-PLAN.md
 Resume file: None
