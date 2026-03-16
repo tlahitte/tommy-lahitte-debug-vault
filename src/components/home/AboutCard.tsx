@@ -97,7 +97,7 @@ export default function AboutCard() {
   }, [])
 
   return (
-    <div className="rounded-xl border border-border bg-surface p-6 sm:p-10">
+    <div className="rounded-xl border border-border bg-surface p-6 sm:p-10 card-elevated">
       <h2 className="text-lg font-semibold text-text-primary mb-4">About Me</h2>
       <p className="text-text-muted leading-relaxed">
         I&apos;m Tommy, a maker and tinkerer who can&apos;t resist taking things apart to see
