@@ -1,11 +1,14 @@
 export type Category = 'editor' | 'debugging' | 'qa-workflow'
 
 export interface TipContent {
-  type: 'paragraph' | 'heading' | 'code' | 'callout' | 'list'
+  type: 'paragraph' | 'heading' | 'code' | 'callout' | 'list' | 'overview'
   text?: string
   language?: string
   items?: string[]
+  itemLinks?: (string | null)[]
+  itemLinkLabels?: (string | null)[]
   level?: 1 | 2 | 3
+  id?: string
 }
 
 export interface Tip {
