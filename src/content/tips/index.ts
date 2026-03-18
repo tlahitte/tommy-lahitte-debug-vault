@@ -23,6 +23,7 @@ import { tip as downgradeAssetTip } from './editor-downgrade-unreal-asset'
 import { tip as centralizedPluginTip } from './editor-centralized-plugin-ugs'
 import { tip as linuxUgsTip } from './editor-unreal-linux-perforce-ugs'
 import { tip as contentBrowserMetadataTip } from './editor-content-browser-metadata-search'
+import { tip as blueprintToCppTip } from './editor-blueprint-to-cpp-conversion'
 
 export const allTips: Tip[] = [
   visualLoggerTip,
@@ -45,4 +46,5 @@ export const allTips: Tip[] = [
   centralizedPluginTip,
   linuxUgsTip,
   contentBrowserMetadataTip,
+  blueprintToCppTip,
 ]

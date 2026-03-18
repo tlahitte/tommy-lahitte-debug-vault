@@ -15,20 +15,20 @@ function renderBlock(block: TipContent, index: number) {
       const level = block.level ?? 2
       if (level === 1) {
         return (
-          <h1 key={index} className="text-2xl font-bold text-text-primary mt-8 mb-3">
+          <h1 key={index} id={block.id} className="text-2xl font-bold text-text-primary mt-8 mb-3">
             {block.text}
           </h1>
         )
       }
       if (level === 2) {
         return (
-          <h2 key={index} className="text-xl font-semibold text-text-primary mt-8 mb-3">
+          <h2 key={index} id={block.id} className="text-xl font-semibold text-text-primary mt-8 mb-3">
             {block.text}
           </h2>
         )
       }
       return (
-        <h3 key={index} className="text-lg font-semibold text-text-primary mt-6 mb-2">
+        <h3 key={index} id={block.id} className="text-lg font-semibold text-text-primary mt-6 mb-2">
           {block.text}
         </h3>
       )
@@ -49,12 +49,40 @@ function renderBlock(block: TipContent, index: number) {
     case 'list':
       return (
         <ul key={index} className="list-disc list-inside space-y-1.5 text-text-primary my-3">
-          {(block.items ?? []).map((item, i) => (
-            <li key={i} className="leading-relaxed">
-              {item}
-            </li>
-          ))}
+          {(block.items ?? []).map((item, i) => {
+            const href = block.itemLinks?.[i]
+            return (
+              <li key={i} className="leading-relaxed">
+                {item}
+                {href && (
+                  <span className="text-text-muted"> (<a href={href} className="underline underline-offset-2 hover:text-accent transition-colors">{block.itemLinkLabels?.[i] ?? href}</a>)</span>
+                )}
+              </li>
+            )
+          })}
         </ul>
+      )
+    case 'overview':
+      return (
+        <div key={index} className="my-6 rounded-lg border border-border bg-surface-raised px-5 py-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Overview</p>
+          <ul className="space-y-2 text-text-primary">
+            {(block.items ?? []).map((item, i) => {
+              const href = block.itemLinks?.[i]
+              return (
+                <li key={i} className="flex items-baseline gap-2 leading-relaxed">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span>
+                    {item}
+                    {href && (
+                      <span className="text-text-muted"> (<a href={href} className="underline underline-offset-2 hover:text-accent transition-colors">{block.itemLinkLabels?.[i] ?? href}</a>)</span>
+                    )}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       )
     default:
       return null
