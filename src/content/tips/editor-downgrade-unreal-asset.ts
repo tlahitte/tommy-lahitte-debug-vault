@@ -5,13 +5,13 @@ export const tip: Tip = {
   title: 'Downgrading a Unreal Engine Asset to an Older Version',
   category: 'editor',
   summary:
-    'Accidentally re-saved assets in a newer engine version? You can hex-edit the custom version numbers stored in the .uasset header to trick an older engine into loading them — as a last resort.',
+    'Accidentally re-saved assets in a newer engine version? You can hex-edit the custom version numbers stored in the .uasset header to trick an older engine into loading them - as a last resort.',
   tags: ['asset', 'downgrade', 'version', 'hex-editor', 'uasset', 'custom-version', 'migration'],
   publishedAt: '2026-03-11',
   content: [
     {
       type: 'callout',
-      text: 'DISCLAIMER: Always back up your assets before attempting this. This is a last resort — it can permanently destroy assets if the serialized representation changed significantly between versions.',
+      text: 'DISCLAIMER: Always back up your assets before attempting this. This is a last resort - it can permanently destroy assets if the serialized representation changed significantly between versions.',
     },
     {
       type: 'heading',
@@ -47,7 +47,7 @@ export const tip: Tip = {
     },
     {
       type: 'paragraph',
-      text: 'Open the .uasset in a hex editor and search for the GUID of the failing custom version. GUIDs are stored little-endian — each 4-byte group has its bytes reversed. For example, Dev-Rendering has GUID (0x12F88B9F, 0x88754AFC, 0xA67CD90C, 0x383ABD29), which appears on disk as:',
+      text: 'Open the .uasset in a hex editor and search for the GUID of the failing custom version. GUIDs are stored little-endian - each 4-byte group has its bytes reversed. For example, Dev-Rendering has GUID (0x12F88B9F, 0x88754AFC, 0xA67CD90C, 0x383ABD29), which appears on disk as:',
     },
     {
       type: 'code',
@@ -71,9 +71,9 @@ On disk (LE):       9F 8B F8 12  FC 4A 75 88  0C D9 7C A6  29 BD 3A 38`,
     {
       type: 'list',
       items: [
-        'Open the asset in the older engine — it will fail and print an error naming the offending custom version',
+        'Open the asset in the older engine - it will fail and print an error naming the offending custom version',
         'Run the script with that version set to -1 to probe its current value (e.g. "Read \'Dev-Rendering\' with value \'45\'")',
-        'Run the script again with the target value (e.g. 44) — this overwrites the file',
+        'Run the script again with the target value (e.g. 44) - this overwrites the file',
         'Try opening the asset again; a new error may appear for a different custom version',
         'Repeat until the asset loads and appears in the Content Browser',
       ],
@@ -147,7 +147,7 @@ AssetEngineVersion:   4.27.0-16724560+++UE4+Release-4.27`,
       items: [
         'The further apart the engine versions are, the riskier: the on-disk format may have changed in ways that cannot be papered over',
         'If the asset crashes the editor on open after the version patch, the serialized layout genuinely changed; reimport the source asset instead',
-        'Custom versions defined by plugins are not in DevObjectVersion.cpp — you will need to locate their GUIDs manually',
+        'Custom versions defined by plugins are not in DevObjectVersion.cpp - you will need to locate their GUIDs manually',
         'Once it loads, save the asset immediately so the engine re-serializes it cleanly to disk',
       ],
     },

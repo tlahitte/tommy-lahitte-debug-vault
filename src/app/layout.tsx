@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     template: '%s | Tommy Lahitte',
   },
   description:
-    'Tommy Lahitte — maker who bridges art and technology. Projects, field notes, and things worth building.',
+    'Tommy Lahitte -maker who bridges art and technology. Projects, field notes, and things worth building.',
   openGraph: {
     siteName: 'Tommy Lahitte',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte — Maker & Tinkerer' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte -Maker & Tinkerer' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -65,7 +65,7 @@ const siteSchemas = [
     name: 'Tommy Lahitte',
     url: 'https://tommylahitte.com',
     description:
-      'Tommy Lahitte — maker who bridges art and technology. Projects, field notes, and things worth building.',
+      'Tommy Lahitte -maker who bridges art and technology. Projects, field notes, and things worth building.',
     author: { '@type': 'Person', name: 'Tommy Lahitte' },
   },
 ]

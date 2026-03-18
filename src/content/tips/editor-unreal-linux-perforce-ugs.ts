@@ -12,7 +12,7 @@ export const tip: Tip = {
     {
       type: 'heading',
       level: 2,
-      text: 'Step 1 — Install UGS CLI',
+      text: 'Step 1 - Install UGS CLI',
     },
     {
       type: 'paragraph',
@@ -27,13 +27,13 @@ export const tip: Tip = {
   ~/ugs/ugs install && \\
   source ~/.bashrc
 
-# Verify — prints the current stream and CL
+# Verify - prints the current stream and CL
 ugs version`,
     },
     {
       type: 'heading',
       level: 2,
-      text: 'Step 2 — Log In to Perforce',
+      text: 'Step 2 - Log In to Perforce',
     },
     {
       type: 'code',
@@ -46,7 +46,7 @@ p4 -c ${"`${client_name}`"} sync -q //${"`${client_name}`"}/Sandbox/VirtualProdu
     {
       type: 'heading',
       level: 2,
-      text: 'Step 3 — Initialise a UGS Workspace',
+      text: 'Step 3 - Initialise a UGS Workspace',
     },
     {
       type: 'paragraph',
@@ -68,11 +68,11 @@ ugs status`,
     {
       type: 'heading',
       level: 2,
-      text: 'Step 4 — Install the Clang Toolchain',
+      text: 'Step 4 - Install the Clang Toolchain',
     },
     {
       type: 'paragraph',
-      text: 'Unreal ships a cross-platform toolchain script. Run it once after your initial sync — it downloads the exact Clang version required by the engine.',
+      text: 'Unreal ships a cross-platform toolchain script. Run it once after your initial sync - it downloads the exact Clang version required by the engine.',
     },
     {
       type: 'code',
@@ -87,7 +87,7 @@ Engine/Build/BatchFiles/Linux/SetupToolchain.sh`,
     {
       type: 'heading',
       level: 2,
-      text: 'Step 5 — Build the Editor',
+      text: 'Step 5 - Build the Editor',
     },
     {
       type: 'paragraph',
@@ -108,7 +108,7 @@ make StandardSet`,
     {
       type: 'heading',
       level: 2,
-      text: 'Step 6 — Launch the Editor',
+      text: 'Step 6 - Launch the Editor',
     },
     {
       type: 'code',
@@ -127,16 +127,16 @@ ugs run
     {
       type: 'list',
       items: [
-        'ugs sync latest — sync to the latest CL',
-        'ugs sync <CL> -clean — sync to a specific CL and clean the workspace',
-        'ugs sync latest -build — sync then build in one command',
-        'ugs filter exclude=<path> — exclude a path from future syncs',
-        'ugs filter global include=<path> — apply a sync filter to all workspaces',
+        'ugs sync latest - sync to the latest CL',
+        'ugs sync <CL> -clean - sync to a specific CL and clean the workspace',
+        'ugs sync latest -build - sync then build in one command',
+        'ugs filter exclude=<path> - exclude a path from future syncs',
+        'ugs filter global include=<path> - apply a sync filter to all workspaces',
       ],
     },
     {
       type: 'callout',
-      text: 'Permissions tip: if the build fails due to file permission errors, fix them with:\n  sudo chmod -R 777 /home/<user>/P4V/<workspace>/\nNote: .bashrc and sudo .bashrc are separate — aliases added to one are not visible to the other.',
+      text: 'Permissions tip: if the build fails due to file permission errors, fix them with:\n  sudo chmod -R 777 /home/<user>/P4V/<workspace>/\nNote: .bashrc and sudo .bashrc are separate - aliases added to one are not visible to the other.',
     },
   ],
 }
