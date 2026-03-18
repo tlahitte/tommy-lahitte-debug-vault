@@ -28,7 +28,7 @@ export const tip: Tip = {
         'Scene-linear: what shaders, lighting, and materials operate in',
         'Tone mapper output: perceptual, display-referred (typically sRGB/Rec.709)',
         'LUT input/output: applied after the tone mapper; operates in display space',
-        'HDR output: bypasses the standard tone mapper path — validate separately',
+        'HDR output: bypasses the standard tone mapper path - validate separately',
       ],
     },
     {
@@ -38,7 +38,7 @@ export const tip: Tip = {
     },
     {
       type: 'paragraph',
-      text: 'Before trusting your eyes on final frames, load a standardised test pattern. The Murideo pattern library is a solid free resource — download charts for grayscale linearity, color gamut, contrast ratio, and sharpness.',
+      text: 'Before trusting your eyes on final frames, load a standardised test pattern. The Murideo pattern library is a solid free resource - download charts for grayscale linearity, color gamut, contrast ratio, and sharpness.',
     },
     {
       type: 'callout',
@@ -71,7 +71,7 @@ assert delta_e < 2.0, f"Color drift detected: dE={delta_e:.2f}"`,
     },
     {
       type: 'callout',
-      text: 'Resources:\n• colour-science library — https://www.colour-science.org/\n• colour-science précis (concise reference) — https://colour-science.github.io/colour-science-precis/',
+      text: 'Resources:\n• colour-science library - https://www.colour-science.org/\n• colour-science précis (concise reference) - https://colour-science.github.io/colour-science-precis/',
     },
     {
       type: 'heading',
@@ -85,7 +85,7 @@ assert delta_e < 2.0, f"Color drift detected: dE={delta_e:.2f}"`,
         'Check that no post-process volumes have accidental Gamma/Gain values > 0',
         'Confirm LUT intensity is 0 in gameplay unless the feature is explicitly enabled',
         'Run a grayscale ramp test: neutral grays should have no color cast (R=G=B)',
-        'Compare HDR and SDR screenshots on the same frame — tone mapping should differ but not clip highlights differently than spec',
+        'Compare HDR and SDR screenshots on the same frame - tone mapping should differ but not clip highlights differently than spec',
         'Use delta-E < 2.0 as your pass threshold for automated color regression tests',
       ],
     },

@@ -15,7 +15,7 @@ export default function Header() {
             {[
               { href: '/blog', label: 'Journal' },
               { href: '/tips', label: 'Unreal Tips' },
-              { href: '/about', label: 'About' },
+              { href: '/about', label: 'Experience' },
             ].map(({ href, label }) => (
               <Link
                 key={href}

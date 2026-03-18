@@ -5,7 +5,7 @@ export const tip: Tip = {
   title: 'Sharing a Plugin Across Projects with UnrealGameSync',
   category: 'editor',
   summary:
-    'Host your shared assets in a standalone plugin project, then attach it to any number of Unreal projects via two config changes — one in UnrealGameSync.ini to sync the content, one in the .uproject to expose it.',
+    'Host your shared assets in a standalone plugin project, then attach it to any number of Unreal projects via two config changes - one in UnrealGameSync.ini to sync the content, one in the .uproject to expose it.',
   tags: ['plugin', 'unrealgamesync', 'ugs', 'perforce', 'content-sharing', 'virtual-production'],
   publishedAt: '2026-03-11',
   content: [
@@ -25,7 +25,7 @@ export const tip: Tip = {
     {
       type: 'heading',
       level: 2,
-      text: 'Step 1 — Tell UGS to Sync the Plugin Project',
+      text: 'Step 1 - Tell UGS to Sync the Plugin Project',
     },
     {
       type: 'paragraph',
@@ -45,7 +45,7 @@ export const tip: Tip = {
     {
       type: 'heading',
       level: 2,
-      text: 'Step 2 — Point the .uproject at the Plugin Directory',
+      text: 'Step 2 - Point the .uproject at the Plugin Directory',
     },
     {
       type: 'paragraph',
@@ -82,7 +82,7 @@ export const tip: Tip = {
     {
       type: 'list',
       items: [
-        'Assets must be self-contained — no references to assets in the consuming project',
+        'Assets must be self-contained - no references to assets in the consuming project',
         'Assets cannot be migrated from newer engine branches (version is baked in at creation time)',
         'Mark new assets for Add in source control from within the plugin project, not the consumer',
       ],
