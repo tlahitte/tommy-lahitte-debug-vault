@@ -36,7 +36,7 @@ export const tip: Tip = {
       language: 'ini',
       text: `; {YourProject}/Build/UnrealGameSync.ini
 [Perforce]
-+AdditionalPathsToSync=/Sandbox/VirtualProduction/StageEssentials/...`,
++AdditionalPathsToSync=/YourSharedPlugin/YourSharedPlugin/...`,
     },
     {
       type: 'callout',

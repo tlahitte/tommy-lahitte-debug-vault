@@ -21,7 +21,7 @@ export const tip: Tip = {
     {
       type: 'code',
       language: 'bash',
-      text: `curl "https://horde.devtools.epicgames.com/api/v1/tools/ugs-linux?action=download" \\
+      text: `curl "https://your-horde-server.example.com/api/v1/tools/ugs-linux?action=download" \\
   -o ~/ugs.zip && \\
   unzip -eo ~/ugs.zip -d ~/ugs/ && \\
   ~/ugs/ugs install && \\
@@ -41,7 +41,7 @@ ugs version`,
       text: `p4 login
 
 # Spot-check: sync a single file to confirm your workspace view is correct
-p4 -c ${"`${client_name}`"} sync -q //${"`${client_name}`"}/Sandbox/VirtualProduction/QAVirtualProduction/*`,
+p4 -c ${"`${client_name}`"} sync -q //${"`${client_name}`"}/YourProject/YourProject/*`,
     },
     {
       type: 'heading',
@@ -56,11 +56,11 @@ p4 -c ${"`${client_name}`"} sync -q //${"`${client_name}`"}/Sandbox/VirtualProdu
       type: 'code',
       language: 'bash',
       text: `# Creates a new workspace and registers the project with UGS
-ugs init //UE5/Release-5.7 \\
-  -project=/Sandbox/VirtualProduction/QAVirtualProduction/QAVirtualProduction.uproject
+ugs init //YourStream/Main \\
+  -project=/YourProject/YourProject/YourProject.uproject
 
 # Switch project if you already have an existing workspace
-ugs switch Sandbox/VirtualProduction/QAVirtualProduction/QAVirtualProduction.uproject
+ugs switch YourProject/YourProject/YourProject.uproject
 
 # Confirm workspace is wired up correctly
 ugs status`,
@@ -82,7 +82,7 @@ Engine/Build/BatchFiles/Linux/SetupToolchain.sh`,
     },
     {
       type: 'callout',
-      text: 'If you are using AutoSDK / ushell, you can replace this step with:\n  .autosdks sync\n  .project QAVirtualProduction\nThis fetches and activates the correct SDK automatically.',
+      text: 'If you are using AutoSDK / ushell, you can replace this step with:\n  .autosdks sync\n  .project YourProject\nThis fetches and activates the correct SDK automatically.',
     },
     {
       type: 'heading',
