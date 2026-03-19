@@ -36,7 +36,7 @@ export const tip: Tip = {
     <bAllowUBAExecutor>true</bAllowUBAExecutor>
   </BuildConfiguration>
   <Horde>
-    <Server>https://horde.devtools.epicgames.com</Server>
+    <Server>https://your-horde-server.example.com</Server>
     <ConnectionMode>relay</ConnectionMode>
     <Cluster>_auto</Cluster>
   </Horde>
