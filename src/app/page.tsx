@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
-import AboutCard from '@/components/home/AboutCard'
 import DisciplinesSection from '@/components/home/DisciplinesSection'
 import LatestPostsSection from '@/components/home/LatestPostsSection'
 import LatestTipsSection from '@/components/home/LatestTipsSection'
@@ -39,11 +38,6 @@ export default async function HomePage() {
         <div className="rounded-2xl border border-border bg-surface-raised p-8 sm:p-12 card-elevated">
           <Hero />
         </div>
-      </RevealSection>
-
-      {/* About */}
-      <RevealSection delay={0.05}>
-        <AboutCard />
       </RevealSection>
 
       {/* Disciplines — horizontal scroll, full bleed within the column */}

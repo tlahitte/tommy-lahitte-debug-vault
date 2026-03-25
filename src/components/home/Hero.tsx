@@ -130,26 +130,6 @@ export default function Hero() {
       {/* CTAs — centered on mobile, left-aligned on sm+ */}
       <div className="mt-6 flex flex-wrap justify-center sm:justify-start gap-3">
         <Link
-          href="/about"
-          className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover hover:scale-[1.03] active:scale-95 transition-all duration-300"
-        >
-          Experience
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </Link>
-        <Link
           href="/tips"
           className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
@@ -211,6 +191,49 @@ export default function Hero() {
             <path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
           </svg>
         </a>
+      </div>
+
+      {/* About paragraphs */}
+      <div className="mt-8">
+        <hr className="mb-6 border-border" />
+        <motion.p
+          className="text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          I&apos;m Tommy, a maker and tinkerer who can&apos;t resist taking things apart to see how
+          they work, and occasionally getting them back together.
+        </motion.p>
+        <motion.p
+          className="mt-4 text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          My career has been a single thread connecting art and technology: a decade of video
+          programming and projection supervision for international live shows, deep dives into
+          media-server technology at{' '}
+          <a href="https://www.vyv.ca/" target="_blank" rel="noopener noreferrer"
+            className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200">
+            VYV
+          </a>, and now{' '}
+          <a href="https://www.epicgames.com/site/en-US/home" target="_blank" rel="noopener noreferrer"
+            className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200">
+            Virtual Production at Epic Games
+          </a>{' '}
+          where I get to push Unreal Engine into territory that would have felt like science fiction ten years ago.
+        </motion.p>
+        <motion.p
+          className="mt-4 text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          This site is a side-effect of how I work. When I solve something hard, I write it down.
+          These are the debugging notes, editor tricks, and QA patterns that came out of building
+          real things on real projects. No padding, no filler. Just the stuff that actually mattered.
+        </motion.p>
       </div>
     </div>
   )
