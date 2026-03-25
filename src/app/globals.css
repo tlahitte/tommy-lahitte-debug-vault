@@ -19,33 +19,24 @@
   --aurora-2: #F09070;
   --aurora-3: #C85A3A;
   --aurora-4: #E07850;
+  /* Wood tones */
+  --wood-base: #8B6914;
+  --wood-dark: #5C4010;
+  --wood-light: #B8922E;
+  --wood-grain: #7A5C0F;
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--foreground);
   font-family: var(--font-denim), sans-serif;
   hyphens: none;
   -webkit-hyphens: none;
 }
 
-/* Subtle paper grain overlay — behind text/images, above background */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-}
-
-/* Ensure all page content sits above the grain layer */
-body > * {
+/* Paper panel — retained as utility but not used as full-page wrapper */
+.paper-panel {
   position: relative;
-  z-index: 1;
 }
 
 /* Textured hero sections */
@@ -94,6 +85,12 @@ html {
 @keyframes shrink-width {
   from { width: 100%; }
   to   { width: 0%; }
+}
+
+/* Panel cards */
+.panel-card {
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 /* Code block overrides */

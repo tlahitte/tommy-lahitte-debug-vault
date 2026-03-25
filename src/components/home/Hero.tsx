@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { motion } from 'motion/react'
 import { TextShimmer } from '@/components/ui/text-shimmer'
 import ChromaticAvatar from '@/components/home/ChromaticAvatar'
+import { useHydrated } from '@/hooks/useHydrated'
 
 export default function Hero() {
+  const hydrated = useHydrated()
   return (
     <div>
       {/* Stacked on mobile, side-by-side on sm+ */}
@@ -116,10 +118,9 @@ export default function Hero() {
           </p>
           <hr className="my-4 border-border" />
           <p className="text-base sm:text-xl text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
-            On this website you&apos;ll find engineering field notes, side projects,
-            and the things I think are worth sharing.
-            <br className="hidden sm:block" />
-            Welcome aboard.
+            Maker and tinkerer who can&apos;t resist taking things apart
+            to see how they work. This is where I share the debugging notes,
+            editor tricks, and side projects that came out of building real things.
           </p>
         </div>
 
@@ -128,7 +129,7 @@ export default function Hero() {
       {/* CTAs — centered on mobile, left-aligned on sm+ */}
       <div className="mt-6 flex flex-wrap justify-center sm:justify-start gap-3">
         <Link
-          href="/tips"
+          href="/tips/"
           className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
           Unreal Tips
@@ -148,7 +149,7 @@ export default function Hero() {
           </svg>
         </Link>
         <Link
-          href="/blog"
+          href="/blog/"
           className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
         >
           Read Journal
@@ -196,22 +197,13 @@ export default function Hero() {
         <hr className="mb-6 border-border" />
         <motion.p
           className="text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
-          initial={{ opacity: 0, y: 12 }}
+          initial={hydrated ? { opacity: 0, y: 12 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          I&apos;m Tommy, a maker and tinkerer who can&apos;t resist taking things apart to see how
-          they work, and occasionally getting them back together.
-        </motion.p>
-        <motion.p
-          className="mt-4 text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          My career has been a single thread connecting art and technology: a decade of video
-          programming and projection supervision for international live shows, deep dives into
-          media-server technology at{' '}
+          A single thread connects everything I do: a decade of video programming and
+          projection supervision for international live shows, deep dives into media-server
+          technology at{' '}
           <a href="https://www.vyv.ca/" target="_blank" rel="noopener noreferrer"
             className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200">
             VYV
@@ -220,17 +212,17 @@ export default function Hero() {
             className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200">
             Virtual Production at Epic Games
           </a>{' '}
-          where I get to push Unreal Engine into territory that would have felt like science fiction ten years ago.
+          where I push Unreal Engine into territory that would have felt like science fiction
+          ten years ago.
         </motion.p>
         <motion.p
           className="mt-4 text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
-          initial={{ opacity: 0, y: 12 }}
+          initial={hydrated ? { opacity: 0, y: 12 } : false}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
         >
-          This site is a side-effect of how I work. When I solve something hard, I write it down.
-          These are the debugging notes, editor tricks, and QA patterns that came out of building
-          real things on real projects. No padding, no filler. Just the stuff that actually mattered.
+          When I solve something hard, I write it down. No padding, no filler.
+          Just the stuff that actually mattered.
         </motion.p>
       </div>
     </div>

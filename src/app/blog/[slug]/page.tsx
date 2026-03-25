@@ -7,6 +7,8 @@ import { ReadingProgressBar } from '@/components/blog/ReadingProgressBar'
 import StatusBadge from '@/components/blog/StatusBadge'
 import ProjectGallery from '@/components/blog/ProjectGallery'
 
+export const dynamicParams = false
+
 interface Props {
   params: Promise<{ slug: string }>
 }
@@ -76,6 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     url: `https://tommylahitte.com/blog/${post.slug}/`,
     datePublished: post.date,
+    dateModified: post.date,
     wordCount,
     author: {
       '@type': 'Person',
@@ -87,7 +90,12 @@ export default async function BlogPostPage({ params }: Props) {
       name: 'Tommy Lahitte',
       url: 'https://tommylahitte.com/',
     },
-    ...(post.image && { image: post.image }),
+    image: post.image ?? 'https://tommylahitte.com/og-image.png',
+    inLanguage: 'en',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://tommylahitte.com/blog/${post.slug}/`,
+    },
   }
 
   const breadcrumbSchema = {
@@ -108,7 +116,7 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
       />
       <Link
-        href="/blog"
+        href="/blog/"
         className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors mb-8"
       >
         &larr; Back to Journal
@@ -129,11 +137,11 @@ export default async function BlogPostPage({ params }: Props) {
           </h1>
           <div className="flex items-center gap-3 text-sm text-text-muted">
             <time dateTime={post.date}>{formattedDate}</time>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true">&middot;</span>
             <span>{readingTime} min read</span>
             {post.category === 'Project' && post.status && (
               <>
-                <span aria-hidden="true">·</span>
+                <span aria-hidden="true">&middot;</span>
                 <StatusBadge status={post.status} />
               </>
             )}

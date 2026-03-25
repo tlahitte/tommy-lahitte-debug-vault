@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
 import DisciplinesSection from '@/components/home/DisciplinesSection'
-import LatestPostsSection from '@/components/home/LatestPostsSection'
-import LatestTipsSection from '@/components/home/LatestTipsSection'
+import FreshFromTheVault from '@/components/home/LatestTipsSection'
 import ExperienceTimeline from '@/components/about/ExperienceTimeline'
 import RevealSection from '@/components/ui/RevealSection'
 import { getAllPosts } from '@/lib/blog'
@@ -21,6 +20,7 @@ export const metadata: Metadata = {
       'Tommy Lahitte, maker who bridges art and technology. QA Engineer at Epic Games.',
     url: 'https://tommylahitte.com/',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte - Maker & Tinkerer' }],
   },
 }
 
@@ -31,34 +31,35 @@ export default async function HomePage() {
   ])
 
   return (
-    <div className="py-10 sm:py-14 flex flex-col gap-8">
+    <div className="flex flex-col gap-6 py-10 sm:py-14">
 
-      {/* Hero — first card, no whileInView delay so it appears immediately */}
+      {/* Hero */}
       <RevealSection>
-        <div className="rounded-2xl border border-border bg-surface-raised p-8 sm:p-12 card-elevated">
+        <div className="rounded-2xl bg-surface-raised p-8 sm:p-12 panel-card">
           <Hero />
         </div>
       </RevealSection>
 
-      {/* Disciplines — horizontal scroll, full bleed within the column */}
-      <RevealSection>
-        <DisciplinesSection />
+      {/* Disciplines */}
+      <RevealSection delay={0.1}>
+        <div className="panel-card">
+          <DisciplinesSection />
+        </div>
       </RevealSection>
 
-      {/* Latest posts */}
-      <RevealSection>
-        <LatestPostsSection posts={posts.slice(0, 3)} />
+      {/* Fresh from the Vault */}
+      <RevealSection delay={0.1}>
+        <div className="panel-card">
+          <FreshFromTheVault posts={posts} tips={tips} />
+        </div>
       </RevealSection>
 
-      {/* Latest tips */}
-      <RevealSection>
-        <LatestTipsSection tips={tips.slice(0, 3)} />
-      </RevealSection>
-
-      {/* Experience timeline */}
-      <RevealSection>
-        <div className="rounded-2xl border border-border overflow-hidden">
-          <ExperienceTimeline />
+      {/* Experience */}
+      <RevealSection delay={0.1}>
+        <div className="panel-card">
+          <div className="rounded-2xl bg-surface-raised p-6 sm:p-8 overflow-hidden">
+            <ExperienceTimeline />
+          </div>
         </div>
       </RevealSection>
 

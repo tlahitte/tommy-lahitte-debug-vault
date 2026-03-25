@@ -18,6 +18,9 @@ const config: Config = {
         accent: 'var(--accent)',
         'accent-hover': 'var(--accent-hover)',
         border: 'var(--border)',
+        wood: 'var(--wood-base)',
+        'wood-dark': 'var(--wood-dark)',
+        'wood-light': 'var(--wood-light)',
       },
       fontFamily: {
         display: ['var(--font-inter)', 'sans-serif'],

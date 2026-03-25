@@ -3,6 +3,22 @@ import { notion } from './notion'
 import { downloadNotionImage } from '@/scripts/download-notion-images'
 import type { BlogPost, BlogBlock, RichTextItem, PostCategory, ProjectStatus } from './blog-types'
 
+// Notion client v5 moved databases.query to dataSources.query with a newer API version.
+// The database may not be migrated yet, so we use a direct fetch as a compatible bridge.
+async function queryNotionDatabase(databaseId: string, body: Record<string, unknown>) {
+  const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.NOTION_TOKEN}`,
+      'Notion-Version': '2022-06-28',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  })
+  if (!res.ok) throw new Error(`Notion query failed: ${res.status} ${await res.text()}`)
+  return res.json() as Promise<{ results: PageObjectResponse[]; has_more: boolean; next_cursor: string | null }>
+}
+
 // ─── Rich text mapper ─────────────────────────────────────────────────────
 
 function mapRichText(items: { plain_text: string; href?: string | null; annotations: { bold: boolean; italic: boolean; code: boolean; strikethrough: boolean; underline: boolean } }[]): RichTextItem[] {
@@ -177,52 +193,66 @@ async function mapNotionPageToBlogPost(page: PageObjectResponse): Promise<Omit<B
 
 // ─── Public DAL ──────────────────────────────────────────────────────────
 
+const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID ?? ''
+
+// getAllPosts returns metadata only (content: []).
+// Full content is fetched per-page by getPostBySlug at build time via generateStaticParams.
+// This is a static export site — Notion is only queried during `next build`, never at runtime.
+// Netlify rebuilds are triggered by a 6am cron that calls a build hook.
 export async function getAllPosts(): Promise<BlogPost[]> {
-  const results: PageObjectResponse[] = []
-  let cursor: string | undefined = undefined
+  if (!NOTION_DATABASE_ID) return []
 
-  do {
-    const response = await notion.databases.query({
-      database_id: process.env.NOTION_DATABASE_ID!,
-      filter: {
-        property: 'Status',
-        select: { equals: 'Published' },
-      },
-      sorts: [{ property: 'Date', direction: 'descending' }],
-      start_cursor: cursor,
-    })
-    results.push(...(response.results as PageObjectResponse[]))
-    cursor = response.has_more ? (response.next_cursor ?? undefined) : undefined
-  } while (cursor)
+  try {
+    const results: PageObjectResponse[] = []
+    let cursor: string | undefined = undefined
 
-  return Promise.all(
-    results.map(async (page) => {
-      const meta = await mapNotionPageToBlogPost(page)
-      // content is empty array here — filled in by getPostBySlug
-      return { ...meta, content: [] as BlogBlock[] }
-    })
-  )
+    do {
+      const response = await queryNotionDatabase(NOTION_DATABASE_ID, {
+        filter: {
+          property: 'Status',
+          select: { equals: 'Published' },
+        },
+        sorts: [{ property: 'Date', direction: 'descending' }],
+        start_cursor: cursor,
+      })
+      results.push(...response.results)
+      cursor = response.has_more ? (response.next_cursor ?? undefined) : undefined
+    } while (cursor)
+
+    return Promise.all(
+      results.map(async (page) => {
+        const meta = await mapNotionPageToBlogPost(page)
+        return { ...meta, content: [] as BlogBlock[] }
+      })
+    )
+  } catch (err) {
+    console.error('[blog] Failed to fetch posts from Notion:', err)
+    return []
+  }
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | undefined> {
-  const posts = await getAllPosts()
-  const meta = posts.find((p) => p.slug === slug)
-  if (!meta) return undefined
+  if (!NOTION_DATABASE_ID) return undefined
 
-  // Re-query to get the Notion page ID for the matching slug
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID!,
-    filter: {
-      and: [
-        { property: 'Status', select: { equals: 'Published' } },
-        { property: 'Slug', rich_text: { equals: slug } },
-      ],
-    },
-  })
+  try {
+    const response = await queryNotionDatabase(NOTION_DATABASE_ID, {
+      filter: {
+        and: [
+          { property: 'Status', select: { equals: 'Published' } },
+          { property: 'Slug', rich_text: { equals: slug } },
+        ],
+      },
+      page_size: 1,
+    })
 
-  const page = response.results[0] as PageObjectResponse | undefined
-  if (!page) return undefined
+    const page = response.results[0]
+    if (!page) return undefined
 
-  const content = await getBlocksWithChildren(page.id)
-  return { ...meta, content }
+    const meta = await mapNotionPageToBlogPost(page)
+    const content = await getBlocksWithChildren(page.id)
+    return { ...meta, content }
+  } catch (err) {
+    console.error(`[blog] Failed to fetch post "${slug}" from Notion:`, err)
+    return undefined
+  }
 }

@@ -32,14 +32,14 @@ export default function TipsPage() {
   return (
     <>
       {/* Page header -kraft visual identity with blueprint illustration */}
-      <section className="relative overflow-hidden bg-surface-raised border-b border-border -mt-14 hero-texture">
+      <section className="relative overflow-hidden bg-surface-raised border-b border-border hero-texture">
         <div
           className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
           style={{
             background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,90,58,0.06) 0%, transparent 70%)',
           }}
         />
-        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 pt-[5.5rem] sm:pt-[6.5rem] pb-16">
+        <div className="relative z-10 px-4 sm:px-6 pt-8 sm:pt-12 pb-16">
           <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Unreal Tips</h1>
           <p className="text-text-muted">
             {allTips.length} tip{allTips.length !== 1 ? 's' : ''} on Unreal Engine QA &amp;
@@ -47,14 +47,14 @@ export default function TipsPage() {
           </p>
         </div>
         {/* Random doodle -right-aligned within content area, contained in banner */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-full max-w-5xl px-4 sm:px-6 bottom-0 pointer-events-none select-none">
-          <div className="ml-auto w-44 sm:w-56 h-44 sm:h-56 opacity-100">
+        <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 sm:px-6 bottom-0 pointer-events-none select-none hidden sm:block">
+          <div className="ml-auto opacity-100" style={{ width: 'clamp(10rem, 15vw, 16rem)', height: 'clamp(10rem, 15vw, 16rem)' }}>
             <RandomDoodle />
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 pb-32 pt-8">
+      <div className="px-4 sm:px-6 pb-32 pt-8">
         <TipsGrid tips={allTips} />
       </div>
     </>
