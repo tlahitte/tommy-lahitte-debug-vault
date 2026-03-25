@@ -39,17 +39,62 @@ export default function ChromaticAvatar({ src, alt, width, height, sizes }: Prop
 
   return (
     <>
-      {/* SVG color-matrix filter definitions */}
+      {/*
+        SVG filter chain per channel:
+        1. feColorMatrix  — isolate R/G/B channel (all others zeroed)
+        2. feTurbulence   — organic noise grid (different freq + seed per channel
+                            mimics offset CMYK halftone screens)
+        3. feColorMatrix  — desaturate noise to greyscale
+        4. feComponentTransfer — threshold alpha to 0|1 (binary halftone dots)
+        5. feComposite(in) — mask the channel through the dot grid
+
+        Binary alpha eliminates pre-multiplied-alpha fringing that causes
+        the black outline: every pixel is now either fully opaque or fully
+        transparent, so mix-blend-mode: screen composites cleanly.
+        The dot grid also produces a stippled circular edge as a design bonus.
+      */}
       <svg style={{ display: 'none' }} aria-hidden="true">
         <defs>
-          <filter id="ca-red">
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+          {/* Red — larger blobs, seed 2 */}
+          <filter id="ca-red" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chan"/>
+            <feTurbulence type="turbulence" baseFrequency="0.15 0.15" numOctaves="1" seed="2" stitchTiles="stitch" result="ht"/>
+            <feColorMatrix type="saturate" values="0" in="ht" result="ht-grey"/>
+            <feComponentTransfer in="ht-grey" result="ht-mask">
+              <feFuncR type="discrete" tableValues="1 1"/>
+              <feFuncG type="discrete" tableValues="1 1"/>
+              <feFuncB type="discrete" tableValues="1 1"/>
+              <feFuncA type="discrete" tableValues="0 1"/>
+            </feComponentTransfer>
+            <feComposite in="chan" in2="ht-mask" operator="in"/>
           </filter>
-          <filter id="ca-green">
-            <feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+
+          {/* Green — medium blobs, seed 7 */}
+          <filter id="ca-green" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chan"/>
+            <feTurbulence type="turbulence" baseFrequency="0.20 0.20" numOctaves="1" seed="7" stitchTiles="stitch" result="ht"/>
+            <feColorMatrix type="saturate" values="0" in="ht" result="ht-grey"/>
+            <feComponentTransfer in="ht-grey" result="ht-mask">
+              <feFuncR type="discrete" tableValues="1 1"/>
+              <feFuncG type="discrete" tableValues="1 1"/>
+              <feFuncB type="discrete" tableValues="1 1"/>
+              <feFuncA type="discrete" tableValues="0 1"/>
+            </feComponentTransfer>
+            <feComposite in="chan" in2="ht-mask" operator="in"/>
           </filter>
-          <filter id="ca-blue">
-            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+
+          {/* Blue — smaller blobs, seed 13 */}
+          <filter id="ca-blue" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="chan"/>
+            <feTurbulence type="turbulence" baseFrequency="0.25 0.25" numOctaves="1" seed="13" stitchTiles="stitch" result="ht"/>
+            <feColorMatrix type="saturate" values="0" in="ht" result="ht-grey"/>
+            <feComponentTransfer in="ht-grey" result="ht-mask">
+              <feFuncR type="discrete" tableValues="1 1"/>
+              <feFuncG type="discrete" tableValues="1 1"/>
+              <feFuncB type="discrete" tableValues="1 1"/>
+              <feFuncA type="discrete" tableValues="0 1"/>
+            </feComponentTransfer>
+            <feComposite in="chan" in2="ht-mask" operator="in"/>
           </filter>
         </defs>
       </svg>
