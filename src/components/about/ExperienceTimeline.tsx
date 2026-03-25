@@ -96,9 +96,15 @@ const experiences: TimelineEntry[] = [
     id: 'pqds',
     role: 'Multimedia Equipment Technician',
     company: 'Partenariat du Quartier des spectacles',
+    companyUrl: 'https://www.quartierdesspectacles.com/en',
     period: 'Nov 2014 - Nov 2015',
     location: 'Montreal, Canada',
-    description: 'Urban Digital Lab member, Parcours lumiere.',
+    description: 'As a technician on the Urban Digital Lab, I was responsible for all interactive installations and projection mapping on the entire PQDS site. I installed the 21 musical swings from Daily tous les jours and maintained the 7 projection mapping surfaces across the quarter.',
+    highlights: [
+      '21 Musical Swings — Daily tous les jours',
+      '7 Projection Mapping Surfaces',
+    ],
+    highlightsLabel: 'installations',
     year: 2014,
   },
 ]

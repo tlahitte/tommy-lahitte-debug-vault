@@ -1,108 +1,73 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Hero from '@/components/home/Hero'
-import TipCard from '@/components/tips/TipCard'
-import BlogCard from '@/components/blog/BlogCard'
-import { AuroraBackground } from '@/components/ui/aurora-background'
-import { getAllTips } from '@/lib/tips'
+import AboutCard from '@/components/home/AboutCard'
+import DisciplinesSection from '@/components/home/DisciplinesSection'
+import LatestPostsSection from '@/components/home/LatestPostsSection'
+import LatestTipsSection from '@/components/home/LatestTipsSection'
+import ExperienceTimeline from '@/components/about/ExperienceTimeline'
+import RevealSection from '@/components/ui/RevealSection'
 import { getAllPosts } from '@/lib/blog'
+import { getAllTips } from '@/lib/tips'
 
 export const metadata: Metadata = {
-  title: 'Tommy Lahitte | QA Engineer & Unreal Debug Vault',
+  title: 'Tommy Lahitte | Maker & Tinkerer',
   description:
-    'QA and debugging field notes for Unreal Engine by Tommy Lahitte, QA Engineer at Epic Games. Tips on the Visual Logger, functional testing, log filtering, and more.',
+    'Tommy Lahitte, maker who bridges art and technology. QA Engineer at Epic Games. Electronics, film photography, live events, and the things worth building.',
   alternates: {
     canonical: 'https://tommylahitte.com/',
   },
   openGraph: {
-    title: 'Tommy Lahitte | QA Engineer & Unreal Debug Vault',
+    title: 'Tommy Lahitte | Maker & Tinkerer',
     description:
-      'QA and debugging field notes for Unreal Engine by Tommy Lahitte, QA Engineer at Epic Games.',
+      'Tommy Lahitte, maker who bridges art and technology. QA Engineer at Epic Games.',
     url: 'https://tommylahitte.com/',
     type: 'website',
   },
 }
 
 export default async function HomePage() {
-  const latestTips = getAllTips().slice(0, 3)
-  const latestPosts = (await getAllPosts()).slice(0, 2)
+  const [posts, tips] = await Promise.all([
+    getAllPosts(),
+    Promise.resolve(getAllTips()),
+  ])
 
   return (
-    <>
-      {/* Hero with aurora background */}
-      <AuroraBackground className="border-b border-border overflow-hidden hero-texture">
-        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 w-full">
-          <div className="flex flex-col gap-6 py-10 sm:py-16">
-            <Hero />
-          </div>
-        </div>
-      </AuroraBackground>
+    <div className="py-10 sm:py-14 flex flex-col gap-8">
 
-      <section className="pt-12 sm:pt-16 pb-12 bg-surface-raised">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-text-primary mb-8 font-display">Latest Posts</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {latestPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-            >
-              View All Posts
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
+      {/* Hero — first card, no whileInView delay so it appears immediately */}
+      <RevealSection>
+        <div className="rounded-2xl border border-border bg-surface-raised p-8 sm:p-12 card-elevated">
+          <Hero />
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="pt-12 sm:pt-16 pb-32">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-text-primary mb-8 font-display">Latest Tips</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {latestTips.map((tip) => (
-              <TipCard key={tip.slug} tip={tip} />
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link
-              href="/tips"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-            >
-              View All Tips
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
+      {/* About */}
+      <RevealSection delay={0.05}>
+        <AboutCard />
+      </RevealSection>
+
+      {/* Disciplines — horizontal scroll, full bleed within the column */}
+      <RevealSection>
+        <DisciplinesSection />
+      </RevealSection>
+
+      {/* Latest posts */}
+      <RevealSection>
+        <LatestPostsSection posts={posts.slice(0, 3)} />
+      </RevealSection>
+
+      {/* Latest tips */}
+      <RevealSection>
+        <LatestTipsSection tips={tips.slice(0, 3)} />
+      </RevealSection>
+
+      {/* Experience timeline */}
+      <RevealSection>
+        <div className="rounded-2xl border border-border overflow-hidden">
+          <ExperienceTimeline />
         </div>
-      </section>
-    </>
+      </RevealSection>
+
+    </div>
   )
 }
