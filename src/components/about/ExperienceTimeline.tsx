@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import Image from 'next/image'
+import { useHydrated } from '@/hooks/useHydrated'
 import {
   motion,
   useScroll,
@@ -15,6 +16,11 @@ import {
 /*  Data                                                               */
 /* ------------------------------------------------------------------ */
 
+interface HighlightBadge {
+  label: string
+  url?: string
+}
+
 interface TimelineEntry {
   id: string
   role: string
@@ -23,7 +29,7 @@ interface TimelineEntry {
   period: string
   location: string
   description: string
-  highlights?: string[]
+  highlights?: (string | HighlightBadge)[]
   highlightsLabel?: string
   year: number
 }
@@ -80,15 +86,17 @@ const experiences: TimelineEntry[] = [
     description:
       'Major international projects across live entertainment, theme parks, and broadcast.',
     highlights: [
-      'Cirque du Soleil (Drawn to Life, R.U.N, MJ One)',
-      'Roger Waters Us+Them Tour',
+      { label: 'Cirque du Soleil: Drawn to Life', url: 'https://www.vyv.ca/portfolio/cirque-du-soleil-drawn-to-life/' },
+      'Cirque du Soleil: R.U.N',
+      { label: 'Cirque du Soleil: MJ One', url: 'https://www.vyv.ca/portfolio/cirque-du-soleil-mj-one/' },
+      { label: 'Roger Waters Us+Them Tour', url: 'https://www.vyv.ca/portfolio/roger-waters-us-and-them-2017/' },
       'Planet Hollywood Las Vegas',
       'Carnival Cruise Lines',
       'NFL Experience Times Square',
       'Intel CES 2017',
-      'CCTV New Year Gala (China)',
+      { label: 'CCTV New Year Gala (China)', url: 'https://www.vyv.ca/portfolio/cctv-schi/' },
       'Lido de Paris',
-      'National Day Parade Singapore',
+      { label: 'National Day Parade Singapore', url: 'https://www.vyv.ca/portfolio/hexogon-solution-snd/' },
     ],
     year: 2015,
   },
@@ -99,10 +107,10 @@ const experiences: TimelineEntry[] = [
     companyUrl: 'https://www.quartierdesspectacles.com/en',
     period: 'Nov 2014 - Nov 2015',
     location: 'Montreal, Canada',
-    description: 'As a technician on the Urban Digital Lab, I was responsible for all interactive installations and projection mapping on the entire PQDS site. I installed the 21 musical swings from Daily tous les jours and maintained the 7 projection mapping surfaces across the quarter.',
+    description: 'As a technician on the Urban Digital Lab, I was responsible for all interactive installations and projection mapping on the entire PQDS site. I installed the 21 musical swings from Daily tous les jours and maintained the 7 projection mapping surfaces.',
     highlights: [
-      '21 Musical Swings — Daily tous les jours',
-      '7 Projection Mapping Surfaces',
+      { label: '21 Musical Swings - Daily tous les jours', url: 'https://www.dailytouslesjours.com/en/work/21-swings' },
+      { label: '7 Projection Mapping Surfaces', url: 'https://www.quartierdesspectacles.com/en/videoprojections-2' },
     ],
     highlightsLabel: 'installations',
     year: 2014,
@@ -161,6 +169,7 @@ function TimelineCard({
   index: number
 }) {
   const ref = useRef<HTMLDivElement>(null)
+  const hydrated = useHydrated()
   const inView = useInView(ref, { once: true, margin: '-100px' })
   const [showHighlights, setShowHighlights] = useState(false)
 
@@ -169,8 +178,8 @@ function TimelineCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -40 : 40 }}
+      initial={hydrated ? { opacity: 0, x: isLeft ? -40 : 40 } : false}
+      animate={inView ? { opacity: 1, x: 0 } : hydrated ? { opacity: 0, x: isLeft ? -40 : 40 } : { opacity: 1, x: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="rounded-xl border border-border bg-surface p-5 card-elevated transition-shadow duration-200 hover:shadow-md hover:border-accent/30"
     >
@@ -220,14 +229,28 @@ function TimelineCard({
                 className="overflow-hidden"
               >
                 <div className="flex flex-wrap gap-1.5 mt-2">
-                  {entry.highlights.map((h) => (
-                    <span
-                      key={h}
-                      className="text-xs bg-surface-raised border border-border rounded-md px-2 py-0.5 text-text-muted"
-                    >
-                      {h}
-                    </span>
-                  ))}
+                  {entry.highlights.map((h) => {
+                    const label = typeof h === 'string' ? h : h.label
+                    const url = typeof h === 'string' ? undefined : h.url
+                    const baseClass =
+                      'text-xs bg-surface-raised border border-border rounded-md px-2 py-0.5 text-text-muted'
+
+                    return url ? (
+                      <a
+                        key={label}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${baseClass} underline decoration-dotted underline-offset-2 hover:text-accent hover:border-accent/40 transition-colors`}
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      <span key={label} className={baseClass}>
+                        {label}
+                      </span>
+                    )
+                  })}
                 </div>
               </motion.div>
             )}
@@ -244,13 +267,14 @@ function TimelineCard({
 
 function EducationRow({ entry }: { entry: EducationEntry }) {
   const ref = useRef<HTMLDivElement>(null)
+  const hydrated = useHydrated()
   const inView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 16 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+      initial={hydrated ? { opacity: 0, y: 16 } : false}
+      animate={inView ? { opacity: 1, y: 0 } : hydrated ? { opacity: 0, y: 16 } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="flex items-center gap-3"
     >
@@ -276,13 +300,14 @@ function EducationRow({ entry }: { entry: EducationEntry }) {
 
 function CertificationRow({ entry }: { entry: CertificationEntry }) {
   const ref = useRef<HTMLDivElement>(null)
+  const hydrated = useHydrated()
   const inView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 16 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+      initial={hydrated ? { opacity: 0, y: 16 } : false}
+      animate={inView ? { opacity: 1, y: 0 } : hydrated ? { opacity: 0, y: 16 } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="flex items-center gap-3"
     >

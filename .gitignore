@@ -36,9 +36,28 @@ yarn-error.log*
 next-env.d.ts
 
 # claude / AI tooling
-.claude/epic-ralph.local.md
+.claude/
 .planning/
 PROMPT.md
+
+# SEO audit output (generated, not part of site)
+claude-seo/
+
+# generated images (AI-generated, source-of-truth is Notion)
+generated_imgs/
+
+# screenshots from audits
+screenshots/
+
+# working docs (not part of site)
+PROGRESS.md
+WEBSITE_FIXES_PROMPT.md
+
+# notion images are downloaded at build time (Notion URLs expire)
+public/notion-images/
+
+# unused workbench SVGs (replaced by PNGs in workbench_assets/)
+public/workbench/
 
 # api keys / config with secrets
 .nano-banana-config.json

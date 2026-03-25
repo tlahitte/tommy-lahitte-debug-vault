@@ -24,11 +24,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
+  const latestTipDate = tips.length > 0
+    ? new Date(tips[0].publishedAt)
+    : new Date()
+
+  const latestPostDate = posts.length > 0
+    ? new Date(posts[0].date)
+    : null
+
   return [
-    { url: `${BASE}/`,       lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
-    { url: `${BASE}/tips/`,  lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
-    { url: `${BASE}/blog/`,  lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
-    { url: `${BASE}/about/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE}/`,       lastModified: latestTipDate, changeFrequency: 'weekly',  priority: 1.0 },
+    { url: `${BASE}/tips/`,  lastModified: latestTipDate, changeFrequency: 'weekly',  priority: 0.9 },
+    // Only include /blog/ in sitemap when it has published posts
+    ...(posts.length > 0
+      ? [{ url: `${BASE}/blog/`, lastModified: latestPostDate!, changeFrequency: 'weekly' as const, priority: 0.9 }]
+      : []),
     ...tipEntries,
     ...postEntries,
   ]

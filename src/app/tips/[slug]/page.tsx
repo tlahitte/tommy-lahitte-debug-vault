@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getAllTips, getTipBySlug } from '@/lib/tips'
+import { getAllTips, getTipBySlug, getRelatedTips } from '@/lib/tips'
 import TipDetail from '@/components/tips/TipDetail'
+import RelatedTips from '@/components/tips/RelatedTips'
 
 interface TipPageProps {
   params: Promise<{ slug: string }>
@@ -49,6 +50,8 @@ export default async function TipPage({ params }: TipPageProps) {
   const tip = getTipBySlug(slug)
   if (!tip) notFound()
 
+  const relatedTips = getRelatedTips(slug)
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
@@ -59,9 +62,21 @@ export default async function TipPage({ params }: TipPageProps) {
       name: 'Tommy Lahitte',
       url: 'https://tommylahitte.com/',
     },
+    publisher: {
+      '@type': 'Person',
+      name: 'Tommy Lahitte',
+      url: 'https://tommylahitte.com/',
+    },
     datePublished: tip.publishedAt,
+    dateModified: tip.publishedAt,
     keywords: tip.tags.join(', '),
     url: `https://tommylahitte.com/tips/${tip.slug}/`,
+    image: 'https://tommylahitte.com/og-image.png',
+    inLanguage: 'en',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://tommylahitte.com/tips/${tip.slug}/`,
+    },
   }
 
   const breadcrumbSchema = {
@@ -103,6 +118,7 @@ export default async function TipPage({ params }: TipPageProps) {
         </Link>
       </nav>
       <TipDetail tip={tip} />
+      <RelatedTips tips={relatedTips} />
     </div>
   )
 }

@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-surface border-b border-border">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+    <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-border">
+      <div className="mx-auto w-full max-w-4xl px-4 sm:px-8">
         <div className="flex h-14 items-center justify-between gap-2">
           <Link
             href="/"
@@ -15,7 +15,6 @@ export default function Header() {
             {[
               { href: '/blog', label: 'Journal' },
               { href: '/tips', label: 'Unreal Tips' },
-              { href: '/about', label: 'Experience' },
             ].map(({ href, label }) => (
               <Link
                 key={href}

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 flex flex-col items-center gap-4">
+    <footer className="border-t-2 border-border/60 bg-surface mt-auto">
+      <div className="mx-auto w-full max-w-4xl px-4 sm:px-8 py-8 flex flex-col items-center gap-4">
         <div className="flex items-center gap-5">
           <a
             href="https://uk.linkedin.com/in/tlahitte"

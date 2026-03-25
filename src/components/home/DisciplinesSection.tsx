@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { useHydrated } from '@/hooks/useHydrated'
 
 const disciplines = [
   {
@@ -11,7 +12,7 @@ const disciplines = [
     subtitle: 'QA & Virtual Production',
     accent: '#C85A3A',
     description:
-      "Years of pushing Unreal Engine beyond its conventional limits. From gameplay systems to Virtual Production and live events, testing what's never been tested, at the edge of what's possible.",
+      "Years of pushing Unreal Engine beyond its conventional limits. From gameplay systems to Virtual Production and live events, testing what's never been tested, at the edge of what's possible. I write automated tests for features that didn't exist six months ago, building frameworks that keep up with one of the fastest-moving engines in the industry. There's something deeply satisfying about being the first person to break something nobody else has tried yet.",
     tags: ['Automated Testing', 'Visual Logger', 'Blueprint', 'C++', 'nDisplay'],
   },
   {
@@ -21,7 +22,7 @@ const disciplines = [
     subtitle: 'Hardware & Tinkering',
     accent: '#6B9E6B',
     description:
-      'Soldering, breadboarding, reverse engineering. Keeps me grounded in how things actually work at the hardware level, feeding directly into how I debug software.',
+      'Soldering, breadboarding, reverse engineering. Keeps me grounded in how things actually work at the hardware level, feeding directly into how I debug software. I love the tangibility of it: building a circuit, watching LEDs light up, feeling the warmth of a freshly soldered joint. Understanding electrons and signals makes me a better software engineer, because the best debugging starts at the layer below.',
     tags: ['ESP32', 'Raspberry Pi', 'KiCad', 'UART'],
   },
   {
@@ -31,7 +32,7 @@ const disciplines = [
     subtitle: 'Medium Format & Analog',
     accent: '#9E8560',
     description:
-      'Shooting on film is my antidote to fast-paced digital work. Every frame costs something, so you slow down. I shoot medium format mostly, on the Mamiya RB67.',
+      'Shooting on film is my antidote to fast-paced digital work. Every frame costs something, so you slow down. I shoot medium format mostly, on the Mamiya RB67. There is a meditative quality to loading a roll, composing through the waist-level finder, and hearing that mirror slap. Film taught me patience and intentionality, and the results carry a texture and soul that digital just cannot replicate.',
     tags: ['Mamiya RB67', '120 Film', 'Street', 'Architecture'],
   },
   {
@@ -41,7 +42,7 @@ const disciplines = [
     subtitle: 'Tools & Automation',
     accent: '#5B8DB8',
     description:
-      'Writing code has always been the thread connecting my work. I build tools to solve real problems: crash analyzers, pipeline scripts, debugging utilities.',
+      'Writing code has always been the thread connecting my work. I build tools to solve real problems: crash analyzers, pipeline scripts, debugging utilities. Whether it is a Python script that saves my team hours every week or a full Next.js site, I care about craft at every scale. The best tools disappear into the workflow; you just feel the friction vanish.',
     tags: ['Python', 'TypeScript', 'Next.js', 'C++'],
   },
   {
@@ -51,7 +52,7 @@ const disciplines = [
     subtitle: 'Technical Direction',
     accent: '#9B6B9B',
     description:
-      'A decade of international shows taught me high-stakes decision making under pressure. As video programmer and projection supervisor, I owned the entire visual system.',
+      'A decade of international shows taught me high-stakes decision making under pressure. As video programmer and projection supervisor, I owned the entire visual system. From Cirque du Soleil stages to massive broadcast galas, I operated at the crossroads of technology, art, and entertainment, building machines whose higher purpose is to bring beauty into the world. There is nothing quite like showtime: thousands of people, no undo button, and the pixels have to land.',
     tags: ['Disguise', 'Projection Mapping', 'Media Servers', 'VYV'],
   },
   {
@@ -61,14 +62,13 @@ const disciplines = [
     subtitle: 'Research & Application',
     accent: '#C8A53A',
     description:
-      "Following the AI boom since its early days. We are living through something historically significant. I experiment with AI in my workflow, projects, and how I think about building.",
+      "Following the AI boom since its early days. We are living through something historically significant, and I want to understand it from the inside out. I experiment with AI in my workflow, projects, and how I think about building. From LLM-powered automation to agentic pipelines, I treat AI as a collaborator, not a replacement. The craft is in knowing when to lean on it and when to trust your own instincts.",
     tags: ['LLMs', 'Agents', 'Claude', 'Automation'],
   },
 ]
 
-function DisciplineCard({ d, index }: { d: typeof disciplines[0]; index: number }) {
-  const [open, setOpen] = useState(false)
-
+function DisciplineCard({ d, index, open, onToggle }: { d: typeof disciplines[0]; index: number; open: boolean; onToggle: () => void }) {
+  const hydrated = useHydrated()
   return (
     <motion.div
       className="rounded-xl border bg-surface cursor-pointer select-none"
@@ -77,11 +77,11 @@ function DisciplineCard({ d, index }: { d: typeof disciplines[0]; index: number 
         borderTopColor: d.accent,
         borderTopWidth: '2px',
       }}
-      initial={{ opacity: 0, y: 16 }}
+      initial={hydrated ? { opacity: 0, y: 16 } : false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
-      onClick={() => setOpen((o) => !o)}
+      onClick={onToggle}
     >
       {/* Compact header — always visible */}
       <div className="flex items-center gap-4 p-5">
@@ -148,8 +148,10 @@ function DisciplineCard({ d, index }: { d: typeof disciplines[0]; index: number 
 }
 
 export default function DisciplinesSection() {
+  const [openId, setOpenId] = useState<string | null>(null)
+
   return (
-    <div className="rounded-2xl border border-border bg-surface-raised p-6 sm:p-8 card-elevated">
+    <div className="rounded-2xl bg-surface-raised p-6 sm:p-8">
       {/* Header */}
       <div className="mb-6">
         <p className="text-xs font-medium tracking-widest text-text-muted uppercase mb-3">
@@ -163,7 +165,13 @@ export default function DisciplinesSection() {
       {/* Vertical card list */}
       <div className="flex flex-col gap-2">
         {disciplines.map((d, i) => (
-          <DisciplineCard key={d.id} d={d} index={i} />
+          <DisciplineCard
+            key={d.id}
+            d={d}
+            index={i}
+            open={openId === d.id}
+            onToggle={() => setOpenId(openId === d.id ? null : d.id)}
+          />
         ))}
       </div>
     </div>
