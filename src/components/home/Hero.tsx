@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'motion/react'
 import { TextShimmer } from '@/components/ui/text-shimmer'
+import ChromaticAvatar from '@/components/home/ChromaticAvatar'
 
 export default function Hero() {
   return (
@@ -76,14 +76,12 @@ export default function Hero() {
             }}
           />
           {/* Image */}
-          <Image
+          <ChromaticAvatar
             src="/avatar/tommy-lahitte-480.webp"
             alt="Tommy Lahitte"
             width={480}
             height={480}
             sizes="(max-width: 640px) 128px, (max-width: 1024px) 192px, 240px"
-            className="relative w-full rounded-full block aspect-square object-cover"
-            priority
           />
         </div>
 
