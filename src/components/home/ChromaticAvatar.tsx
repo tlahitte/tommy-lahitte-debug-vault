@@ -57,7 +57,7 @@ export default function ChromaticAvatar({ src, alt, width, height, sizes }: Prop
       <div
         ref={containerRef}
         className="relative w-full aspect-square"
-        style={{ background: '#000', borderRadius: '9999px', overflow: 'hidden', cursor: 'crosshair' }}
+        style={{ isolation: 'isolate', borderRadius: '9999px', overflow: 'hidden', cursor: 'crosshair' }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
