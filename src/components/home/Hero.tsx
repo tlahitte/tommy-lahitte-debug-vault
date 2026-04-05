@@ -5,6 +5,15 @@ import { TextShimmer } from '@/components/ui/text-shimmer'
 import ChromaticAvatar from '@/components/home/ChromaticAvatar'
 import { useHydrated } from '@/hooks/useHydrated'
 
+const socials = [
+  { href: 'https://uk.linkedin.com/in/tlahitte', label: 'LinkedIn', icon: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' },
+  { href: 'https://github.com/tlahitte', label: 'GitHub', icon: 'M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z' },
+  { href: 'https://www.instagram.com/1day.snap/', label: 'Instagram', icon: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z' },
+  { href: 'https://www.artstation.com/tlahitte', label: 'ArtStation', icon: 'M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.164-1.333H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z' },
+  { href: 'https://t.me/tlahitte', label: 'Telegram', icon: 'M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z' },
+  { href: 'https://makerworld.com/en/@Toasty_x', label: 'MakerWorld', icon: 'M17.3515 0L11.8854 2.1609L6.41929 0L0 2.53822V21.4628L6.41929 24.001L11.8854 21.8401L17.3515 24.001L23.7708 21.4628V2.53822L17.3515 0ZM17.3515 1.03184L22.8176 3.19274V11.0018L17.3515 8.84192V1.03184ZM17.3515 9.87471L22.7307 12.001L17.3515 14.1272L11.9723 12.001L17.3515 9.87471ZM6.41929 1.03184L11.8854 3.19274V11.0018L6.41929 8.84192V1.03184ZM6.41929 9.87471L11.7975 12.001L6.41835 14.1272L1.04011 12.001L6.41929 9.87471ZM0.953201 20.8073V12.9982L6.41929 15.1581V22.9682L0.953201 20.8073ZM11.8854 20.8073V12.9982L17.3515 15.1581V22.9682L11.8854 20.8073Z' },
+]
+
 export default function Hero() {
   const hydrated = useHydrated()
   return (
@@ -12,72 +21,16 @@ export default function Hero() {
       {/* Stacked on mobile, side-by-side on sm+ */}
       <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:gap-10">
 
-        {/* Portrait — centered above text on mobile, right side on sm+ */}
+        {/* Portrait */}
         <div className="relative shrink-0 w-32 sm:w-48 lg:w-60 order-first sm:order-last">
-          {/* Rotating arc — blurred glow behind everything */}
           <div
-            className="absolute -inset-10 rounded-full animate-spin-slow"
+            className="absolute -inset-6 rounded-full animate-spin-slow"
             style={{
-              background: 'conic-gradient(from 0deg, transparent 0%, transparent 45%, rgba(200,90,58,0.35) 62%, rgba(168,67,42,0.45) 78%, rgba(200,90,58,0.4) 90%, transparent 100%)',
-              filter: 'blur(24px)',
-            }}
-          />
-          {/* Animated concentric circles */}
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full border-2 bg-gradient-to-br to-transparent"
-              style={{
-                inset: `${-12 - i * 8}px`,
-                borderColor: [
-                  'rgba(200, 90, 58, 0.5)',
-                  'rgba(232, 132, 94, 0.35)',
-                  'rgba(168, 67, 42, 0.2)',
-                ][i],
-                backgroundImage: `radial-gradient(ellipse at center, rgba(200, 90, 58, ${0.08 - i * 0.02}) 0%, transparent 70%)`,
-              }}
-              animate={{
-                rotate: i % 2 === 0 ? 360 : -360,
-                scale: [1, 1.05 + i * 0.03, 1],
-                opacity: [0.6, 1, 0.6],
-              }}
-              transition={{
-                rotate: {
-                  duration: 20 + i * 5,
-                  ease: 'linear',
-                  repeat: Infinity,
-                },
-                scale: {
-                  duration: 4 + i,
-                  ease: 'easeInOut',
-                  repeat: Infinity,
-                },
-                opacity: {
-                  duration: 4 + i,
-                  ease: 'easeInOut',
-                  repeat: Infinity,
-                },
-              }}
-            />
-          ))}
-          {/* Soft glow */}
-          <div
-            className="absolute -inset-10 rounded-full"
-            style={{
-              background: 'radial-gradient(circle, rgba(200, 90, 58, 0.15) 0%, transparent 70%)',
+              background: 'conic-gradient(from 0deg, transparent 0%, transparent 45%, var(--aurora-1) 62%, var(--aurora-3) 78%, var(--aurora-2) 90%, transparent 100%)',
+              opacity: 0.3,
               filter: 'blur(20px)',
             }}
           />
-          {/* Frosted ring */}
-          <div
-            className="absolute -inset-3 rounded-full"
-            style={{
-              background: 'radial-gradient(circle, transparent 72%, rgba(250,250,247,0.4) 80%, rgba(250,250,247,0.7) 88%, rgba(240,235,224,0.85) 100%)',
-              backdropFilter: 'blur(6px)',
-              WebkitBackdropFilter: 'blur(6px)',
-            }}
-          />
-          {/* Image */}
           <ChromaticAvatar
             src="/avatar/tommy-lahitte-480.webp"
             alt="Tommy Lahitte"
@@ -87,9 +40,9 @@ export default function Hero() {
           />
         </div>
 
-        {/* Text — centered on mobile, left-aligned on sm+ */}
+        {/* Text */}
         <div className="flex-1 min-w-0 text-center sm:text-left">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-display">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-display" style={{ lineHeight: 1.07 }}>
             Hey, I&apos;m Tommy{' '}
             <motion.span
               className="inline-block origin-[70%_80%]"
@@ -104,20 +57,19 @@ export default function Hero() {
               👋
             </motion.span>
           </h1>
-          <p className="mt-2 sm:mt-3 text-lg sm:text-xl font-medium">
+          <p className="mt-3 sm:mt-4 text-lg sm:text-xl font-medium">
             <TextShimmer
               as="em"
               duration={5}
               spread={6}
-              className="not-italic [--base-color:var(--accent)] [--base-gradient-color:#E8845E]"
+              className="not-italic [--base-color:var(--accent)] [--base-gradient-color:#2997FF]"
             >
               Senior QA Engineer
             </TextShimmer>
             <span className="text-text-muted mx-2">·</span>
             <span className="text-text-muted">Epic Games</span>
           </p>
-          <hr className="my-4 border-border" />
-          <p className="text-base sm:text-xl text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
+          <p className="mt-4 text-base sm:text-xl text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
             Maker and tinkerer who can&apos;t resist taking things apart
             to see how they work. This is where I share the debugging notes,
             editor tricks, and side projects that came out of building real things.
@@ -126,75 +78,30 @@ export default function Hero() {
 
       </div>
 
-      {/* CTAs — centered on mobile, left-aligned on sm+ */}
-      <div className="mt-6 flex flex-wrap justify-center sm:justify-start gap-3">
-        <Link
-          href="/tips/"
-          className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
-        >
-          Unreal Tips
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </Link>
+      {/* Page CTAs — pill-shaped, Apple style */}
+      <div className="mt-8 flex flex-wrap justify-center sm:justify-start gap-3">
         <Link
           href="/blog/"
-          className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white hover:opacity-85 transition-opacity duration-200"
         >
           Read Journal
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </Link>
-        <a
-          href="https://github.com/tlahitte"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-muted hover:border-accent hover:bg-surface-raised hover:text-accent hover:scale-[1.03] active:scale-95 transition-all duration-300"
+        <Link
+          href="/tips/"
+          className="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium text-accent hover:opacity-70 transition-opacity duration-200"
         >
-          GitHub
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          Unreal Tips
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-        </a>
+        </Link>
       </div>
 
       {/* About paragraphs */}
-      <div className="mt-8">
-        <hr className="mb-6 border-border" />
+      <div className="mt-10">
         <motion.p
           className="text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
           initial={hydrated ? { opacity: 0, y: 12 } : false}
@@ -205,11 +112,11 @@ export default function Hero() {
           projection supervision for international live shows, deep dives into media-server
           technology at{' '}
           <a href="https://www.vyv.ca/" target="_blank" rel="noopener noreferrer"
-            className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200">
+            className="text-accent hover:opacity-70 transition-opacity duration-200">
             VYV
           </a>, and now{' '}
           <a href="https://www.epicgames.com/site/en-US/home" target="_blank" rel="noopener noreferrer"
-            className="text-text-primary font-medium underline decoration-transparent decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors duration-200">
+            className="text-accent hover:opacity-70 transition-opacity duration-200">
             Virtual Production at Epic Games
           </a>{' '}
           where I push Unreal Engine into territory that would have felt like science fiction
@@ -224,6 +131,30 @@ export default function Hero() {
           When I solve something hard, I write it down. No padding, no filler.
           Just the stuff that actually mattered.
         </motion.p>
+
+        {/* Social links — Apple-style text links */}
+        <motion.div
+          className="mt-6 flex flex-wrap justify-center sm:justify-start items-center gap-4"
+          initial={hydrated ? { opacity: 0, y: 12 } : false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          {socials.map(({ href, label, icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="inline-flex items-center gap-1.5 text-text-muted hover:text-accent transition-colors duration-200"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d={icon} />
+              </svg>
+              <span className="text-xs font-medium">{label}</span>
+            </a>
+          ))}
+        </motion.div>
       </div>
     </div>
   )

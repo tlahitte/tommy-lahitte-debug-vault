@@ -52,6 +52,7 @@ screenshots/
 # working docs (not part of site)
 PROGRESS.md
 WEBSITE_FIXES_PROMPT.md
+DESIGN.md
 
 # notion images are downloaded at build time (Notion URLs expire)
 public/notion-images/
