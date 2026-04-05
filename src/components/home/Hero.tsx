@@ -44,18 +44,9 @@ export default function Hero() {
         <div className="flex-1 min-w-0 text-center sm:text-left">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-display" style={{ lineHeight: 1.07 }}>
             Hey, I&apos;m Tommy{' '}
-            <motion.span
-              className="inline-block origin-[70%_80%]"
-              animate={{ rotate: [0, 20, -10, 20, -5, 0] }}
-              transition={{
-                repeat: Infinity,
-                repeatDelay: 10,
-                duration: 0.8,
-                ease: 'easeInOut',
-              }}
-            >
+            <span className="inline-block origin-[70%_80%] animate-wave">
               👋
-            </motion.span>
+            </span>
           </h1>
           <p className="mt-3 sm:mt-4 text-lg sm:text-xl font-medium">
             <TextShimmer

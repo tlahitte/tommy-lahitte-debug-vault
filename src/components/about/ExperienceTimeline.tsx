@@ -7,7 +7,6 @@ import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
   useInView,
   AnimatePresence,
 } from 'motion/react'
@@ -375,8 +374,7 @@ export default function ExperienceTimeline() {
     offset: ['start end', 'end start'],
   })
 
-  const rawHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-  const smoothHeight = useSpring(rawHeight, { stiffness: 100, damping: 30 })
+  const scrollHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   return (
     <section className="pt-2 pb-10 sm:pb-16">
@@ -396,9 +394,9 @@ export default function ExperienceTimeline() {
 
           {/* Spine — scroll-driven fill */}
           <motion.div
-            className="absolute left-[7px] md:left-1/2 md:-translate-x-1/2 top-0 w-0.5 rounded-full"
+            className="absolute left-[7px] md:left-1/2 md:-translate-x-1/2 top-0 w-0.5 rounded-full transition-[height] duration-150 ease-out"
             style={{
-              height: smoothHeight,
+              height: scrollHeight,
               backgroundColor: 'var(--accent)',
               opacity: 0.3,
             }}
