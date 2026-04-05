@@ -28,11 +28,20 @@ const config: Config = {
       animation: {
         'spin-slow': 'spin 6s linear infinite',
         aurora: 'aurora 60s linear infinite',
+        wave: 'wave 0.8s ease-in-out 10s infinite',
       },
       keyframes: {
         aurora: {
           from: { backgroundPosition: '50% 50%, 50% 50%' },
           to: { backgroundPosition: '350% 50%, 350% 50%' },
+        },
+        wave: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '15%': { transform: 'rotate(20deg)' },
+          '30%': { transform: 'rotate(-10deg)' },
+          '45%': { transform: 'rotate(20deg)' },
+          '60%': { transform: 'rotate(-5deg)' },
+          '75%': { transform: 'rotate(0deg)' },
         },
       },
     },

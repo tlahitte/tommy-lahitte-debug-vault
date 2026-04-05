@@ -8,8 +8,6 @@ interface Props {
   className?: string
   /** z-index for stacking order — higher panels slide over lower ones */
   index?: number
-  /** Total number of panels (used for z-index ceiling) */
-  total?: number
   /** Whether this is the last panel (no sticky, just flows normally) */
   isLast?: boolean
 }
@@ -29,7 +27,6 @@ export default function SlidingPanel({
   children,
   className = '',
   index = 0,
-  total = 5,
   isLast = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
