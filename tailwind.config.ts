@@ -23,7 +23,7 @@ const config: Config = {
         'wood-light': 'var(--wood-light)',
       },
       fontFamily: {
-        display: ['var(--font-inter)', 'sans-serif'],
+        display: ['var(--font-denim)', 'sans-serif'],
       },
       animation: {
         'spin-slow': 'spin 6s linear infinite',

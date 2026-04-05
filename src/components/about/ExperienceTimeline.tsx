@@ -36,6 +36,44 @@ interface TimelineEntry {
 
 const experiences: TimelineEntry[] = [
   {
+    id: 'epic-mocap',
+    role: 'Motion Capture Operator',
+    company: 'Epic Games',
+    companyUrl: 'https://www.epicgames.com/site/en-US/home',
+    period: 'Jan 2025 - Present',
+    location: 'London, UK',
+    description:
+      'Running motion capture sessions at the London Innovation Lab. Operating suits and camera systems for real-time character animation in Unreal Engine, pushing the boundaries of live performance capture for virtual production pipelines.',
+    highlights: [
+      'Vicon Shogun',
+      'Captury Markerless',
+      'Live Link',
+      'Full-Body MoCap',
+      'Real-Time Retargeting',
+    ],
+    highlightsLabel: 'technologies',
+    year: 2025,
+  },
+  {
+    id: 'epic-stage-op',
+    role: 'VP Stage Operator',
+    company: 'Epic Games',
+    companyUrl: 'https://www.epicgames.com/site/en-US/home',
+    period: 'Jan 2024 - Present',
+    location: 'London, UK',
+    description:
+      'Operating LED volumes and nDisplay setups for virtual production stages at the London Innovation Lab. Managing real-time content delivery, camera tracking integration, and on-set technical direction for film and broadcast productions.',
+    highlights: [
+      'nDisplay',
+      'LED Volume',
+      'Camera Tracking',
+      'Mo-Sys',
+      'DMX',
+    ],
+    highlightsLabel: 'technologies',
+    year: 2024,
+  },
+  {
     id: 'epic-senior',
     role: 'Senior QA Engineer, Virtual Production',
     company: 'Epic Games',
@@ -45,7 +83,6 @@ const experiences: TimelineEntry[] = [
     description:
       'Promotion focused on test automation and CI/CD maintenance for Virtual Production features. Building tools and expanding existing testing frameworks in Unreal Engine to support Virtual Production workflows.',
     highlights: [
-      'DMX',
       'EXR Playback',
       'Composure',
       'LiveLinkHub',
@@ -181,7 +218,8 @@ function TimelineCard({
       initial={hydrated ? { opacity: 0, x: isLeft ? -40 : 40 } : false}
       animate={inView ? { opacity: 1, x: 0 } : hydrated ? { opacity: 0, x: isLeft ? -40 : 40 } : { opacity: 1, x: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="rounded-xl border border-border bg-surface p-5 card-elevated transition-shadow duration-200 hover:shadow-md hover:border-accent/30"
+      className="rounded-xl bg-surface-raised p-5"
+      whileHover={{ scale: 1.015, y: -2 }}
     >
       {/* Company */}
       {entry.companyUrl ? (
@@ -341,10 +379,10 @@ export default function ExperienceTimeline() {
   const smoothHeight = useSpring(rawHeight, { stiffness: 100, damping: 30 })
 
   return (
-    <section className="py-10 sm:py-16">
+    <section className="pt-2 pb-10 sm:pb-16">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Section heading */}
-        <h2 className="text-2xl font-bold text-text-primary font-display mb-8 text-center">
+        <h2 className="text-2xl font-bold text-text-primary font-display mb-10 text-center">
           Experience
         </h2>
 

@@ -1,9 +1,9 @@
 # Tommy Lahitte — Debug Vault
 
-> QA & debugging field notes for Unreal Engine — by Tommy Lahitte
+> Maker & tinkerer who bridges art and technology — projects, field notes, and things worth building.
 
-A personal site collecting QA techniques, debugging workflows, and Unreal Engine tips.
-Built with Next.js 15, Tailwind CSS, deployed as a static export on Netlify.
+A personal site collecting Unreal Engine tips, journal posts (via Notion), and a portfolio of disciplines spanning virtual production, electronics, film photography, software engineering, and AI.
+Built with Next.js 15, Tailwind CSS, and deployed as a static export on Netlify.
 
 **Live site:** https://tommylahitte.com
 
@@ -15,9 +15,11 @@ Built with Next.js 15, Tailwind CSS, deployed as a static export on Netlify.
 |-------|-----------|
 | Framework | Next.js 15 (App Router, static export) |
 | Styling | Tailwind CSS v3 |
+| Animation | Framer Motion (motion/react) |
 | Language | TypeScript (strict) |
+| CMS | Notion (journal posts fetched at build time) |
 | Deployment | Netlify |
-| Font | Inter (next/font/google) |
+| Font | Denim VF (local, next/font/local) |
 
 ---
 
@@ -38,13 +40,26 @@ npx serve out        # Preview static build locally
 
 ---
 
-## Adding Tips
+## Content
+
+### Unreal Tips
 
 1. Create `src/content/tips/<category>-<slug>.ts` exporting a `Tip` object
 2. Import and add it to `allTips` in `src/content/tips/index.ts`
-3. Update `public/sitemap.xml` with the new URL entry
 
 Tip categories: `editor` · `debugging` · `qa-workflow`
+
+### Journal Posts
+
+Journal posts are authored in Notion and fetched at build time. No local files needed — just publish in the connected Notion database and rebuild.
+
+---
+
+## Sitemap & Robots
+
+- `src/app/sitemap.ts` dynamically generates the sitemap from all tips and blog posts
+- `public/robots.txt` allows all crawlers and points to the sitemap
+- No manual sitemap updates needed — new content is picked up automatically at build time
 
 ---
 
@@ -63,8 +78,8 @@ Tip categories: `editor` · `debugging` · `qa-workflow`
 
 - Per-page metadata via `generateMetadata()`
 - JSON-LD structured data (Person schema on home, TechArticle on each tip)
-- `public/sitemap.xml` and `public/robots.txt` included
+- Dynamic sitemap and static `robots.txt`
 
 ---
 
-*Tommy Lahitte · QA Engineer at Epic Games*
+*Tommy Lahitte · Senior QA Engineer at Epic Games*

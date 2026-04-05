@@ -6,21 +6,21 @@ import { useHydrated } from '@/hooks/useHydrated'
 
 const disciplines = [
   {
-    id: 'unreal',
+    id: 'vp-live',
     number: '01',
-    title: 'Unreal Engine',
-    subtitle: 'QA & Virtual Production',
-    accent: '#C85A3A',
+    title: 'Virtual Production & Live Stages',
+    subtitle: 'Stage Operation, MoCap & Projection',
+    accent: '#0071E3',
     description:
-      "Years of pushing Unreal Engine beyond its conventional limits. From gameplay systems to Virtual Production and live events, testing what's never been tested, at the edge of what's possible. I write automated tests for features that didn't exist six months ago, building frameworks that keep up with one of the fastest-moving engines in the industry. There's something deeply satisfying about being the first person to break something nobody else has tried yet.",
-    tags: ['Automated Testing', 'Visual Logger', 'Blueprint', 'C++', 'nDisplay'],
+      'A career built at the crossroads of technology and spectacle. From operating LED volumes and nDisplay walls for virtual production at Epic Games, to a decade of projection supervision on Cirque du Soleil stages and international broadcast galas. I run motion capture sessions, push Unreal Engine into territory that would have felt like science fiction ten years ago, and programme media servers for shows where there is no undo button. Thousands of people, pixels that have to land.',
+    tags: ['Unreal Engine', 'nDisplay', 'Motion Capture', 'Disguise', 'Projection Mapping', 'Media Servers'],
   },
   {
     id: 'electronics',
     number: '02',
     title: 'Electronics',
     subtitle: 'Hardware & Tinkering',
-    accent: '#6B9E6B',
+    accent: '#34C759',
     description:
       'Soldering, breadboarding, reverse engineering. Keeps me grounded in how things actually work at the hardware level, feeding directly into how I debug software. I love the tangibility of it: building a circuit, watching LEDs light up, feeling the warmth of a freshly soldered joint. Understanding electrons and signals makes me a better software engineer, because the best debugging starts at the layer below.',
     tags: ['ESP32', 'Raspberry Pi', 'KiCad', 'UART'],
@@ -30,37 +30,27 @@ const disciplines = [
     number: '03',
     title: 'Film Photography',
     subtitle: 'Medium Format & Analog',
-    accent: '#9E8560',
+    accent: '#FF9500',
     description:
       'Shooting on film is my antidote to fast-paced digital work. Every frame costs something, so you slow down. I shoot medium format mostly, on the Mamiya RB67. There is a meditative quality to loading a roll, composing through the waist-level finder, and hearing that mirror slap. Film taught me patience and intentionality, and the results carry a texture and soul that digital just cannot replicate.',
     tags: ['Mamiya RB67', '120 Film', 'Street', 'Architecture'],
   },
   {
-    id: 'software',
+    id: 'software-qa',
     number: '04',
-    title: 'Software Dev',
-    subtitle: 'Tools & Automation',
-    accent: '#5B8DB8',
+    title: 'Software & QA Engineering',
+    subtitle: 'Tools, Automation & Testing',
+    accent: '#5856D6',
     description:
-      'Writing code has always been the thread connecting my work. I build tools to solve real problems: crash analyzers, pipeline scripts, debugging utilities. Whether it is a Python script that saves my team hours every week or a full Next.js site, I care about craft at every scale. The best tools disappear into the workflow; you just feel the friction vanish.',
-    tags: ['Python', 'TypeScript', 'Next.js', 'C++'],
-  },
-  {
-    id: 'live-events',
-    number: '05',
-    title: 'Live Events',
-    subtitle: 'Technical Direction',
-    accent: '#9B6B9B',
-    description:
-      'A decade of international shows taught me high-stakes decision making under pressure. As video programmer and projection supervisor, I owned the entire visual system. From Cirque du Soleil stages to massive broadcast galas, I operated at the crossroads of technology, art, and entertainment, building machines whose higher purpose is to bring beauty into the world. There is nothing quite like showtime: thousands of people, no undo button, and the pixels have to land.',
-    tags: ['Disguise', 'Projection Mapping', 'Media Servers', 'VYV'],
+      'Writing code has always been the thread connecting my work. I build tools to solve real problems: crash analyzers, pipeline scripts, debugging utilities. As a QA engineer I design automated test frameworks, maintain CI/CD pipelines, and write tests for features that didn\'t exist six months ago. Whether it is a Python script that saves my team hours every week or a full Next.js site, I care about craft at every scale.',
+    tags: ['Python', 'TypeScript', 'Next.js', 'C++', 'Automated Testing', 'CI/CD'],
   },
   {
     id: 'ai',
-    number: '06',
+    number: '05',
     title: 'AI',
     subtitle: 'Research & Application',
-    accent: '#C8A53A',
+    accent: '#FF3B30',
     description:
       "Following the AI boom since its early days. We are living through something historically significant, and I want to understand it from the inside out. I experiment with AI in my workflow, projects, and how I think about building. From LLM-powered automation to agentic pipelines, I treat AI as a collaborator, not a replacement. The craft is in knowing when to lean on it and when to trust your own instincts.",
     tags: ['LLMs', 'Agents', 'Claude', 'Automation'],
@@ -71,16 +61,12 @@ function DisciplineCard({ d, index, open, onToggle }: { d: typeof disciplines[0]
   const hydrated = useHydrated()
   return (
     <motion.div
-      className="rounded-xl border bg-surface cursor-pointer select-none"
-      style={{
-        borderColor: 'var(--border)',
-        borderTopColor: d.accent,
-        borderTopWidth: '2px',
-      }}
+      className="rounded-xl bg-surface-raised cursor-pointer select-none"
       initial={hydrated ? { opacity: 0, y: 16 } : false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
+      whileHover={{ scale: 1.015, y: -2 }}
       onClick={onToggle}
     >
       {/* Compact header — always visible */}
@@ -95,6 +81,13 @@ function DisciplineCard({ d, index, open, onToggle }: { d: typeof disciplines[0]
           <h3 className="text-base font-bold text-text-primary font-display">{d.title}</h3>
           <p className="text-[11px] font-medium text-text-muted uppercase tracking-wide">{d.subtitle}</p>
         </div>
+        {/* Accent dot */}
+        <motion.div
+          className="w-2 h-2 rounded-full shrink-0"
+          style={{ backgroundColor: d.accent }}
+          animate={{ opacity: open ? 1 : 0.3 }}
+          transition={{ duration: 0.2 }}
+        />
         {/* Chevron */}
         <motion.svg
           className="shrink-0 text-text-muted"
@@ -151,14 +144,14 @@ export default function DisciplinesSection() {
   const [openId, setOpenId] = useState<string | null>(null)
 
   return (
-    <div className="rounded-2xl bg-surface-raised p-6 sm:p-8">
+    <div className="rounded-2xl bg-surface p-6 sm:p-8">
       {/* Header */}
       <div className="mb-6">
-        <p className="text-xs font-medium tracking-widest text-text-muted uppercase mb-3">
+        <p className="text-xs font-medium tracking-widest uppercase mb-3" style={{ color: 'var(--accent)' }}>
           What I Do
         </p>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary font-display leading-tight">
-          Six disciplines.<br />One thread.
+          Five disciplines.<br className="lg:hidden" /> One thread.
         </h2>
       </div>
 

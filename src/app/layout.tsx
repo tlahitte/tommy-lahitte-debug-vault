@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LenisProvider from '@/components/providers/LenisProvider'
 import PageTransition from '@/components/layout/PageTransition'
+import PaletteToggle from '@/components/ui/PaletteToggle'
 
 const denim = localFont({
   src: './fonts/DenimVF.ttf',
@@ -99,6 +100,7 @@ export default function RootLayout({
             </PageTransition>
             <Footer />
           </div>
+          <PaletteToggle />
         </LenisProvider>
       </body>
     </html>

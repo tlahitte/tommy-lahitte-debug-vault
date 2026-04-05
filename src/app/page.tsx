@@ -35,7 +35,7 @@ export default async function HomePage() {
 
       {/* Hero */}
       <RevealSection>
-        <div className="rounded-2xl bg-surface-raised p-8 sm:p-12 panel-card">
+        <div className="p-4 sm:p-8">
           <Hero />
         </div>
       </RevealSection>

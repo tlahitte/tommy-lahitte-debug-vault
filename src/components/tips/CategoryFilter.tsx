@@ -50,7 +50,7 @@ export default function CategoryFilter() {
   }
 
   return (
-    <div className="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter tips by category">
+    <div className="flex flex-wrap gap-2" role="group" aria-label="Filter tips by category">
       {CATEGORIES.map(({ value, label, activeClass, hoverClass }) => (
         <button
           key={value}
