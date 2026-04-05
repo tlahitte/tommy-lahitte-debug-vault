@@ -3,7 +3,6 @@ import localFont from 'next/font/local'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import LenisProvider from '@/components/providers/LenisProvider'
 import PageTransition from '@/components/layout/PageTransition'
 import PaletteToggle from '@/components/ui/PaletteToggle'
 
@@ -90,18 +89,16 @@ export default function RootLayout({
         />
       </head>
       <body className="text-text-primary bg-surface">
-        <LenisProvider>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <PageTransition>
-              <main className="flex-1 mx-auto w-full max-w-4xl px-4 sm:px-8">
-                {children}
-              </main>
-            </PageTransition>
-            <Footer />
-          </div>
-          <PaletteToggle />
-        </LenisProvider>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <PageTransition>
+            <main className="flex-1 mx-auto w-full max-w-4xl px-4 sm:px-8">
+              {children}
+            </main>
+          </PageTransition>
+          <Footer />
+        </div>
+        <PaletteToggle />
       </body>
     </html>
   )
