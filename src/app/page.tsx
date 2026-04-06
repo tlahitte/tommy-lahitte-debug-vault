@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const [posts, tips] = await Promise.all([
     getAllPosts(),
-    Promise.resolve(getAllTips()),
+    getAllTips(),
   ])
 
   return (

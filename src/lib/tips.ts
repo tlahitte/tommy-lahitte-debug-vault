@@ -1,27 +1,30 @@
 import type { Category, Tip } from './types'
-import { allTips } from '@/content/tips/index'
+import { getAllNotionTips, getNotionTipBySlug } from './notion-tips'
 
-export function getAllTips(): Tip[] {
-  return [...allTips].sort(
+export async function getAllTips(): Promise<Tip[]> {
+  const tips = await getAllNotionTips()
+  return tips.sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   )
 }
 
-export function getTipBySlug(slug: string): Tip | undefined {
-  return allTips.find((tip) => tip.slug === slug)
+export async function getTipBySlug(slug: string): Promise<Tip | undefined> {
+  return getNotionTipBySlug(slug)
 }
 
-export function getTipsByCategory(category: Category): Tip[] {
-  return allTips.filter((tip) => tip.category === category)
+export async function getTipsByCategory(category: Category): Promise<Tip[]> {
+  const tips = await getAllNotionTips()
+  return tips.filter((t) => t.category === category)
 }
 
-export function getRelatedTips(currentSlug: string, limit = 3): Tip[] {
-  const current = allTips.find((t) => t.slug === currentSlug)
+export async function getRelatedTips(currentSlug: string, limit = 3): Promise<Tip[]> {
+  const all = await getAllNotionTips()
+  const current = all.find((t) => t.slug === currentSlug)
   if (!current) return []
 
   const currentTags = new Set(current.tags)
 
-  return allTips
+  return all
     .filter((t) => t.slug !== currentSlug)
     .map((t) => ({
       tip: t,

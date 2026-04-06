@@ -17,6 +17,10 @@ const categoryConfig: Record<Category, { label: string; className: string }> = {
     label: 'QA Workflow',
     className: 'bg-[#6B7F3A]/15 text-[#6B7F3A] border-[#6B7F3A]/50',
   },
+  performance: {
+    label: 'Performance',
+    className: 'bg-[#8B5CF6]/15 text-[#8B5CF6] border-[#8B5CF6]/50',
+  },
 }
 
 export default function CategoryBadge({ category }: CategoryBadgeProps) {

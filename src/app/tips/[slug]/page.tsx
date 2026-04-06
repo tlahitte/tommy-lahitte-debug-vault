@@ -10,13 +10,13 @@ interface TipPageProps {
 }
 
 export async function generateStaticParams() {
-  const tips = getAllTips()
+  const tips = await getAllTips()
   return tips.map((tip) => ({ slug: tip.slug }))
 }
 
 export async function generateMetadata({ params }: TipPageProps): Promise<Metadata> {
   const { slug } = await params
-  const tip = getTipBySlug(slug)
+  const tip = await getTipBySlug(slug)
   if (!tip) return {}
 
   const canonicalUrl = `https://tommylahitte.com/tips/${tip.slug}/`
@@ -47,10 +47,10 @@ export async function generateMetadata({ params }: TipPageProps): Promise<Metada
 
 export default async function TipPage({ params }: TipPageProps) {
   const { slug } = await params
-  const tip = getTipBySlug(slug)
+  const tip = await getTipBySlug(slug)
   if (!tip) notFound()
 
-  const relatedTips = getRelatedTips(slug)
+  const relatedTips = await getRelatedTips(slug)
 
   const articleSchema = {
     '@context': 'https://schema.org',
