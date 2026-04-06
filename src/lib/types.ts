@@ -1,4 +1,4 @@
-export type Category = 'editor' | 'debugging' | 'qa-workflow'
+export type Category = 'editor' | 'debugging' | 'qa-workflow' | 'performance'
 
 export interface TipContent {
   type: 'paragraph' | 'heading' | 'code' | 'callout' | 'list' | 'overview'

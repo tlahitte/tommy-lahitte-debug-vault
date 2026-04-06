@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default function TipsPage() {
-  const allTips = getAllTips()
+export default async function TipsPage() {
+  const allTips = await getAllTips()
 
   return (
     <>
