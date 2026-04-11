@@ -37,7 +37,10 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
   icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
   },
 }
 
@@ -62,7 +65,12 @@ const siteSchemas = [
     ],
     url: 'https://tommylahitte.com',
     image: 'https://tommylahitte.com/avatar/tommy-lahitte-480.webp',
-    sameAs: ['https://github.com/tlahitte'],
+    sameAs: [
+      'https://github.com/tlahitte',
+      'https://uk.linkedin.com/in/tlahitte',
+      'https://www.instagram.com/1day.snap/',
+      'https://www.artstation.com/tlahitte',
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -83,6 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={denim.variable}>
       <head>
+        <link rel="alternate" type="application/rss+xml" title="Tommy Lahitte" href="/feed.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemas) }}

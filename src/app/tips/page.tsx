@@ -31,6 +31,28 @@ export default async function TipsPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'Unreal Tips',
+            description: 'Browse all Unreal Engine QA and debugging tips by Tommy Lahitte.',
+            url: 'https://tommylahitte.com/tips/',
+            mainEntity: {
+              '@type': 'ItemList',
+              numberOfItems: allTips.length,
+              itemListElement: allTips.map((tip, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                url: `https://tommylahitte.com/tips/${tip.slug}/`,
+                name: tip.title,
+              })),
+            },
+          }),
+        }}
+      />
       {/* Page header -kraft visual identity with blueprint illustration */}
       <section className="relative overflow-hidden bg-surface-raised border-b border-border hero-texture">
         <div

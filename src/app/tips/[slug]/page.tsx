@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { getAllTips, getTipBySlug, getRelatedTips } from '@/lib/tips'
 import TipDetail from '@/components/tips/TipDetail'
 import RelatedTips from '@/components/tips/RelatedTips'
+import AuthorBio from '@/components/ui/AuthorBio'
 
 interface TipPageProps {
   params: Promise<{ slug: string }>
@@ -119,6 +120,7 @@ export default async function TipPage({ params }: TipPageProps) {
       </nav>
       <TipDetail tip={tip} />
       <RelatedTips tips={relatedTips} />
+      <AuthorBio />
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { renderBlock } from '@/components/blog/NotionBlock'
 import { ReadingProgressBar } from '@/components/blog/ReadingProgressBar'
 import StatusBadge from '@/components/blog/StatusBadge'
 import ProjectGallery from '@/components/blog/ProjectGallery'
+import AuthorBio from '@/components/ui/AuthorBio'
 
 export const dynamicParams = false
 
@@ -78,7 +79,7 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     url: `https://tommylahitte.com/blog/${post.slug}/`,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.lastModified ?? post.date,
     wordCount,
     author: {
       '@type': 'Person',
@@ -129,6 +130,9 @@ export default async function BlogPostPage({ params }: Props) {
             <img
               src={post.image}
               alt={post.imageAlt ?? post.title}
+              width={1200}
+              height={525}
+              loading="lazy"
               className="w-full rounded-xl aspect-[16/7] object-cover mb-8"
             />
           )}
@@ -169,6 +173,8 @@ export default async function BlogPostPage({ params }: Props) {
             </a>
           </div>
         )}
+
+        <AuthorBio />
       </article>
     </div>
   )

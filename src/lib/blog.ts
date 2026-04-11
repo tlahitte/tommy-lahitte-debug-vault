@@ -122,6 +122,7 @@ export async function getBlocksWithChildren(blockId: string): Promise<BlogBlock[
 
 async function mapNotionPageToBlogPost(page: PageObjectResponse): Promise<Omit<BlogPost, 'content'>> {
   const props = page.properties
+  const lastModified = page.last_edited_time
 
   const title =
     props['Title']?.type === 'title'
@@ -188,7 +189,7 @@ async function mapNotionPageToBlogPost(page: PageObjectResponse): Promise<Omit<B
     }
   }
 
-  return { slug, title, date, excerpt, image, link, category, status, gallery: gallery.length > 0 ? gallery : undefined }
+  return { slug, title, date, lastModified, excerpt, image, link, category, status, gallery: gallery.length > 0 ? gallery : undefined }
 }
 
 // ─── Public DAL ──────────────────────────────────────────────────────────

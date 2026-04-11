@@ -30,6 +30,7 @@ export interface BlogPost {
   slug: string
   title: string
   date: string
+  lastModified?: string
   excerpt: string
   image?: string
   imageAlt?: string

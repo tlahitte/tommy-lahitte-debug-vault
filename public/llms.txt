@@ -1,0 +1,22 @@
+# Tommy Lahitte — tommylahitte.com
+
+> Senior QA Engineer at Epic Games. Maker and tinkerer who bridges art and technology.
+
+## About
+Tommy Lahitte is a Senior QA Engineer at Epic Games working on Virtual Production and Unreal Engine. Previously a decade of video programming and projection supervision for international live shows, and media-server technology at VYV.
+
+## Sections
+- /tips/ — Unreal Engine QA & debugging tips (editor tricks, debugging workflows, automation)
+- /blog/ — Journal with projects, articles, and recommendations
+- /feed.xml — RSS feed
+
+## Key Topics
+- Unreal Engine debugging and QA workflows
+- Functional test automation with Blueprints
+- Virtual Production and media servers
+- Electronics, film photography, live show technology
+
+## Contact
+- GitHub: https://github.com/tlahitte
+- LinkedIn: https://uk.linkedin.com/in/tlahitte
+- ArtStation: https://www.artstation.com/tlahitte

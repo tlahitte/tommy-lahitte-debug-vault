@@ -1,3 +1,16 @@
 User-agent: *
 Allow: /
 Sitemap: https://tommylahitte.com/sitemap.xml
+
+# AI search engines — allow crawling for citation
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

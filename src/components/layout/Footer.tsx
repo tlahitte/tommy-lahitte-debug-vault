@@ -1,7 +1,22 @@
+import Link from 'next/link'
+
 export default function Footer() {
   return (
     <footer className="bg-surface-raised mt-auto">
       <div className="mx-auto w-full max-w-4xl px-4 sm:px-8 py-8 flex flex-col items-center gap-4">
+        <nav className="flex items-center gap-4 text-sm" aria-label="Footer navigation">
+          <Link href="/tips/" className="text-text-muted hover:text-accent transition-colors">
+            Unreal Tips
+          </Link>
+          <span className="text-border" aria-hidden="true">&middot;</span>
+          <Link href="/blog/" className="text-text-muted hover:text-accent transition-colors">
+            Journal
+          </Link>
+          <span className="text-border" aria-hidden="true">&middot;</span>
+          <a href="/feed.xml" className="text-text-muted hover:text-accent transition-colors">
+            RSS
+          </a>
+        </nav>
         <div className="flex items-center gap-5">
           <a
             href="https://uk.linkedin.com/in/tlahitte"

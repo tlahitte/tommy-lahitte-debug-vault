@@ -30,6 +30,28 @@ export default async function BlogPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'Journal',
+            description: 'Projects, articles, and recommendations from Tommy Lahitte.',
+            url: 'https://tommylahitte.com/blog/',
+            mainEntity: {
+              '@type': 'ItemList',
+              numberOfItems: posts.length,
+              itemListElement: posts.map((post, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                url: `https://tommylahitte.com/blog/${post.slug}/`,
+                name: post.title,
+              })),
+            },
+          }),
+        }}
+      />
       {/* Page header -kraft visual identity with illustration */}
       <section className="relative overflow-hidden bg-surface-raised border-b border-border hero-texture">
         <div
