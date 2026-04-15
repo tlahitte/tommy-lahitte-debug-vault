@@ -1,22 +1,101 @@
 # Tommy Lahitte — tommylahitte.com
 
-> Senior QA Engineer at Epic Games. Maker and tinkerer who bridges art and technology.
+> Senior QA Engineer at Epic Games. Motion capture operator, VP stage operator, and projection supervisor. Maker and tinkerer who bridges art and technology.
 
 ## About
-Tommy Lahitte is a Senior QA Engineer at Epic Games working on Virtual Production and Unreal Engine. Previously a decade of video programming and projection supervision for international live shows, and media-server technology at VYV.
 
-## Sections
-- /tips/ — Unreal Engine QA & debugging tips (editor tricks, debugging workflows, automation)
+Tommy Lahitte is a Senior QA Engineer at Epic Games in London, UK, specialising in Virtual Production and Unreal Engine. His career spans over a decade at the intersection of live entertainment technology and software engineering — from programming media servers for Cirque du Soleil and international broadcast galas, to running LED volumes and motion capture sessions for major film and TV productions at Epic's London Innovation Lab.
+
+A single thread connects everything he does: understanding how things work at the deepest level, then pushing them further than expected. He writes about the debugging notes, editor tricks, and side projects that came from building real things.
+
+## Work Experience
+
+### Epic Games — Motion Capture Operator (Jan 2025 – Present)
+Location: London, UK
+Running motion capture sessions at the Epic Games London Innovation Lab. Operating suits and camera systems for real-time character animation in Unreal Engine. Pushing the boundaries of live performance capture for virtual production pipelines.
+Technologies: Vicon Shogun, Captury Markerless, Live Link, Full-Body MoCap, Real-Time Retargeting
+
+### Epic Games — VP Stage Operator (Jan 2024 – Present)
+Location: London, UK
+Operating LED volumes and nDisplay setups for virtual production stages at the London Innovation Lab. Managing real-time content delivery, camera tracking integration, and on-set technical direction for film and broadcast productions.
+Technologies: nDisplay, LED Volume, Camera Tracking, Mo-Sys, DMX
+
+### Epic Games — Senior QA Engineer, Virtual Production (Dec 2022 – Present)
+Location: London, UK
+Promotion focused on test automation and CI/CD maintenance for Virtual Production features. Building tools and expanding existing testing frameworks in Unreal Engine to support Virtual Production workflows.
+Features covered: EXR Playback, Composure, LiveLinkHub, Motion Design, nDisplay, Media Framework, Virtual Camera
+
+### Epic Games — QA Engineer, Virtual Production (Apr 2021 – Dec 2022)
+Location: Montreal, Canada
+Virtual Production division, pioneering new storytelling techniques with Unreal Engine. Assisted VP workflows on major film and TV productions.
+Notable productions assisted: Ahsoka (Star Wars, Disney), The Mandalorian (Disney), Gladiator II, The Batman (2022), Avatar: The Last Airbender (Netflix)
+
+### VYV Corporation — Projection Supervisor (Nov 2015 – Apr 2021)
+Location: Montreal, Canada
+Major international projects across live entertainment, theme parks, and broadcast. Programming and supervising real-time media servers for high-stakes live shows.
+Notable projects:
+- Cirque du Soleil: Drawn to Life
+- Cirque du Soleil: R.U.N
+- Cirque du Soleil: MJ One
+- Roger Waters Us+Them Tour
+- Planet Hollywood Las Vegas
+- Carnival Cruise Lines
+- NFL Experience Times Square
+- Intel CES 2017
+- CCTV New Year Gala (China)
+- Lido de Paris
+- National Day Parade Singapore
+
+### Partenariat du Quartier des spectacles — Multimedia Equipment Technician (Nov 2014 – Nov 2015)
+Location: Montreal, Canada
+Responsible for all interactive installations and projection mapping on the PQDS urban site. Installed and maintained the 21 Musical Swings from Daily tous les jours and managed 7 projection mapping surfaces.
+
+## Education
+
+- UQAM — Bachelor's, Communication & Interactive Media (2012–2015)
+- Université de Montréal — Cinema Studies Minor (2011–2012)
+- I.U.T Annecy-le-Vieux — Bac+2, Computer Science (2008–2010)
+
+## Licenses & Certifications
+
+- Certified Tester, Foundation Level — ISTQB
+- Unreal Fellowship: Animation — Epic Games
+- C# for Programmers: A Practical Guide — Coursera
+
+## Disciplines & Skills
+
+### Virtual Production & Live Stages
+Stage operation, motion capture, and projection supervision. Operated LED volumes and nDisplay walls for virtual production, ran Cirque du Soleil stages and international broadcast galas. Tools: Unreal Engine, nDisplay, Motion Capture, Disguise, Projection Mapping, Media Servers.
+
+### Software & QA Engineering
+Designing automated test frameworks, maintaining CI/CD pipelines, and writing tests for Unreal Engine features. Building crash analyzers, pipeline scripts, and debugging utilities in Python, TypeScript, and C++. Tools: Python, TypeScript, Next.js, C++, Automated Testing, CI/CD.
+
+### Electronics
+Soldering, breadboarding, and reverse engineering hardware. Tools: ESP32, Raspberry Pi, KiCad, UART.
+
+### Film Photography
+Shooting on medium format film, primarily the Mamiya RB67 on 120 film. Street and architectural photography.
+
+### AI
+Experimenting with LLMs, agentic pipelines, and AI-powered automation workflows. Tools: LLMs, Agents, Claude, Automation.
+
+## Key Technologies
+
+Unreal Engine, nDisplay, Virtual Camera, Composure, Media Framework, LiveLinkHub, Motion Design, EXR Playback, Vicon Shogun, Captury Markerless, Live Link, Mo-Sys, DMX, Python, TypeScript, Next.js, C++, CI/CD, ESP32, Raspberry Pi
+
+## Site Sections
+
+- /tips/ — Unreal Engine QA & debugging tips (editor tricks, debugging workflows, automation, profiling, Perforce, build tooling)
 - /blog/ — Journal with projects, articles, and recommendations
 - /feed.xml — RSS feed
+- /sitemap.xml — Full sitemap
 
-## Key Topics
-- Unreal Engine debugging and QA workflows
-- Functional test automation with Blueprints
-- Virtual Production and media servers
-- Electronics, film photography, live show technology
+## Contact & Profiles
 
-## Contact
+- Website: https://tommylahitte.com
 - GitHub: https://github.com/tlahitte
 - LinkedIn: https://uk.linkedin.com/in/tlahitte
 - ArtStation: https://www.artstation.com/tlahitte
+- Instagram (film photography): https://www.instagram.com/1day.snap/
+- MakerWorld (3D prints): https://makerworld.com/en/@Toasty_x
+- Telegram: https://t.me/tlahitte
