@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Video thumbnail placeholder">
+  <rect width="640" height="360" fill="#1D1D1F"/>
+  <rect width="640" height="360" fill="url(#g)"/>
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#2A2A2E"/>
+      <stop offset="100%" stop-color="#141416"/>
+    </radialGradient>
+  </defs>
+  <circle cx="320" cy="180" r="46" fill="#ffffff" fill-opacity="0.14"/>
+  <path d="M308 158 v44 l36 -22 z" fill="#ffffff" fill-opacity="0.85"/>
+</svg>

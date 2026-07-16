@@ -33,8 +33,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     : null
 
   return [
-    { url: `${BASE}/`,       lastModified: latestTipDate, changeFrequency: 'weekly',  priority: 1.0 },
-    { url: `${BASE}/tips/`,  lastModified: latestTipDate, changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${BASE}/`,          lastModified: latestTipDate, changeFrequency: 'weekly',  priority: 1.0 },
+    { url: `${BASE}/portfolio/`, lastModified: latestTipDate, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE}/tips/`,     lastModified: latestTipDate, changeFrequency: 'weekly',  priority: 0.9 },
     // Only include /blog/ in sitemap when it has published posts
     ...(posts.length > 0
       ? [{ url: `${BASE}/blog/`, lastModified: latestPostDate!, changeFrequency: 'weekly' as const, priority: 0.9 }]

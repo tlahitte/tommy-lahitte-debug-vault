@@ -13,6 +13,7 @@ export default function Header() {
           </Link>
           <nav className="flex items-center gap-2 sm:gap-6" aria-label="Main navigation">
             {[
+              { href: '/portfolio/', label: 'Portfolio' },
               { href: '/blog/', label: 'Journal' },
               { href: '/tips/', label: 'Unreal Tips' },
             ].map(({ href, label }) => (
