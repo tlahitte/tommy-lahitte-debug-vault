@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
 import DisciplinesSection from '@/components/home/DisciplinesSection'
 import FreshFromTheVault from '@/components/home/LatestTipsSection'
-import ExperienceTimeline from '@/components/about/ExperienceTimeline'
+import CreditsWall from '@/components/home/CreditsWall'
 import RevealSection from '@/components/ui/RevealSection'
 import { getAllPosts } from '@/lib/blog'
 import { getAllTips } from '@/lib/tips'
@@ -40,12 +40,10 @@ export default async function HomePage() {
         </div>
       </RevealSection>
 
-      {/* Experience — promoted above the writing feed so the career leads */}
+      {/* Selected credits — career proof up front, links through to /about */}
       <RevealSection delay={0.1}>
-        <div id="experience" className="panel-card scroll-mt-20">
-          <div className="rounded-2xl bg-surface-raised p-6 sm:p-8 overflow-hidden">
-            <ExperienceTimeline />
-          </div>
+        <div className="panel-card">
+          <CreditsWall />
         </div>
       </RevealSection>
 

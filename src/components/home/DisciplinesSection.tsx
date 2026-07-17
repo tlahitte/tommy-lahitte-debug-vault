@@ -147,9 +147,6 @@ export default function DisciplinesSection() {
     <div className="rounded-2xl bg-surface p-6 sm:p-8">
       {/* Header */}
       <div className="mb-6">
-        <p className="text-xs font-medium tracking-widest uppercase mb-3" style={{ color: 'var(--accent)' }}>
-          What I Do
-        </p>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary font-display leading-tight">
           Five disciplines.<br className="lg:hidden" /> One thread.
         </h2>

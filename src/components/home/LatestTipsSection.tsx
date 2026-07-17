@@ -135,12 +135,6 @@ export default function FreshFromTheVault({ tips, posts }: Props) {
       {/* Header */}
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>
-          <p
-            className="text-xs font-medium tracking-widest uppercase mb-3"
-            style={{ color: 'var(--accent)' }}
-          >
-            Latest
-          </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary font-display">
             Fresh from the vault.
           </h2>

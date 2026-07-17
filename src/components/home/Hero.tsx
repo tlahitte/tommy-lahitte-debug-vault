@@ -59,16 +59,8 @@ export default function Hero() {
             </TextShimmer>
           </p>
           <p className="mt-2 text-sm sm:text-base text-text-muted">
-            Projection supervision for Cirque du Soleil, Roger Waters and La Perle with{' '}
-            <a
-              href="https://www.vyv.ca/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:opacity-70 transition-opacity duration-200"
-            >
-              VYV
-            </a>
-            . Now Virtual Production at{' '}
+            Projection supervision for Cirque du Soleil, Roger Waters and La Perle with VYV.
+            Now Virtual Production at{' '}
             <span className="text-text-primary font-medium">Epic Games</span>.
           </p>
           {/* Stats / impact strip */}
@@ -99,7 +91,7 @@ export default function Hero() {
           </svg>
         </Link>
         <Link
-          href="/#experience"
+          href="/about/"
           className="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium text-accent hover:opacity-70 transition-opacity duration-200"
         >
           Experience
