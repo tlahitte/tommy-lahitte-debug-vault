@@ -1,23 +1,35 @@
 import Link from 'next/link'
 
-// Fast, scannable credibility signal: the shows and clients behind the work.
-// Each tile shows a logo when a local file is provided, otherwise the name.
-// To add a logo, drop an optimized SVG (or small PNG) under /public and set
-// its path on the matching entry below. Keep files small for fast loading.
-type Credit = { name: string; logo?: string }
+// Scannable credibility signal: the shows and clients behind the work. Each
+// tile links to the partner's site and shows its brand mark. The mark is the
+// company's own favicon, served live via Google's favicon endpoint (no assets
+// rehosted, tiny and fast). Swap in a proper wordmark later by setting `logo`
+// to a local file path.
+type Credit = {
+  name: string
+  url: string
+  /** Domain used to fetch the favicon mark. */
+  domain: string
+  /** Optional local logo path; overrides the favicon when set. */
+  logo?: string
+}
 
 const CREDITS: Credit[] = [
-  { name: 'Cirque du Soleil' },
-  { name: 'Roger Waters' },
-  { name: 'Dragone' },
-  { name: 'Balich Worldwide Shows' },
-  { name: 'CCTV' },
-  { name: 'Les 7 Doigts' },
-  { name: 'Chimelong' },
-  { name: 'VYV' },
-  { name: 'Epic Games', logo: '/logos/epic-games.svg' },
-  { name: 'Disney' },
+  { name: 'Cirque du Soleil', url: 'https://www.cirquedusoleil.com', domain: 'cirquedusoleil.com' },
+  { name: 'Roger Waters', url: 'https://www.rogerwaters.com', domain: 'rogerwaters.com' },
+  { name: 'Dragone', url: 'https://www.dragone.com', domain: 'dragone.com' },
+  { name: 'Balich Wonder Studio', url: 'https://www.balichwonderstudio.com', domain: 'balichwonderstudio.com' },
+  { name: 'CCTV', url: 'https://www.cctv.com', domain: 'cctv.com' },
+  { name: 'Les 7 Doigts', url: 'https://7doigts.com', domain: '7doigts.com' },
+  { name: 'Chimelong', url: 'https://www.chimelong.com', domain: 'chimelong.com' },
+  { name: 'VYV', url: 'https://www.vyv.ca', domain: 'vyv.ca' },
+  { name: 'Epic Games', url: 'https://www.epicgames.com', domain: 'epicgames.com', logo: '/logos/epic-games.svg' },
+  { name: 'The Walt Disney Company', url: 'https://thewaltdisneycompany.com', domain: 'disney.com' },
 ]
+
+function markSrc(c: Credit): string {
+  return c.logo ?? `https://www.google.com/s2/favicons?domain=${c.domain}&sz=64`
+}
 
 export default function CreditsWall() {
   return (
@@ -30,22 +42,27 @@ export default function CreditsWall() {
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {CREDITS.map((c) => (
-          <div
+          <a
             key={c.name}
-            className="flex h-20 items-center justify-center rounded-xl border border-border bg-surface-raised px-3 text-center"
+            href={c.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={c.name}
+            className="group flex h-20 items-center justify-center gap-2.5 rounded-xl border border-border bg-surface-raised px-3 text-center transition-colors hover:border-accent/40"
           >
-            {c.logo ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={c.logo}
-                alt={c.name}
-                loading="lazy"
-                className="max-h-8 w-auto max-w-[80%] object-contain"
-              />
-            ) : (
-              <span className="text-sm font-medium text-text-muted">{c.name}</span>
-            )}
-          </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={markSrc(c)}
+              alt=""
+              width={20}
+              height={20}
+              loading="lazy"
+              className="h-5 w-5 shrink-0 object-contain"
+            />
+            <span className="text-sm font-medium leading-tight text-text-muted transition-colors group-hover:text-accent">
+              {c.name}
+            </span>
+          </a>
         ))}
       </div>
 

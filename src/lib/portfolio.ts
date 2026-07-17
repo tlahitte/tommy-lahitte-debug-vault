@@ -283,24 +283,24 @@ export const CATEGORY_LABELS: Record<VideoCategory, string> = {
 
 /**
  * Poster image for a video card.
- * YouTube: prefer maxresdefault (1280x720) for crisp full-bleed cards. It is
- * missing on some older uploads, so the <Poster> component falls back to
- * hqdefault on error.
+ * YouTube: use hqdefault (480x360), which exists for every video. maxresdefault
+ * is sharper but 404s for uploads without an HD source, which left several
+ * posters blank, so we do not rely on it here.
  * Vimeo (or any platform): use the supplied thumbnail, else a neutral placeholder.
  */
 export function getThumbnailUrl(video: PortfolioVideo): string {
   if (video.thumbnail) return video.thumbnail
   if (video.platform === 'youtube') {
-    return `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`
+    return `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`
   }
-  // No reliable public thumbnail for Vimeo without an API call — fall back.
+  // No reliable public thumbnail for Vimeo without an API call, so fall back.
   return '/images/portfolio/placeholder.svg'
 }
 
-/** Fallback poster when maxresdefault is missing (always-present hqdefault). */
+/** Last-resort poster (mqdefault is 16:9 and always present on YouTube). */
 export function getThumbnailFallbackUrl(video: PortfolioVideo): string | null {
   if (video.platform === 'youtube') {
-    return `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`
+    return `https://i.ytimg.com/vi/${video.videoId}/mqdefault.jpg`
   }
   return null
 }
