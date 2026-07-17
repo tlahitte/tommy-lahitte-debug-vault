@@ -25,6 +25,14 @@ export default function Header() {
                 {label}
               </Link>
             ))}
+            <a
+              href="https://uk.linkedin.com/in/tlahitte"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-xs sm:text-sm font-medium text-white hover:opacity-85 transition-opacity duration-200 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            >
+              Get in touch
+            </a>
           </nav>
         </div>
       </div>

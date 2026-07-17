@@ -6,14 +6,14 @@ import RandomDoodle from '@/components/ui/RandomDoodle'
 export const metadata: Metadata = {
   title: 'Portfolio',
   description:
-    'A selection of videos made by Tommy Lahitte — from live stages and virtual production to films and experiments.',
+    'A selection of videos made by Tommy Lahitte, spanning live stages, virtual production, films and experiments.',
   alternates: {
     canonical: 'https://tommylahitte.com/portfolio/',
   },
   openGraph: {
     title: 'Portfolio | Tommy Lahitte',
     description:
-      'A selection of videos made by Tommy Lahitte — live stages, virtual production, films and experiments.',
+      'A selection of videos made by Tommy Lahitte. Live stages, virtual production, films and experiments.',
     url: 'https://tommylahitte.com/portfolio/',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Portfolio - Tommy Lahitte' }],
@@ -39,7 +39,7 @@ export default function PortfolioPage() {
             '@type': 'CollectionPage',
             name: 'Portfolio',
             description:
-              'A selection of videos made by Tommy Lahitte — live stages, virtual production, films and experiments.',
+              'A selection of videos made by Tommy Lahitte. Live stages, virtual production, films and experiments.',
             url: 'https://tommylahitte.com/portfolio/',
             mainEntity: {
               '@type': 'ItemList',
@@ -50,7 +50,9 @@ export default function PortfolioPage() {
                 item: {
                   '@type': 'VideoObject',
                   name: video.title,
-                  ...(video.subtitle ? { description: video.subtitle } : {}),
+                  ...(video.description || video.subtitle
+                    ? { description: video.description || video.subtitle }
+                    : {}),
                   thumbnailUrl: getThumbnailUrl(video),
                   embedUrl: getEmbedUrl(video),
                   ...(video.year ? { uploadDate: `${video.year}-01-01` } : {}),
@@ -66,7 +68,7 @@ export default function PortfolioPage() {
         <div
           className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,90,58,0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--accent) 7%, transparent) 0%, transparent 70%)',
           }}
         />
         <div className="relative z-10 px-4 sm:px-6 pt-8 sm:pt-12 pb-16">

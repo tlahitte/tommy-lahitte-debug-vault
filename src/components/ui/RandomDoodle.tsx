@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 
 const DOODLES = [
   'ballet', 'bikini', 'chilling', 'clumsy', 'coffee', 'dancing',
@@ -12,6 +11,9 @@ const DOODLES = [
   'sprinting', 'strolling', 'swinging', 'unboxing', 'zombieing',
 ]
 
+// A random OpenDoodle tinted with the site accent so it matches the rest of
+// the UI (and follows palette changes) rather than a fixed colour. The doodle
+// SVG is used as a CSS mask over an accent-coloured box.
 export default function RandomDoodle() {
   const [doodle, setDoodle] = useState<string | null>(null)
 
@@ -21,18 +23,24 @@ export default function RandomDoodle() {
 
   if (!doodle) return null
 
+  const url = `/illustrations/opendoodles/${doodle}.svg`
+
   return (
-    <Image
-      src={`/illustrations/opendoodles/${doodle}.svg`}
-      alt=""
-      width={200}
-      height={200}
-      className="w-full h-full object-contain object-bottom"
-      style={{
-        filter: 'sepia(1) saturate(3) hue-rotate(346deg) brightness(0.7)',
-      }}
+    <div
       aria-hidden="true"
-      priority={false}
+      className="h-full w-full"
+      style={{
+        backgroundColor: 'var(--accent)',
+        opacity: 0.85,
+        WebkitMaskImage: `url(${url})`,
+        maskImage: `url(${url})`,
+        WebkitMaskRepeat: 'no-repeat',
+        maskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center bottom',
+        maskPosition: 'center bottom',
+        WebkitMaskSize: 'contain',
+        maskSize: 'contain',
+      }}
     />
   )
 }

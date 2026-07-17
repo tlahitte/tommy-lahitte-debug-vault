@@ -16,16 +16,16 @@ const denim = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://tommylahitte.com'),
   title: {
-    default: 'Tommy Lahitte | Maker & Tinkerer',
+    default: 'Tommy Lahitte | Technical Artist & Projection Supervisor',
     template: '%s | Tommy Lahitte',
   },
   description:
-    'Tommy Lahitte -maker who bridges art and technology. Projects, field notes, and things worth building.',
+    'Tommy Lahitte, technical artist and projection supervisor for international live shows (Cirque du Soleil, Roger Waters, La Perle), now in Virtual Production at Epic Games.',
   openGraph: {
     siteName: 'Tommy Lahitte',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte -Maker & Tinkerer' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Tommy Lahitte, Technical Artist & Projection Supervisor' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -49,7 +49,7 @@ const siteSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Tommy Lahitte',
-    jobTitle: 'Senior QA Engineer',
+    jobTitle: 'Technical Artist & Projection Supervisor',
     worksFor: { '@type': 'Organization', name: 'Epic Games' },
     knowsAbout: [
       'Unreal Engine',
@@ -78,7 +78,7 @@ const siteSchemas = [
     name: 'Tommy Lahitte',
     url: 'https://tommylahitte.com',
     description:
-      'Tommy Lahitte -maker who bridges art and technology. Projects, field notes, and things worth building.',
+      'Tommy Lahitte, technical artist and projection supervisor for international live shows, now in Virtual Production at Epic Games.',
     author: { '@type': 'Person', name: 'Tommy Lahitte' },
   },
 ]

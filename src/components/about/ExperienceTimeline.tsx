@@ -247,53 +247,67 @@ function TimelineCard({
         {entry.description}
       </p>
 
-      {/* VYV expandable highlights */}
-      {entry.highlights && (
-        <div className="mt-3">
-          <button
-            onClick={() => setShowHighlights((v) => !v)}
-            className="text-xs font-medium text-accent hover:text-accent-hover transition-colors cursor-pointer"
-          >
-            {showHighlights ? `Hide ${entry.highlightsLabel || 'projects'}` : `Show ${entry.highlightsLabel || 'projects'}`}
-          </button>
-          <AnimatePresence initial={false}>
-            {showHighlights && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="overflow-hidden"
-              >
-                <div className="flex flex-wrap gap-1.5 mt-2">
-                  {entry.highlights.map((h) => {
-                    const label = typeof h === 'string' ? h : h.label
-                    const url = typeof h === 'string' ? undefined : h.url
-                    const baseClass =
-                      'text-xs bg-surface-raised border border-border rounded-md px-2 py-0.5 text-text-muted'
+      {/* Highlights — top few shown by default, the rest behind a toggle */}
+      {entry.highlights && entry.highlights.length > 0 && (() => {
+        const renderBadge = (h: string | HighlightBadge) => {
+          const label = typeof h === 'string' ? h : h.label
+          const url = typeof h === 'string' ? undefined : h.url
+          const baseClass =
+            'text-xs bg-surface border border-border rounded-md px-2 py-0.5 text-text-muted'
 
-                    return url ? (
-                      <a
-                        key={label}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${baseClass} underline decoration-dotted underline-offset-2 hover:text-accent hover:border-accent/40 transition-colors`}
-                      >
-                        {label}
-                      </a>
-                    ) : (
-                      <span key={label} className={baseClass}>
-                        {label}
-                      </span>
-                    )
-                  })}
-                </div>
-              </motion.div>
+          return url ? (
+            <a
+              key={label}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${baseClass} underline decoration-dotted underline-offset-2 hover:text-accent hover:border-accent/40 transition-colors`}
+            >
+              {label}
+            </a>
+          ) : (
+            <span key={label} className={baseClass}>
+              {label}
+            </span>
+          )
+        }
+
+        const visible = entry.highlights.slice(0, 4)
+        const hidden = entry.highlights.slice(4)
+
+        return (
+          <div className="mt-3">
+            <div className="flex flex-wrap gap-1.5">
+              {visible.map(renderBadge)}
+            </div>
+            {hidden.length > 0 && (
+              <>
+                <AnimatePresence initial={false}>
+                  {showHighlights && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {hidden.map(renderBadge)}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <button
+                  onClick={() => setShowHighlights((v) => !v)}
+                  className="mt-2 text-xs font-medium text-accent hover:text-accent-hover transition-colors cursor-pointer"
+                >
+                  {showHighlights ? 'Show less' : `+${hidden.length} more ${entry.highlightsLabel || 'projects'}`}
+                </button>
+              </>
             )}
-          </AnimatePresence>
-        </div>
-      )}
+          </div>
+        )
+      })()}
     </motion.div>
   )
 }

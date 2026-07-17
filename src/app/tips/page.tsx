@@ -58,7 +58,7 @@ export default async function TipsPage() {
         <div
           className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,90,58,0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--accent) 7%, transparent) 0%, transparent 70%)',
           }}
         />
         <div className="relative z-10 px-4 sm:px-6 pt-8 sm:pt-12 pb-16">

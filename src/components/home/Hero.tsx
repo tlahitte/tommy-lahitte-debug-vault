@@ -55,15 +55,33 @@ export default function Hero() {
               spread={6}
               className="not-italic [--base-color:var(--accent)] [--base-gradient-color:#2997FF]"
             >
-              Senior QA Engineer
+              Technical Artist &amp; Projection Supervisor
             </TextShimmer>
-            <span className="text-text-muted mx-2">·</span>
-            <span className="text-text-muted">Epic Games</span>
           </p>
-          <p className="mt-4 text-base sm:text-xl text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
-            Maker and tinkerer who can&apos;t resist taking things apart
-            to see how they work. This is where I share the debugging notes,
-            editor tricks, and side projects that came out of building real things.
+          <p className="mt-2 text-sm sm:text-base text-text-muted">
+            Projection supervision for Cirque du Soleil, Roger Waters and La Perle with{' '}
+            <a
+              href="https://www.vyv.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:opacity-70 transition-opacity duration-200"
+            >
+              VYV
+            </a>
+            . Now Virtual Production at{' '}
+            <span className="text-text-primary font-medium">Epic Games</span>.
+          </p>
+          {/* Stats / impact strip */}
+          <div className="mt-4 flex flex-wrap justify-center sm:justify-start items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-text-muted">
+            <span>10+ years in live shows</span>
+            <span aria-hidden="true" className="text-border">·</span>
+            <span>4 continents</span>
+            <span aria-hidden="true" className="text-border">·</span>
+            <span>Cirque du Soleil → Epic Games</span>
+          </div>
+          <p className="mt-5 text-base sm:text-xl text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
+            I design and run the video and projection systems behind large-scale
+            live shows, and now bring that real-time craft into virtual production.
           </p>
         </div>
 
@@ -72,19 +90,19 @@ export default function Hero() {
       {/* Page CTAs — pill-shaped, Apple style */}
       <div className="mt-8 flex flex-wrap justify-center sm:justify-start gap-3">
         <Link
-          href="/blog/"
+          href="/portfolio/"
           className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white hover:opacity-85 transition-opacity duration-200"
         >
-          Read Journal
+          See my work
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </Link>
         <Link
-          href="/tips/"
+          href="/#experience"
           className="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium text-accent hover:opacity-70 transition-opacity duration-200"
         >
-          Unreal Tips
+          Experience
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
@@ -113,22 +131,12 @@ export default function Hero() {
           where I push Unreal Engine into territory that would have felt like science fiction
           ten years ago.
         </motion.p>
-        <motion.p
-          className="mt-4 text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
+        {/* Social links */}
+        <motion.div
+          className="mt-6 flex flex-wrap justify-center sm:justify-start items-center gap-2.5"
           initial={hydrated ? { opacity: 0, y: 12 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          When I solve something hard, I write it down. No padding, no filler.
-          Just the stuff that actually mattered.
-        </motion.p>
-
-        {/* Social links — Apple-style text links */}
-        <motion.div
-          className="mt-6 flex flex-wrap justify-center sm:justify-start items-center gap-4"
-          initial={hydrated ? { opacity: 0, y: 12 } : false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
         >
           {socials.map(({ href, label, icon }) => (
             <a
@@ -137,9 +145,9 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="inline-flex items-center gap-1.5 text-text-muted hover:text-accent transition-colors duration-200"
+              className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/5 px-3 py-1.5 text-accent hover:bg-accent hover:text-white transition-colors duration-200"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d={icon} />
               </svg>
               <span className="text-xs font-medium">{label}</span>
