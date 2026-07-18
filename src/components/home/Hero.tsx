@@ -71,9 +71,10 @@ export default function Hero() {
             <span aria-hidden="true" className="text-border">·</span>
             <span>Cirque du Soleil → Epic Games</span>
           </div>
-          <p className="mt-2 text-sm sm:text-base font-normal text-text-muted">
-            I design and run the video and projection systems behind large-scale
-            live shows, and now bring that real-time craft into virtual production.
+          <p className="mt-4 text-base sm:text-lg font-medium text-text-primary leading-relaxed">
+            I built this craft on the show floor, from research and install to live
+            operation. Now I bring that field experience into Unreal Engine, testing
+            virtual production tools against real sets before they reach the creative team.
           </p>
         </div>
 
@@ -109,19 +110,14 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          A single thread connects everything I do: a decade of video programming and
-          projection supervision for international live shows, deep dives into media-server
-          technology at{' '}
-          <a href="https://www.vyv.ca/" target="_blank" rel="noopener noreferrer"
-            className="text-accent hover:opacity-70 transition-opacity duration-200">
-            VYV
-          </a>, and now{' '}
-          <a href="https://www.epicgames.com/site/en-US/home" target="_blank" rel="noopener noreferrer"
-            className="text-accent hover:opacity-70 transition-opacity duration-200">
-            Virtual Production at Epic Games
-          </a>{' '}
-          where I push Unreal Engine into territory that would have felt like science fiction
-          ten years ago.
+          On stage, that means researching the effect a scene calls for, then installing
+          the projectors, tracking cameras, network and media servers behind it. Once a
+          show is running, I program the timeline and interactive FX, keep video talking
+          to lighting, audio and automation over the right protocols, and stay in step
+          with the content team and the director&apos;s vision. At Epic Games, I run
+          Unreal Engine&apos;s virtual production tools, LED volumes, nDisplay, camera
+          tracking, through the same real set conditions, so by the time an artist or
+          director relies on them, they already hold up.
         </motion.p>
         {/* Social links */}
         <motion.div
