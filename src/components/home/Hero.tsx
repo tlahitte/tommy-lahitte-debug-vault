@@ -58,20 +58,20 @@ export default function Hero() {
               Technical Artist &amp; Projection Supervisor
             </TextShimmer>
           </p>
-          <p className="mt-2 text-sm sm:text-base text-text-muted">
+          <p className="mt-2 text-sm sm:text-base font-normal text-text-muted">
             Projection supervision for Cirque du Soleil, Roger Waters and La Perle with VYV.
             Now Virtual Production at{' '}
             <span className="text-text-primary font-medium">Epic Games</span>.
           </p>
           {/* Stats / impact strip */}
-          <div className="mt-4 flex flex-wrap justify-center sm:justify-start items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-text-muted">
+          <div className="mt-4 flex flex-wrap justify-center sm:justify-start items-center gap-x-3 gap-y-1 text-xs sm:text-sm font-normal text-text-muted">
             <span>10+ years in live shows</span>
             <span aria-hidden="true" className="text-border">·</span>
             <span>4 continents</span>
             <span aria-hidden="true" className="text-border">·</span>
             <span>Cirque du Soleil → Epic Games</span>
           </div>
-          <p className="mt-5 text-base sm:text-xl text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
+          <p className="mt-5 text-base sm:text-xl font-normal text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
             I design and run the video and projection systems behind large-scale
             live shows, and now bring that real-time craft into virtual production.
           </p>
@@ -104,7 +104,7 @@ export default function Hero() {
       {/* About paragraphs */}
       <div className="mt-10">
         <motion.p
-          className="text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl"
+          className="text-base sm:text-lg font-normal text-text-muted leading-relaxed max-w-2xl"
           initial={hydrated ? { opacity: 0, y: 12 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
