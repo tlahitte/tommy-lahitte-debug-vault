@@ -69,7 +69,7 @@ export default function Hero() {
             <span aria-hidden="true" className="text-border">·</span>
             <span>4 continents</span>
             <span aria-hidden="true" className="text-border">·</span>
-            <span>Cirque du Soleil → Epic Games</span>
+            <span>Live shows → Unreal Engine</span>
           </div>
           <p className="mt-4 text-base sm:text-lg font-medium text-text-primary leading-relaxed">
             I built this craft on the show floor, from research and install to live
