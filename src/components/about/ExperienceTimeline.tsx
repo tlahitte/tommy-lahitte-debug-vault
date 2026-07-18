@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { useHydrated } from '@/hooks/useHydrated'
 import {
@@ -152,6 +152,29 @@ const experiences: TimelineEntry[] = [
     year: 2014,
   },
 ]
+
+/**
+ * Consecutive entries at the same company are one continuous job with
+ * expanding scope (e.g. Epic Games: QA Engineer -> Senior QA Engineer -> VP
+ * Stage Operator -> Motion Capture Operator, all still "Present"), not
+ * separate jobs held one after another. Groups of 2+ get a connecting
+ * bracket alongside the spine so the timeline doesn't imply otherwise.
+ */
+function getCompanyGroups(entries: TimelineEntry[]) {
+  const groups: { company: string; ids: string[] }[] = []
+  let current: { company: string; ids: string[] } | null = null
+  for (const entry of entries) {
+    if (current && current.company === entry.company) {
+      current.ids.push(entry.id)
+    } else {
+      current = { company: entry.company, ids: [entry.id] }
+      groups.push(current)
+    }
+  }
+  return groups.filter((g) => g.ids.length > 1)
+}
+
+const companyGroups = getCompanyGroups(experiences)
 
 interface EducationEntry {
   institution: string
@@ -383,12 +406,43 @@ function CertificationRow({ entry }: { entry: CertificationEntry }) {
 
 export default function ExperienceTimeline() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const markerRefs = useRef<Record<string, HTMLDivElement | null>>({})
+  const [brackets, setBrackets] = useState<{ company: string; top: number; height: number }[]>([])
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start'],
   })
 
   const scrollHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+
+  // Measure each company group's span from its first to last spine marker so
+  // the bracket tracks real card heights (including highlight-toggle
+  // expansion) without hardcoding pixel values.
+  useEffect(() => {
+    function measure() {
+      const containerEl = containerRef.current
+      if (!containerEl) return
+      const containerTop = containerEl.getBoundingClientRect().top
+      const next = companyGroups.flatMap((group) => {
+        const firstEl = markerRefs.current[group.ids[0]]
+        const lastEl = markerRefs.current[group.ids[group.ids.length - 1]]
+        if (!firstEl || !lastEl) return []
+        const top = firstEl.getBoundingClientRect().top - containerTop
+        const bottom = lastEl.getBoundingClientRect().bottom - containerTop
+        return [{ company: group.company, top, height: bottom - top }]
+      })
+      setBrackets(next)
+    }
+
+    measure()
+    window.addEventListener('resize', measure)
+    const ro = new ResizeObserver(measure)
+    if (containerRef.current) ro.observe(containerRef.current)
+    return () => {
+      window.removeEventListener('resize', measure)
+      ro.disconnect()
+    }
+  }, [])
 
   return (
     <section className="pt-2 pb-10 sm:pb-16">
@@ -416,6 +470,23 @@ export default function ExperienceTimeline() {
             }}
           />
 
+          {/* Company brackets — group consecutive same-company entries so
+              they read as one job with expanding scope, not separate jobs */}
+          {brackets.map((b) => (
+            <div
+              key={`bracket-${b.company}`}
+              className="absolute z-0 hidden w-1.5 rounded-full bg-accent/25 md:block"
+              style={{ left: 'calc(50% - 26px)', top: b.top, height: b.height }}
+            >
+              <span
+                className="absolute left-1/2 top-1/2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wide text-accent"
+                style={{ writingMode: 'vertical-rl', transform: 'translate(-50%, -50%) rotate(180deg)' }}
+              >
+                {b.company}
+              </span>
+            </div>
+          ))}
+
           {experiences.map((entry, i) => {
             const isLeft = i % 2 === 0
 
@@ -434,7 +505,10 @@ export default function ExperienceTimeline() {
                 </div>
 
                 {/* Spine marker — year dot */}
-                <div className="relative flex flex-col items-center py-4">
+                <div
+                  ref={(el) => { markerRefs.current[entry.id] = el }}
+                  className="relative flex flex-col items-center py-4"
+                >
                   <div className="w-4 h-4 rounded-full bg-accent border-2 border-surface z-10 shrink-0" />
                   <span className="absolute top-full mt-0.5 text-[10px] font-medium text-text-muted whitespace-nowrap">
                     {entry.year}
