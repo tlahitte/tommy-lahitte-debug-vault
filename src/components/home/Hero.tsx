@@ -71,7 +71,7 @@ export default function Hero() {
             <span aria-hidden="true" className="text-border">·</span>
             <span>Cirque du Soleil → Epic Games</span>
           </div>
-          <p className="mt-5 text-base sm:text-xl font-normal text-text-muted leading-relaxed max-w-xl mx-auto sm:mx-0">
+          <p className="mt-2 text-sm sm:text-base font-normal text-text-muted">
             I design and run the video and projection systems behind large-scale
             live shows, and now bring that real-time craft into virtual production.
           </p>
