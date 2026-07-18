@@ -6,9 +6,17 @@ import Footer from '@/components/layout/Footer'
 import PageTransition from '@/components/layout/PageTransition'
 import PaletteToggle from '@/components/ui/PaletteToggle'
 
+// DenimVF.ttf is a variable font with a `wght` axis spanning 300-900, but its
+// own registered default sits at 300 (Light). Without an explicit weight
+// range here, the generated @font-face carries no font-weight descriptor, so
+// unstyled text (no font-* weight class) can resolve to that Light default
+// instead of Regular (400) — reading as a different typeface next to bolder
+// text nearby. Declaring the real range lets every requested weight resolve
+// through the font's own variable axis.
 const denim = localFont({
   src: './fonts/DenimVF.ttf',
   variable: '--font-denim',
+  weight: '300 900',
   display: 'swap',
 })
 
