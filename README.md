@@ -53,6 +53,14 @@ Tip categories: `editor` · `debugging` · `qa-workflow`
 
 Journal posts are authored in Notion and fetched at build time. No local files needed — just publish in the connected Notion database and rebuild.
 
+### Travel Map (Home Page)
+
+The "Where I've been" section on the home page embeds a Google My Maps map via iframe (`src/components/home/TravelMapSection.tsx`). To point it at a different map:
+
+1. Get the map ID from its share URL: `https://www.google.com/maps/d/edit?mid=<MAP_ID>`
+2. Update the `mid` query param in the iframe `src` in `TravelMapSection.tsx`
+3. Update the "Open full map" link to match
+
 ---
 
 ## Sitemap & Robots

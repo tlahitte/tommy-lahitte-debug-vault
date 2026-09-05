@@ -3,6 +3,7 @@ import Hero from '@/components/home/Hero'
 import DisciplinesSection from '@/components/home/DisciplinesSection'
 import FreshFromTheVault from '@/components/home/LatestTipsSection'
 import CreditsWall from '@/components/home/CreditsWall'
+import TravelMapSection from '@/components/home/TravelMapSection'
 import RevealSection from '@/components/ui/RevealSection'
 import { getAllPosts } from '@/lib/blog'
 import { getAllTips } from '@/lib/tips'
@@ -83,6 +84,13 @@ export default async function HomePage() {
               </svg>
             </a>
           </div>
+        </div>
+      </RevealSection>
+
+      {/* Travel map — saved places from Google My Maps */}
+      <RevealSection delay={0.1}>
+        <div className="panel-card">
+          <TravelMapSection />
         </div>
       </RevealSection>
 
