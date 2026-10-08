@@ -249,7 +249,7 @@ function TimelineCard({
           href={entry.companyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-accent font-semibold underline decoration-dotted underline-offset-2 hover:text-accent hover:decoration-accent/60 transition-colors"
+          className="text-accent font-semibold underline decoration-dotted underline-offset-2 hover:text-accent transition-colors"
         >
           {entry.company}
         </a>
@@ -284,7 +284,7 @@ function TimelineCard({
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${baseClass} underline decoration-dotted underline-offset-2 hover:text-accent hover:border-accent/40 transition-colors`}
+              className={`${baseClass} underline decoration-dotted underline-offset-2 hover:text-accent transition-colors`}
             >
               {label}
             </a>
@@ -475,7 +475,7 @@ export default function ExperienceTimeline() {
           {brackets.map((b) => (
             <div
               key={`bracket-${b.company}`}
-              className="absolute z-0 hidden w-1.5 rounded-full bg-accent/25 md:block"
+              className="absolute z-0 hidden w-1.5 rounded-full md:block"
               style={{ left: 'calc(50% - 26px)', top: b.top, height: b.height }}
             >
               <span

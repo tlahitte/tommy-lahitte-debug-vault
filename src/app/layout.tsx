@@ -6,15 +6,17 @@ import Footer from '@/components/layout/Footer'
 import PageTransition from '@/components/layout/PageTransition'
 import PaletteToggle from '@/components/ui/PaletteToggle'
 
-// DenimVF.ttf is a variable font with a `wght` axis spanning 300-900, but its
+// DenimVF (shipped as WOFF2) is a variable font with a `wght` axis spanning 300-900, but its
 // own registered default sits at 300 (Light). Without an explicit weight
 // range here, the generated @font-face carries no font-weight descriptor, so
 // unstyled text (no font-* weight class) can resolve to that Light default
 // instead of Regular (400) — reading as a different typeface next to bolder
 // text nearby. Declaring the real range lets every requested weight resolve
 // through the font's own variable axis.
+// DenimVF.woff2 is a lossless WOFF2 repack of the original TTF (same glyphs
+// and axes, ~60% smaller); the TTF is in git history if it's ever needed.
 const denim = localFont({
-  src: './fonts/DenimVF.ttf',
+  src: './fonts/DenimVF.woff2',
   variable: '--font-denim',
   weight: '300 900',
   display: 'swap',
@@ -52,44 +54,47 @@ export const metadata: Metadata = {
   },
 }
 
-const siteSchemas = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Tommy Lahitte',
-    jobTitle: 'Technical Artist & Projection Supervisor',
-    worksFor: { '@type': 'Organization', name: 'Epic Games' },
-    knowsAbout: [
-      'Unreal Engine',
-      'Game QA',
-      'Debugging',
-      'Functional Testing',
-      'Automation',
-      'Electronics',
-      'Film Photography',
-      'Media Servers',
-      'Live Show Technology',
-      'Virtual Production',
-    ],
-    url: 'https://tommylahitte.com',
-    image: 'https://tommylahitte.com/avatar/tommy-lahitte-480.webp',
-    sameAs: [
-      'https://github.com/tlahitte',
-      'https://uk.linkedin.com/in/tlahitte',
-      'https://www.instagram.com/1day.snap/',
-      'https://www.artstation.com/tlahitte',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Tommy Lahitte',
-    url: 'https://tommylahitte.com',
-    description:
-      'Tommy Lahitte, technical artist and projection supervisor for international live shows, now in Virtual Production at Epic Games.',
-    author: { '@type': 'Person', name: 'Tommy Lahitte' },
-  },
-]
+// One object with an @graph rather than a bare array: some JSON-LD readers
+// (browser extensions, Safari) assume a top-level '@context' and throw on arrays.
+const siteSchemas = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      name: 'Tommy Lahitte',
+      jobTitle: 'Technical Artist & Projection Supervisor',
+      worksFor: { '@type': 'Organization', name: 'Epic Games' },
+      knowsAbout: [
+        'Unreal Engine',
+        'Game QA',
+        'Debugging',
+        'Functional Testing',
+        'Automation',
+        'Electronics',
+        'Film Photography',
+        'Media Servers',
+        'Live Show Technology',
+        'Virtual Production',
+      ],
+      url: 'https://tommylahitte.com',
+      image: 'https://tommylahitte.com/avatar/tommy-lahitte-480.webp',
+      sameAs: [
+        'https://github.com/tlahitte',
+        'https://uk.linkedin.com/in/tlahitte',
+        'https://www.instagram.com/1day.snap/',
+        'https://www.artstation.com/tlahitte',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Tommy Lahitte',
+      url: 'https://tommylahitte.com',
+      description:
+        'Tommy Lahitte, technical artist and projection supervisor for international live shows, now in Virtual Production at Epic Games.',
+      author: { '@type': 'Person', name: 'Tommy Lahitte' },
+    },
+  ],
+}
 
 export default function RootLayout({
   children,

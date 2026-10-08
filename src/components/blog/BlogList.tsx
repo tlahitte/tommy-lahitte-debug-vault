@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation'
 import type { BlogPost } from '@/lib/blog-types'
-import BlogCategoryFilter from './BlogCategoryFilter'
+import BlogCategoryFilter, { BlogCategoryButtons } from './BlogCategoryFilter'
 
 const DOODLES = [
   'ballet', 'chilling', 'coffee', 'dancing', 'float', 'groovy',
@@ -29,12 +29,31 @@ export default function BlogList({ posts }: BlogListProps) {
   return (
     <>
       <BlogCategoryFilter />
+      <BlogEntries posts={filtered} />
+    </>
+  )
+}
 
-      {filtered.length === 0 ? (
+// Suspense fallback for <BlogList>: useSearchParams() has no value in the
+// static export, so without this the list would be missing from the HTML and
+// only appear once JS runs. Renders the unfiltered list the same way.
+export function BlogListStatic({ posts }: BlogListProps) {
+  return (
+    <>
+      <BlogCategoryButtons current="all" />
+      <BlogEntries posts={posts} />
+    </>
+  )
+}
+
+function BlogEntries({ posts }: BlogListProps) {
+  return (
+    <>
+      {posts.length === 0 ? (
         <p className="text-text-muted text-center py-16">No entries found for this category.</p>
       ) : (
         <div className="divide-y divide-border flex flex-col">
-          {filtered.map((post) => (
+          {posts.map((post) => (
             <article key={post.slug} className="py-8 first:pt-0">
               <a href={`/blog/${post.slug}`} className="group block">
                 {/* Project cards: bigger cover image (aspect-[16/9]) */}
@@ -44,6 +63,10 @@ export default function BlogList({ posts }: BlogListProps) {
                   <img
                     src={post.image}
                     alt={post.imageAlt ?? post.title}
+                    // Lazy even for the first cover: an eager one would be auto-preloaded
+                    // by React and compete with the banner (the LCP) for bandwidth.
+                    loading="lazy"
+                    decoding="async"
                     className={`w-full rounded-lg mb-4 object-cover ${
                       post.category === 'Project'
                         ? 'aspect-[16/9]'
@@ -65,7 +88,7 @@ export default function BlogList({ posts }: BlogListProps) {
                 <div className="flex items-center gap-2 mb-1">
                   <p className="text-sm text-text-muted">{post.date}</p>
                   {post.category && (
-                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
+                    <span className="text-xs font-medium px-2 py-0.5 rounded-full text-accent border">
                       {post.category}
                     </span>
                   )}

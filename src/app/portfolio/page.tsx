@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { portfolioVideos, getEmbedUrl, getThumbnailUrl } from '@/lib/portfolio'
 import PortfolioGrid from '@/components/portfolio/PortfolioGrid'
-import RandomDoodle from '@/components/ui/RandomDoodle'
+import PageBanner from '@/components/ui/PageBanner'
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -53,7 +53,7 @@ export default function PortfolioPage() {
                   ...(video.description || video.subtitle
                     ? { description: video.description || video.subtitle }
                     : {}),
-                  thumbnailUrl: getThumbnailUrl(video),
+                  thumbnailUrl: new URL(getThumbnailUrl(video), 'https://tommylahitte.com').href,
                   embedUrl: getEmbedUrl(video),
                   ...(video.year ? { uploadDate: `${video.year}-01-01` } : {}),
                 },
@@ -63,26 +63,15 @@ export default function PortfolioPage() {
         }}
       />
 
-      {/* Page header — matches the visual identity of /tips */}
-      <section className="relative overflow-hidden bg-surface-raised border-b border-border hero-texture">
-        <div
-          className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--accent) 7%, transparent) 0%, transparent 70%)',
-          }}
-        />
-        <div className="relative z-10 px-4 sm:px-6 pt-8 sm:pt-12 pb-16">
-          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Portfolio</h1>
-          <p className="text-text-muted">
-            Live stages, projections, and things that only happen once.
-          </p>
-        </div>
-        <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 sm:px-6 bottom-0 pointer-events-none select-none hidden sm:block">
-          <div className="ml-auto opacity-100" style={{ width: 'clamp(10rem, 15vw, 16rem)', height: 'clamp(10rem, 15vw, 16rem)' }}>
-            <RandomDoodle />
-          </div>
-        </div>
-      </section>
+      <PageBanner
+
+        page="portfolio"
+
+        title="Portfolio"
+
+        subtitle="Live stages, projections, and things that only happen once."
+
+      />
 
       <div className="px-4 sm:px-6 pb-32 pt-8">
         <PortfolioGrid videos={videos} />

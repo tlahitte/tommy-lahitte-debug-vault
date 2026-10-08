@@ -92,10 +92,14 @@ export default async function TipPage({ params }: TipPageProps) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
-      />
+      {/* One script per schema: a bare JSON array trips readers that expect a top-level @context */}
+      {[articleSchema, breadcrumbSchema].map((schema) => (
+        <script
+          key={schema['@type']}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <nav className="mb-8">
         <Link
           href="/tips/"

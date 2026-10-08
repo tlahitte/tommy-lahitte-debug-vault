@@ -32,7 +32,7 @@ function ContentTypeBadge({ kind }: { kind: 'tip' | 'journal' }) {
     )
   }
   return (
-    <span className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold border bg-accent/15 text-accent border-accent/50 uppercase tracking-wide">
+    <span className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold border text-accent uppercase tracking-wide">
       Unreal Tip
     </span>
   )

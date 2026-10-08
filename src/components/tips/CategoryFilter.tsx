@@ -12,8 +12,8 @@ const CATEGORIES: {
   {
     value: 'all',
     label: 'All',
-    activeClass: 'bg-accent/10 border-accent/30 text-accent',
-    hoverClass: 'hover:bg-accent/10 hover:border-accent/30 hover:text-accent',
+    activeClass: 'text-accent',
+    hoverClass: 'hover:text-accent',
   },
   {
     value: 'editor',

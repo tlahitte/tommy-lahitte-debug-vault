@@ -112,10 +112,14 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12">
       <ReadingProgressBar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
-      />
+      {/* One script per schema: a bare JSON array trips readers that expect a top-level @context */}
+      {[articleSchema, breadcrumbSchema].map((schema) => (
+        <script
+          key={schema['@type']}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <Link
         href="/blog/"
         className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors mb-8"
@@ -132,7 +136,9 @@ export default async function BlogPostPage({ params }: Props) {
               alt={post.imageAlt ?? post.title}
               width={1200}
               height={525}
-              loading="lazy"
+              // Above the fold and the page's LCP element: load it eagerly, first.
+              fetchPriority="high"
+              decoding="async"
               className="w-full rounded-xl aspect-[16/7] object-cover mb-8"
             />
           )}

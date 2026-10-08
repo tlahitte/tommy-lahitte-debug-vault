@@ -29,8 +29,13 @@ const config: Config = {
         'spin-slow': 'spin 6s linear infinite',
         aurora: 'aurora 60s linear infinite',
         wave: 'wave 0.8s ease-in-out 10s infinite',
+        marquee: 'marquee 80s linear infinite',
       },
       keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
         aurora: {
           from: { backgroundPosition: '50% 50%, 50% 50%' },
           to: { backgroundPosition: '350% 50%, 350% 50%' },

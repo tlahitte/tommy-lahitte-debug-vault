@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
+import HeroMosaic from '@/components/home/HeroMosaic'
 import DisciplinesSection from '@/components/home/DisciplinesSection'
 import FreshFromTheVault from '@/components/home/LatestTipsSection'
 import CreditsWall from '@/components/home/CreditsWall'
@@ -36,8 +37,11 @@ export default async function HomePage() {
 
       {/* Hero */}
       <RevealSection>
-        <div className="p-4 sm:p-8">
-          <Hero />
+        <div className="relative">
+          <HeroMosaic />
+          <div className="relative p-4 sm:p-8">
+            <Hero />
+          </div>
         </div>
       </RevealSection>
 

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { PortfolioVideo } from '@/lib/portfolio'
 import {
   getThumbnailUrl,
+  getThumbnailSrcSet,
   getThumbnailFallbackUrl,
   CATEGORY_LABELS,
 } from '@/lib/portfolio'
@@ -21,7 +22,7 @@ export interface VariantProps {
 /*  Presentational pieces shared across all interactions               */
 /* ------------------------------------------------------------------ */
 
-/** The poster image. maxresdefault with an hqdefault fallback on error. */
+/** The poster image: local upscaled WebP (or YouTube) with a YouTube fallback on error. */
 export function Poster({
   video,
   className = '',
@@ -30,6 +31,7 @@ export function Poster({
   className?: string
 }) {
   const primary = getThumbnailUrl(video)
+  const srcSet = getThumbnailSrcSet(video)
   const fallback = getThumbnailFallbackUrl(video)
   const [src, setSrc] = useState(primary)
   const ref = useRef<HTMLImageElement>(null)
@@ -39,10 +41,10 @@ export function Poster({
     setSrc(primary)
   }, [primary])
 
-  // maxresdefault is absent for many uploads (YouTube 404s it). A plain onError
+  // If the primary poster is missing (e.g. a 404). A plain onError
   // misses failures that happen before hydration on the statically-exported
   // page, so also check on mount: an image that finished loading with zero
-  // natural width has failed — fall back to hqdefault, which always exists.
+  // natural width has failed — fall back to mqdefault, which always exists.
   useEffect(() => {
     const img = ref.current
     if (img && img.complete && img.naturalWidth === 0 && fallback && src !== fallback) {
@@ -55,6 +57,9 @@ export function Poster({
     <img
       ref={ref}
       src={src}
+      srcSet={src === primary ? srcSet : undefined}
+      // /portfolio grid: one column, two from sm up, capped by the max-w-4xl main.
+      sizes="(min-width: 896px) 380px, (min-width: 640px) calc(50vw - 68px), calc(100vw - 64px)"
       alt=""
       loading="lazy"
       draggable={false}

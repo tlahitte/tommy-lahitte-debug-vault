@@ -59,7 +59,7 @@ function TipsGridInner({ tips }: { tips: Tip[] }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search tips..."
-            className="w-full rounded-full bg-surface-raised pl-9 pr-4 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent/40 transition-shadow duration-200"
+            className="w-full rounded-full bg-surface-raised pl-9 pr-4 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 transition-shadow duration-200"
             aria-label="Search tips"
           />
         </div>

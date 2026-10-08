@@ -1,7 +1,8 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import { useHydrated } from '@/hooks/useHydrated'
+import { useSlowStart } from '@/hooks/useSlowStart'
 
 interface Props {
   children: React.ReactNode
@@ -14,9 +15,15 @@ interface Props {
 // On SSR/first render, content is fully visible (no opacity:0) to avoid LCP penalty.
 export default function RevealSection({ children, className, delay = 0 }: Props) {
   const hydrated = useHydrated()
+  const reduceMotion = useReducedMotion()
+  const slowStart = useSlowStart()
 
-  // Before hydration: render visible content immediately (no animation penalty)
-  if (!hydrated) {
+  // Before hydration: render visible content immediately (no animation penalty).
+  // Same with reduced motion (motion doesn't honour it by default), and in
+  // browsers without IntersectionObserver, where whileInView would never fire
+  // and the content would stay at opacity 0. And on slow devices, where the
+  // content has already been visible for a while by the time we hydrate.
+  if (!hydrated || reduceMotion || slowStart || typeof IntersectionObserver === 'undefined') {
     return <div className={className}>{children}</div>
   }
 

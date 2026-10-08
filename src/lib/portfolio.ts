@@ -8,6 +8,8 @@
 //  - thumbnail (optional): a path under /public (e.g. '/images/portfolio/my-film.jpg').
 //      YouTube videos auto-derive a thumbnail if you leave this out.
 //      Vimeo videos SHOULD provide one (Vimeo has no predictable public thumbnail URL).
+//      For a sharper poster, run `src/scripts/make-posters.sh <id> <videoId>` and add
+//      the id to LOCAL_POSTERS below.
 //  - Order in this array = display order in the grid.
 //
 // EDITABLE COPY: `description`, `role`, `client`, and `venue` are placeholder
@@ -282,13 +284,26 @@ export const CATEGORY_LABELS: Record<VideoCategory, string> = {
 }
 
 /**
- * Poster image for a video card.
- * YouTube: use hqdefault (480x360), which exists for every video. maxresdefault
- * is sharper but 404s for uploads without an HD source, which left several
- * posters blank, so we do not rely on it here.
- * Vimeo (or any platform): use the supplied thumbnail, else a neutral placeholder.
+ * Videos with upscaled local posters (Real-ESRGAN x4, exported as WebP by
+ * src/scripts/make-posters.sh) at /images/portfolio/thumbs/<id>-{640,1280}.webp.
+ * Add an id here after running the script for a new video; until then the
+ * card falls back to the YouTube thumbnail.
+ */
+const LOCAL_POSTERS = new Set([
+  'drawn-to-life', 'roger-waters-us-them', 'la-perle', 'cctv-gala-2019',
+  '1001-nights', 'mother-of-the-nation', 'chimelong-circus', 'kirkorov-tour-2016',
+  'cite-memoire', 'uninterrupted-vancouver', 'suto', 'marble-maze',
+  'fatboy-space', 'territoire-banq',
+])
+
+/**
+ * Poster image for a video card (16:9).
+ * Local upscaled WebP when available, else the supplied thumbnail, else
+ * YouTube's hqdefault (480x360, exists for every video; maxresdefault 404s
+ * for uploads without an HD source). Vimeo without a thumbnail gets a placeholder.
  */
 export function getThumbnailUrl(video: PortfolioVideo): string {
+  if (LOCAL_POSTERS.has(video.id)) return `/images/portfolio/thumbs/${video.id}-640.webp`
   if (video.thumbnail) return video.thumbnail
   if (video.platform === 'youtube') {
     return `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`
@@ -297,7 +312,40 @@ export function getThumbnailUrl(video: PortfolioVideo): string {
   return '/images/portfolio/placeholder.svg'
 }
 
-/** Last-resort poster (mqdefault is 16:9 and always present on YouTube). */
+/** `srcSet` for a local poster (undefined when the poster is remote). */
+export function getThumbnailSrcSet(video: PortfolioVideo): string | undefined {
+  if (!LOCAL_POSTERS.has(video.id)) return undefined
+  const base = `/images/portfolio/thumbs/${video.id}`
+  return `${base}-640.webp 640w, ${base}-1280.webp 1280w`
+}
+
+/** Pages that open with a full-bleed project still behind the title. */
+export type BannerPage = 'portfolio' | 'about' | 'tips' | 'blog'
+
+/**
+ * Which video's still sits behind each page banner. Every id here needs an
+ * upscaled set at /images/portfolio/stills/<id>-{1280,1920,2560}.webp
+ * (src/scripts/make-posters.sh --banner).
+ */
+export const PAGE_BANNERS: Record<BannerPage, string> = {
+  portfolio: 'roger-waters-us-them',
+  about: 'uninterrupted-vancouver',
+  tips: 'la-perle',
+  blog: 'mother-of-the-nation',
+}
+
+/** Default (1920w) URL of a banner still (see PAGE_BANNERS). */
+export function getStillUrl(video: PortfolioVideo): string {
+  return `/images/portfolio/stills/${video.id}-1920.webp`
+}
+
+/** `srcSet` for a banner still. */
+export function getStillSrcSet(video: PortfolioVideo): string {
+  const base = `/images/portfolio/stills/${video.id}`
+  return `${base}-1280.webp 1280w, ${base}-1920.webp 1920w, ${base}-2560.webp 2560w`
+}
+
+/** Fallback poster if the primary fails (mqdefault is 16:9 and always present on YouTube). */
 export function getThumbnailFallbackUrl(video: PortfolioVideo): string | null {
   if (video.platform === 'youtube') {
     return `https://i.ytimg.com/vi/${video.videoId}/mqdefault.jpg`

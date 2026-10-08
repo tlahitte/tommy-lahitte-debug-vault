@@ -18,7 +18,7 @@ export default function RelatedTips({ tips }: Props) {
           <Link
             key={tip.slug}
             href={`/tips/${tip.slug}/`}
-            className="group flex items-start gap-3 rounded-lg border border-border p-4 hover:border-accent/40 hover:bg-surface-raised transition-colors"
+            className="group flex items-start gap-3 rounded-lg border border-border p-4 hover:bg-surface-raised transition-colors"
           >
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-text-primary group-hover:text-accent transition-colors">

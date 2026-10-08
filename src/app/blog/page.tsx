@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
-import BlogList from '@/components/blog/BlogList'
-import RandomDoodle from '@/components/ui/RandomDoodle'
+import BlogList, { BlogListStatic } from '@/components/blog/BlogList'
+import PageBanner from '@/components/ui/PageBanner'
 
 export const metadata: Metadata = {
   title: 'Journal',
@@ -52,28 +52,14 @@ export default async function BlogPage() {
           }),
         }}
       />
-      {/* Page header -kraft visual identity with illustration */}
-      <section className="relative overflow-hidden bg-surface-raised border-b border-border hero-texture">
-        <div
-          className="absolute top-0 inset-x-0 h-96 z-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--accent) 7%, transparent) 0%, transparent 70%)',
-          }}
-        />
-        <div className="relative z-10 px-4 sm:px-6 pt-8 sm:pt-12 pb-16">
-          <h1 className="text-3xl font-bold text-text-primary mb-2 font-display">Journal</h1>
-          <p className="text-text-muted">Projects, articles, and things I find interesting.</p>
-        </div>
-        {/* Random doodle -right-aligned within content area, contained in banner */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 sm:px-6 bottom-0 pointer-events-none select-none hidden sm:block">
-          <div className="ml-auto opacity-100" style={{ width: 'clamp(10rem, 15vw, 16rem)', height: 'clamp(10rem, 15vw, 16rem)' }}>
-            <RandomDoodle />
-          </div>
-        </div>
-      </section>
+      <PageBanner
+        page="blog"
+        title="Journal"
+        subtitle="Projects, articles, and things I find interesting."
+      />
 
       <div className="px-4 sm:px-6 pb-32 pt-8">
-        <Suspense fallback={null}>
+        <Suspense fallback={<BlogListStatic posts={posts} />}>
           <BlogList posts={posts} />
         </Suspense>
       </div>

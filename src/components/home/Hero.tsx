@@ -1,9 +1,10 @@
 'use client'
 import Link from 'next/link'
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import { TextShimmer } from '@/components/ui/text-shimmer'
-import ChromaticAvatar from '@/components/home/ChromaticAvatar'
+import HeroPortrait from '@/components/home/HeroPortrait'
 import { useHydrated } from '@/hooks/useHydrated'
+import { useSlowStart } from '@/hooks/useSlowStart'
 
 const socials = [
   { href: 'https://uk.linkedin.com/in/tlahitte', label: 'LinkedIn', icon: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' },
@@ -16,28 +17,19 @@ const socials = [
 
 export default function Hero() {
   const hydrated = useHydrated()
+  const reduceMotion = useReducedMotion()
+  const slowStart = useSlowStart()
+  // Fade the about copy in only after hydration, and never with reduced motion
+  // or on slow devices (it would blink copy that is already showing).
+  const animateIn = hydrated && !reduceMotion && !slowStart
   return (
     <div>
       {/* Stacked on mobile, side-by-side on sm+ */}
       <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:gap-10">
 
         {/* Portrait */}
-        <div className="relative shrink-0 w-32 sm:w-48 lg:w-60 order-first sm:order-last">
-          <div
-            className="absolute -inset-6 rounded-full animate-spin-slow"
-            style={{
-              background: 'conic-gradient(from 0deg, transparent 0%, transparent 45%, var(--aurora-1) 62%, var(--aurora-3) 78%, var(--aurora-2) 90%, transparent 100%)',
-              opacity: 0.3,
-              filter: 'blur(20px)',
-            }}
-          />
-          <ChromaticAvatar
-            src="/avatar/tommy-lahitte-480.webp"
-            alt="Tommy Lahitte"
-            width={480}
-            height={480}
-            sizes="(max-width: 640px) 128px, (max-width: 1024px) 192px, 240px"
-          />
+        <div className="relative shrink-0 w-52 sm:w-56 lg:w-64 lg:-mr-16 order-first sm:order-last">
+          <HeroPortrait />
         </div>
 
         {/* Text */}
@@ -106,7 +98,7 @@ export default function Hero() {
       <div className="mt-10">
         <motion.p
           className="text-base sm:text-lg font-normal text-text-muted leading-relaxed max-w-2xl"
-          initial={hydrated ? { opacity: 0, y: 12 } : false}
+          initial={animateIn ? { opacity: 0, y: 12 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
@@ -122,7 +114,7 @@ export default function Hero() {
         {/* Social links */}
         <motion.div
           className="mt-6 flex flex-wrap justify-center sm:justify-start items-center gap-2.5"
-          initial={hydrated ? { opacity: 0, y: 12 } : false}
+          initial={animateIn ? { opacity: 0, y: 12 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
@@ -133,7 +125,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/5 px-3 py-1.5 text-accent hover:bg-accent hover:text-white transition-colors duration-200"
+              className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-accent hover:bg-accent hover:text-white transition-colors duration-200"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d={icon} />

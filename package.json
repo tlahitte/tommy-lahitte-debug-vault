@@ -9,6 +9,13 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browserslist": [
+    "chrome 64",
+    "edge 79",
+    "firefox 67",
+    "opera 51",
+    "safari 12"
+  ],
   "dependencies": {
     "@notionhq/client": "^5.14.0",
     "clsx": "^2.1.1",
@@ -16,6 +23,7 @@
     "next": "^15.5.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sharp": "^0.35.5",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

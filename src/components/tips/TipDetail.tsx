@@ -41,7 +41,7 @@ function renderBlock(block: TipContent, index: number) {
       return (
         <div
           key={index}
-          className="my-4 rounded-lg border border-accent/30 bg-accent/5 px-4 py-3 text-sm text-accent"
+          className="my-4 rounded-lg border px-4 py-3 text-sm text-accent"
         >
           {block.text}
         </div>

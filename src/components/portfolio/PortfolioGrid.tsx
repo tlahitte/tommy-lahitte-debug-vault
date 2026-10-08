@@ -50,8 +50,8 @@ export default function PortfolioGrid({ videos }: Props) {
                 aria-pressed={active}
                 className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition-colors ${
                   active
-                    ? 'border-accent/30 bg-accent/10 text-accent'
-                    : 'border-border bg-transparent text-text-muted hover:border-accent/30 hover:bg-accent/10 hover:text-accent'
+                    ? 'text-accent'
+                    : 'border-border bg-transparent text-text-muted hover:text-accent'
                 }`}
               >
                 {label}

@@ -124,7 +124,7 @@ function DisciplineCard({ d, index, open, onToggle }: { d: typeof disciplines[0]
                     key={tag}
                     className="text-[11px] font-medium px-2 py-0.5 rounded"
                     style={{
-                      backgroundColor: `color-mix(in srgb, ${d.accent} 10%, transparent)`,
+                      backgroundColor: `${d.accent}1A`, // 8-digit hex: accent at 10% alpha
                       color: d.accent,
                     }}
                   >

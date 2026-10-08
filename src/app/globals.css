@@ -28,11 +28,50 @@
 
 html {
   scroll-behavior: smooth;
+  /* Full-bleed sections use 100vw, which includes the scrollbar width on
+     classic-scrollbar systems; clip (unlike hidden) keeps position: sticky. */
+  overflow-x: clip;
+}
+
+/* Safari < 16 lacks clip. On the root element overflow propagates to the
+   viewport, where hidden behaves like clip and doesn't break position: sticky
+   (it would on body or any wrapper), so it's a safe fallback here. */
+@supports not (overflow-x: clip) {
+  html {
+    overflow-x: hidden;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Homepage project wall. Stops are anchored to the hero's centred text
+   column (calc from 50%) rather than plain percentages, so the wall starts
+   past the copy at any viewport width. Mobile: behind the portrait only,
+   gone before the title. Desktop: portrait side, fading out above the long
+   about paragraph. */
+.hero-mosaic {
+  /* Its box comes from positioning, never from content, so strict
+     containment is safe and keeps the 168-image wall from triggering
+     layout or paint work outside itself. */
+  contain: strict;
+  -webkit-mask-image: linear-gradient(to bottom, black 0, black 9rem, transparent 16rem);
+  mask-image: linear-gradient(to bottom, black 0, black 9rem, transparent 16rem);
+}
+
+@media (min-width: 640px) {
+  .hero-mosaic {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent calc(50% + 7rem), black calc(50% + 20rem), black 97%, transparent),
+      linear-gradient(to bottom, transparent, black 10%, black 52%, transparent 72%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent calc(50% + 7rem), black calc(50% + 20rem), black 97%, transparent),
+      linear-gradient(to bottom, transparent, black 10%, black 52%, transparent 72%);
+    mask-composite: intersect;
   }
 }
 
@@ -61,11 +100,6 @@ body {
 /* Palette transitions — smooth color changes */
 * {
   transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
-}
-
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Badge glow hover */
